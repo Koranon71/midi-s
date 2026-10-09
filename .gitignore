@@ -1,0 +1,10 @@
+﻿__pycache__/
+*.pyc
+.vscode/
+.idea/
+tracks_actual.txt
+meta_info.txt
+tracks_list.txt
+scan_tracks.py
+validate.py
+build_site.py
