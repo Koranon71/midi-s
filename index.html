@@ -10,7 +10,11 @@
 <style>
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 140px;
+        overflow-anchor: none;
+    }
     body {
         margin: 0; min-height: 100vh;
         background: #1A1B2E; color: #EAEAEA;
@@ -109,7 +113,6 @@
     }
     .btn-secondary:hover { border-color: #5EEAD4; color: #5EEAD4; }
 
-    /* ---------- Правые панели ---------- */
     .side-tabs {
         position: fixed; top: 20px; right: 20px;
         display: flex; gap: 8px;
@@ -530,7 +533,6 @@
         100% { transform: translateY(110vh) rotate(720deg) translateX(60px); opacity: 0; }
     }
 
-    /* ---------- Тост ---------- */
     .toast {
         position: fixed;
         bottom: 90px;
@@ -15745,9 +15747,10 @@
 
 <script>
 
-    // ================================================================
-    // Плеер, поиск, фильтры, избранное, рекомендации, пасхалка
-    // ================================================================
+
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
 
     const player = document.getElementById('midiPlayer');
     const playerEl = document.getElementById('player');
@@ -15788,7 +15791,7 @@
         }, 2000);
     }
 
-    // --- Собираем плейлист и карту "ключ -> трек" ---
+    // --- Плейлист ---
     const trackMap = {};
     document.querySelectorAll('.track').forEach((el) => {
         const btn = el.querySelector('.btn-play');
@@ -15802,7 +15805,6 @@
     const CANADA_MATCH = ["o canada", "ocanada", "канада"];
     const RECOMMENDATIONS = ["Duvet #2", "One last kiss", "Everything you've ever dreamed", "Space oddity #2", "A kiss to build a dream on", "Close to you", "Black black heart", "Egoist", "Gold", "Everything stays"];
 
-    // --- Канадская пасхалка ---
     function startCanada() {
         if (canadaWidget) canadaWidget.classList.add('active');
         if (leafStorm && !leafInterval) {
@@ -15830,7 +15832,7 @@
         else stopCanada();
     }
 
-    // --- Копирование ссылок на треки ---
+    // --- Копирование ссылок ---
     document.querySelectorAll('.btn-link').forEach(btn => {
         btn.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -15852,7 +15854,6 @@
         });
     });
 
-    // --- Воспроизведение ---
     function playTrack(index) {
         if (index < 0 || index >= playlist.length) return;
         const t = playlist[index];
@@ -15935,7 +15936,6 @@
         return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
     }
 
-    // --- Громкость ---
     function applyVolume(v) {
         try {
             if (typeof Tone !== 'undefined' && Tone.Destination) {
@@ -15957,9 +15957,7 @@
         }
     }, 1500);
 
-    // ================================================================
-    // Избранное
-    // ================================================================
+    // --- Избранное ---
     function getFavs() {
         try { return JSON.parse(localStorage.getItem('favorites') || '[]'); }
         catch (e) { return []; }
@@ -16017,9 +16015,7 @@
         bindPanelTrackClicks(body);
     }
 
-    // ================================================================
-    // Недавние
-    // ================================================================
+    // --- Недавние ---
     function getRecent() {
         try { return JSON.parse(localStorage.getItem('recent') || '[]'); }
         catch (e) { return []; }
@@ -16047,9 +16043,7 @@
         bindPanelTrackClicks(body);
     }
 
-    // ================================================================
-    // Рекомендации
-    // ================================================================
+    // --- Рекомендации ---
     function renderRecPanel() {
         const body = document.getElementById('recBody');
         if (!body) return;
@@ -16082,9 +16076,7 @@
         });
     }
 
-    // ================================================================
-    // Панели
-    // ================================================================
+    // --- Панели ---
     const tabs = {
         rec: { tab: document.getElementById('recTab'), panel: document.getElementById('recPanel') },
         fav: { tab: document.getElementById('favTab'), panel: document.getElementById('favPanel') },
@@ -16123,9 +16115,7 @@
         });
     });
 
-    // ================================================================
-    // Поиск, фильтры, статистика
-    // ================================================================
+    // --- Поиск, фильтры ---
     const categories = Array.from(document.querySelectorAll('.category'));
     const chips = [];
     categories.forEach(cat => {
@@ -16264,9 +16254,7 @@
         } catch (e) {}
     }
 
-    // ================================================================
-    // Визуализатор
-    // ================================================================
+    // --- Визуализатор ---
     let toneAnalyser = null;
     const vizCtx = viz.getContext('2d');
 
@@ -16307,43 +16295,51 @@
         });
     });
 
+    // --- Hash: переход к треку по ссылке ---
     function handleHash() {
         if (!window.location.hash) return;
         const id = window.location.hash.slice(1);
         const el = document.getElementById(id);
         if (!el) return;
+
+        // Категорию
         const cat = el.closest('.category');
         if (cat) cat.classList.remove('collapsed');
+
+        const prevBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+
         setTimeout(() => {
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.scrollIntoView({ behavior: 'auto', block: 'center' });
             el.classList.add('highlighted');
             setTimeout(() => el.classList.remove('highlighted'), 2000);
-        }, 300);
+            document.documentElement.style.scrollBehavior = prevBehavior;
+        }, 150);
     }
     window.addEventListener('hashchange', handleHash);
 
-    // ================================================================
-    // Инициализация
-    // ================================================================
+    // --- Инициализация ---
     updateFavUI();
     renderFavPanel();
     renderRecentPanel();
     renderRecPanel();
     applyFilters();
 
-    if (window.location.hash) {
-        handleHash();
-    } else {
-        restoreLastTrack();
-    }
+    window.addEventListener('load', () => {
+        if (window.location.hash) {
+            setTimeout(handleHash, 100);
+        } else {
+            restoreLastTrack();
+        }
 
-    if (currentIndex >= 0) playerEl.classList.remove('hidden');
-    else {
-        playerEl.classList.add('hidden');
-        document.querySelectorAll('.btn-play').forEach(btn => {
-            btn.addEventListener('click', () => playerEl.classList.remove('hidden'), { once: true });
-        });
-    }
+        if (currentIndex >= 0) playerEl.classList.remove('hidden');
+        else {
+            playerEl.classList.add('hidden');
+            document.querySelectorAll('.btn-play').forEach(btn => {
+                btn.addEventListener('click', () => playerEl.classList.remove('hidden'), { once: true });
+            });
+        }
+    });
 
     console.log('%cMIDI архив Саспенс', 'color: #FF6AC1; font-size: 18px; font-weight: bold;');
     console.log('%cТреков в плейлисте: ' + playlist.length, 'color: #5EEAD4;');
