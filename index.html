@@ -15495,45 +15495,62 @@
 
     function prepareArchiveDump() {
         stopArchiveDump();
-        // Resolve relative to the current page, so this also works on GitHub Pages project paths.
-        const audioUrl = new URL('./assets/audio/eva_dump.mp3', window.location.href).href;
-        archiveDumpAudio = new Audio(audioUrl);
-        archiveDumpAudio.preload = 'auto';
-        archiveDumpAudio.volume = 0;
-        archiveDumpAudio.muted = true;
+        const pageDirectory = new URL('.', window.location.href);
+        const audioUrl = new URL('assets/audio/eva_dump.mp3', pageDirectory).href;
+        archiveDumpAudio = new Audio();
+        archiveDumpAudio.preload = 'none';
         archiveDumpAudio.loop = false;
+        archiveDumpAudio.volume = 1;
+        archiveDumpAudio.src = audioUrl;
         archiveDumpAudio.addEventListener('error', () => {
-            console.error('Не удалось загрузить аудиодамп:', audioUrl, archiveDumpAudio?.error);
-            showToast('АУДИОДАМП НЕ НАЙДЕН — ПРОВЕРЬ assets/audio/eva_dump.mp3');
+            console.error('Не удалось загрузить аудиодамп:', audioUrl, archiveDumpAudio ? archiveDumpAudio.error : null);
+            showToast('АУДИОДАМП НЕ ЗАГРУЗИЛСЯ — ПРОВЕРЬ ПУТЬ К MP3');
+            const btn = document.getElementById('archiveDumpPlayButton');
+            if (btn) btn.textContent = 'ОШИБКА ЗАГРУЗКИ MP3';
         }, { once: true });
-
-        // Start while the user is interacting with the terminal trigger; this helps browsers
-        // that block audio started later by a timer.
-        const result = archiveDumpAudio.play();
-        if (result && typeof result.catch === 'function') {
-            result.catch((error) => {
-                console.warn('Браузер заблокировал предварительный запуск аудиодампа:', error);
-            });
-        }
+        archiveDumpAudio.addEventListener('playing', () => {
+            const btn = document.getElementById('archiveDumpPlayButton');
+            if (btn) btn.hidden = true;
+            console.info('Аудиодамп воспроизводится:', audioUrl);
+        }, { once: true });
+        return audioUrl;
     }
 
-    function playArchiveDump() {
+    function ensureDumpPlayButton() {
+        let btn = document.getElementById('archiveDumpPlayButton');
+        if (!btn) {
+            const header = document.querySelector('.term-content-header');
+            if (!header) return null;
+            btn = document.createElement('button');
+            btn.id = 'archiveDumpPlayButton';
+            btn.type = 'button';
+            btn.textContent = '[▶ ВОСПРОИЗВЕСТИ ДАМП]';
+            btn.style.cssText = 'background:transparent;border:1px solid #33ff33;color:#33ff33;cursor:pointer;padding:4px 10px;font:inherit;margin-left:auto;margin-right:10px;';
+            const close = document.getElementById('termClose');
+            header.insertBefore(btn, close || null);
+            btn.addEventListener('click', () => playArchiveDump(true));
+        }
+        btn.hidden = false;
+        return btn;
+    }
+
+    function playArchiveDump(fromUserClick = false) {
         if (!archiveDumpAudio) prepareArchiveDump();
         if (!archiveDumpAudio) return;
         try {
-            archiveDumpAudio.currentTime = 0;
-            archiveDumpAudio.muted = false;
-            archiveDumpAudio.volume = 1;
+            if (fromUserClick) archiveDumpAudio.currentTime = 0;
             const result = archiveDumpAudio.play();
             if (result && typeof result.catch === 'function') {
                 result.catch((error) => {
-                    console.warn('Не удалось запустить локальный аудиодамп:', error);
-                    showToast('АУДИО ЗАБЛОКИРОВАНО БРАУЗЕРОМ — НАЖМИ НА ТЕРМИНАЛ');
+                    console.warn('Не удалось автоматически запустить аудиодамп:', error);
+                    ensureDumpPlayButton();
+                    showToast('НАЖМИ «ВОСПРОИЗВЕСТИ ДАМП» В ТЕРМИНАЛЕ');
                 });
             }
         } catch (error) {
             console.warn('Не удалось запустить локальный аудиодамп:', error);
-            showToast('НЕ УДАЛОСЬ ЗАПУСТИТЬ АУДИОДАМП');
+            ensureDumpPlayButton();
+            showToast('НАЖМИ «ВОСПРОИЗВЕСТИ ДАМП» В ТЕРМИНАЛЕ');
         }
     }
 
@@ -15543,7 +15560,8 @@
             if (!AudioContextClass) return;
             archiveNoiseContext = new AudioContextClass();
             const ctx = archiveNoiseContext;
-            const length = Math.floor(ctx.sampleRate * 1.35);
+            if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+            const length = Math.floor(ctx.sampleRate * 0.75);
             const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
             const data = buffer.getChannelData(0);
             for (let i = 0; i < length; i++) {
@@ -15555,12 +15573,12 @@
             archiveNoiseSource.buffer = buffer;
             archiveNoiseGain.gain.setValueAtTime(0.0001, ctx.currentTime);
             archiveNoiseGain.gain.linearRampToValueAtTime(0.16, ctx.currentTime + 0.08);
-            archiveNoiseGain.gain.setValueAtTime(0.11, ctx.currentTime + 0.62);
-            archiveNoiseGain.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 1.32);
+            archiveNoiseGain.gain.setValueAtTime(0.11, ctx.currentTime + 0.32);
+            archiveNoiseGain.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 0.72);
             archiveNoiseSource.connect(archiveNoiseGain);
             archiveNoiseGain.connect(ctx.destination);
             archiveNoiseSource.start();
-            archiveNoiseSource.stop(ctx.currentTime + 1.36);
+            archiveNoiseSource.stop(ctx.currentTime + 0.76);
         } catch (e) { console.warn('Не удалось запустить радиопомехи:', e); }
     }
 
@@ -15799,63 +15817,97 @@
         const gOverlay = glitchOverlay;
         const fTerminal = fullTerminal;
         const gText = gOverlay ? gOverlay.querySelector('.glitch-text') : null;
-
         if (!gOverlay || !fTerminal || !gText) {
-            console.error('ОШИБКА: HTML-элементы терминала не найдены на странице!');
-            showToast('НЕ НАЙДЕНЫ ЭЛЕМЕНТЫ ТЕРМИНАЛА');
+            console.error('Не найдены элементы терминала/помех.');
+            showToast('ОШИБКА HTML ТЕРМИНАЛА');
             return;
         }
 
-        // Сбрасываем inline-стили после предыдущего закрытия.
+        if (glitchInterval) { clearInterval(glitchInterval); glitchInterval = null; }
+        glitchTimeouts.forEach(id => clearTimeout(id));
+        glitchTimeouts = [];
         gOverlay.style.display = '';
         fTerminal.style.display = '';
 
-        // Сначала глушим MIDI. Сам дамп подготовлен в обработчике команды доступа.
         try {
             const midiWasPlaying = !!(player && player.playing);
             if (typeof Tone !== 'undefined' && Tone.Destination) {
-                Tone.Destination.volume.rampTo(-Infinity, 0.85);
+                Tone.Destination.volume.rampTo(-Infinity, 0.65);
                 glitchTimeouts.push(setTimeout(() => {
-                    if (midiWasPlaying && player && typeof player.stop === 'function' && player.playing) player.stop();
-                    const savedVolume = Math.max(0, Math.min(100, parseInt(volumeSlider?.value ?? '70', 10))) / 100;
-                    Tone.Destination.volume.rampTo(savedVolume > 0 ? Tone.gainToDb(savedVolume) : -Infinity, 0.15);
-                }, 900));
+                    try {
+                        if (midiWasPlaying && player && typeof player.stop === 'function' && player.playing) player.stop();
+                        const savedVolume = Math.max(0, Math.min(100, parseInt(volumeSlider?.value ?? '70', 10))) / 100;
+                        Tone.Destination.volume.rampTo(savedVolume > 0 ? Tone.gainToDb(savedVolume) : -Infinity, 0.05);
+                    } catch (e) { console.warn('Не удалось остановить MIDI:', e); }
+                }, 700));
             } else if (midiWasPlaying && player && typeof player.stop === 'function') {
-                glitchTimeouts.push(setTimeout(() => { if (player.playing) player.stop(); }, 900));
+                glitchTimeouts.push(setTimeout(() => { try { if (player.playing) player.stop(); } catch (e) {} }, 700));
             }
         } catch (e) { console.warn('Не удалось приглушить MIDI:', e); }
 
         gOverlay.classList.add('active');
         playArchiveStatic();
         let glitchCount = 0;
-        if (glitchInterval) clearInterval(glitchInterval);
         glitchInterval = setInterval(() => {
-            gText.textContent = Array(30).fill(0).map(() => String.fromCharCode(Math.random() * 94 + 33)).join('');
+            // Keep the animation deliberately tiny to avoid stalling the page.
+            gText.textContent = glitchCount % 2 ? 'SIGNAL LOST // 0xEVA' : '▓▒░ SIGNAL RECOVERY ░▒▓';
             glitchCount++;
-            if (glitchCount > 15) {
+            if (glitchCount >= 10) {
                 clearInterval(glitchInterval);
                 glitchInterval = null;
-                gOverlay.style.display = '';
                 gOverlay.classList.remove('active');
-                fTerminal.style.display = '';
+                gOverlay.style.display = 'none';
+                fTerminal.style.display = 'flex';
                 fTerminal.classList.add('active');
                 openTerminalFile('readme');
-                playArchiveDump();
+                if (!archiveDumpAudio) prepareArchiveDump();
+                playArchiveDump(false);
+                ensureDumpPlayButton();
             }
         }, 100);
+
+        glitchTimeouts.push(setTimeout(() => {
+            if (glitchInterval) { clearInterval(glitchInterval); glitchInterval = null; }
+            if (!fTerminal.classList.contains('active')) {
+                gOverlay.classList.remove('active');
+                gOverlay.style.display = 'none';
+                fTerminal.style.display = 'flex';
+                fTerminal.classList.add('active');
+                openTerminalFile('readme');
+                if (!archiveDumpAudio) prepareArchiveDump();
+                playArchiveDump(false);
+                ensureDumpPlayButton();
+            }
+        }, 1800));
     }
 
-    if (secretTrigger) {
-        secretTrigger.addEventListener('click', () => {
-            const code = prompt('Введите код доступа к системе:');
-            if (code && code.trim().toUpperCase() === 'WHITE_QUEEN') {
-                prepareArchiveDump();
+    function openAccessDialog() {
+        if (document.getElementById('archiveAccessDialog')) return;
+        const overlay = document.createElement('div');
+        overlay.id = 'archiveAccessDialog';
+        overlay.style.cssText = 'position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;font-family:monospace;color:#33ff33;';
+        overlay.innerHTML = '<form style="background:#050a05;border:1px solid #33ff33;padding:24px;min-width:min(340px,85vw);box-shadow:0 0 24px #1a8c1a"><label for="archiveAccessCode" style="display:block;margin-bottom:12px">SYSTEM ACCESS // ВВЕДИТЕ КОД</label><input id="archiveAccessCode" autocomplete="off" spellcheck="false" style="box-sizing:border-box;width:100%;background:#000;color:#33ff33;border:1px solid #1a8c1a;padding:10px;font:inherit;outline:none"><div style="display:flex;justify-content:flex-end;gap:10px;margin-top:16px"><button type="button" id="archiveAccessCancel" style="background:transparent;color:#33ff33;border:1px solid #1a8c1a;padding:7px 10px;cursor:pointer;font:inherit">[ОТМЕНА]</button><button type="submit" style="background:#33ff33;color:#000;border:1px solid #33ff33;padding:7px 10px;cursor:pointer;font:inherit">[ВХОД]</button></div></form>';
+        document.body.appendChild(overlay);
+        const form = overlay.querySelector('form');
+        const input = overlay.querySelector('#archiveAccessCode');
+        const removeDialog = () => overlay.remove();
+        overlay.querySelector('#archiveAccessCancel').addEventListener('click', removeDialog);
+        overlay.addEventListener('click', event => { if (event.target === overlay) removeDialog(); });
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            const code = input.value.trim().toUpperCase();
+            removeDialog();
+            if (code === 'WHITE_QUEEN') {
+                // No audio download/playback or large allocations while the user types.
                 startGlitch();
             } else if (code) {
                 showToast('ДОСТУП ЗАПРЕЩЁН');
             }
         });
+        input.focus();
     }
+
+    if (secretTrigger) secretTrigger.addEventListener('click', openAccessDialog);
 
     function closeTerminal() {
         if (glitchInterval) { clearInterval(glitchInterval); glitchInterval = null; }
@@ -15871,6 +15923,10 @@
             glitchOverlay.style.display = 'none';
         }
         stopArchiveDump();
+        const dumpButton = document.getElementById('archiveDumpPlayButton');
+        if (dumpButton) dumpButton.remove();
+        const accessDialog = document.getElementById('archiveAccessDialog');
+        if (accessDialog) accessDialog.remove();
     }
 
     function openTerminalDisplay() {
@@ -15909,6 +15965,11 @@
     });
 
     document.addEventListener('keydown', (e) => {
+        if ((e.key === 'Escape' || e.key === 'Esc') && document.getElementById('archiveAccessDialog')) {
+            e.preventDefault();
+            document.getElementById('archiveAccessDialog').remove();
+            return;
+        }
         if ((e.key === 'Escape' || e.key === 'Esc') &&
             fullTerminal && fullTerminal.classList.contains('active')) {
             e.preventDefault();
