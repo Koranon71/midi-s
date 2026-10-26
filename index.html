@@ -15471,21 +15471,23 @@
     let playlist = [];
     let currentIndex = -1;
     let leafInterval = null;
-    let archiveAudioFrame = null;
+    let archiveDumpAudio = null;
     let archiveNoiseContext = null;
     let archiveNoiseSource = null;
     let archiveNoiseGain = null;
     let archiveAudioTimer = null;
 
-    // Аудиодамп Саспенс: короткие радиопомехи, затем восстановленная запись.
-    const ARCHIVE_DUMP_VIDEO_ID = 'Zrysf6Tg2v0';
+    // Локальный аудиодамп Саспенс. Файл должен лежать в assets/audio/eva_dump.mp3.
+    const ARCHIVE_DUMP_AUDIO_URL = 'assets/audio/eva_dump.mp3';
 
     function stopArchiveDump() {
         if (archiveAudioTimer) { clearTimeout(archiveAudioTimer); archiveAudioTimer = null; }
-        if (archiveAudioFrame) {
-            archiveAudioFrame.src = 'about:blank';
-            archiveAudioFrame.remove();
-            archiveAudioFrame = null;
+        if (archiveDumpAudio) {
+            archiveDumpAudio.pause();
+            archiveDumpAudio.currentTime = 0;
+            archiveDumpAudio.removeAttribute('src');
+            archiveDumpAudio.load();
+            archiveDumpAudio = null;
         }
         if (archiveNoiseSource) { try { archiveNoiseSource.stop(); } catch (e) {} archiveNoiseSource = null; }
         if (archiveNoiseContext) { try { archiveNoiseContext.close(); } catch (e) {} archiveNoiseContext = null; }
@@ -15522,13 +15524,14 @@
 
     function playArchiveDump() {
         stopArchiveDump();
-        archiveAudioFrame = document.createElement('iframe');
-        archiveAudioFrame.title = 'Восстановленный аудиодамп Евы Саспенс';
-        archiveAudioFrame.allow = 'autoplay; encrypted-media';
-        archiveAudioFrame.referrerPolicy = 'strict-origin-when-cross-origin';
-        archiveAudioFrame.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0.01;left:0;bottom:0;border:0;pointer-events:none;';
-        archiveAudioFrame.src = `https://www.youtube-nocookie.com/embed/${ARCHIVE_DUMP_VIDEO_ID}?autoplay=1&controls=0&playsinline=1&rel=0`;
-        document.body.appendChild(archiveAudioFrame);
+        archiveDumpAudio = new Audio(ARCHIVE_DUMP_AUDIO_URL);
+        archiveDumpAudio.preload = 'auto';
+        archiveDumpAudio.volume = 1;
+        archiveDumpAudio.loop = false;
+        archiveDumpAudio.play().catch((error) => {
+            console.warn('Не удалось запустить локальный аудиодамп:', error);
+            showToast('НЕ УДАЛОСЬ ПРОЧИТАТЬ АУДИОДАМП');
+        });
     }
 
     // --- Уведомление ---
@@ -15543,8 +15546,8 @@
 
     // --- Терминал и Секретный код ---
     const secretTrigger = document.getElementById('secretTrigger');
-    const glitchOverlay = document.getElementById('glitchOverlay');
-    const fullTerminal = document.getElementById('fullscreenTerminal');
+    const glitchOverlay = document.getElementById('glitch-overlay');
+    const fullTerminal = document.getElementById('fullscreen-terminal');
     const termClose = document.getElementById('termClose');
     const termText = document.getElementById('termText');
     const termHeader = document.getElementById('termHeader');
@@ -15815,21 +15818,22 @@
         });
     }
 
-    if (termClose) {
-        termClose.addEventListener('click', () => {
-            fullTerminal.classList.remove('active');
-            stopArchiveDump();
-        });
+    function closeTerminal() {
+        if (fullTerminal) fullTerminal.classList.remove('active');
+        if (glitchOverlay) glitchOverlay.classList.remove('active');
+        stopArchiveDump();
     }
-    
+
+    if (termClose) termClose.addEventListener('click', closeTerminal);
+
     document.querySelectorAll('.term-file').forEach(el => {
         el.addEventListener('click', () => openTerminalFile(el.dataset.id));
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && fullTerminal.classList.contains('active')) {
-            fullTerminal.classList.remove('active');
-            stopArchiveDump();
+        if (e.key === 'Escape' && fullTerminal && fullTerminal.classList.contains('active')) {
+            e.preventDefault();
+            closeTerminal();
         }
     });
 
