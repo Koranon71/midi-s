@@ -15483,8 +15483,7 @@
     function stopArchiveDump() {
         if (archiveAudioTimer) { clearTimeout(archiveAudioTimer); archiveAudioTimer = null; }
         if (archiveDumpAudio) {
-            archiveDumpAudio.pause();
-            archiveDumpAudio.currentTime = 0;
+            try { archiveDumpAudio.pause(); archiveDumpAudio.currentTime = 0; } catch (e) {}
             archiveDumpAudio.removeAttribute('src');
             archiveDumpAudio.load();
             archiveDumpAudio = null;
@@ -15492,6 +15491,50 @@
         if (archiveNoiseSource) { try { archiveNoiseSource.stop(); } catch (e) {} archiveNoiseSource = null; }
         if (archiveNoiseContext) { try { archiveNoiseContext.close(); } catch (e) {} archiveNoiseContext = null; }
         archiveNoiseGain = null;
+    }
+
+    function prepareArchiveDump() {
+        stopArchiveDump();
+        // Resolve relative to the current page, so this also works on GitHub Pages project paths.
+        const audioUrl = new URL('./assets/audio/eva_dump.mp3', window.location.href).href;
+        archiveDumpAudio = new Audio(audioUrl);
+        archiveDumpAudio.preload = 'auto';
+        archiveDumpAudio.volume = 0;
+        archiveDumpAudio.muted = true;
+        archiveDumpAudio.loop = false;
+        archiveDumpAudio.addEventListener('error', () => {
+            console.error('Не удалось загрузить аудиодамп:', audioUrl, archiveDumpAudio?.error);
+            showToast('АУДИОДАМП НЕ НАЙДЕН — ПРОВЕРЬ assets/audio/eva_dump.mp3');
+        }, { once: true });
+
+        // Start while the user is interacting with the terminal trigger; this helps browsers
+        // that block audio started later by a timer.
+        const result = archiveDumpAudio.play();
+        if (result && typeof result.catch === 'function') {
+            result.catch((error) => {
+                console.warn('Браузер заблокировал предварительный запуск аудиодампа:', error);
+            });
+        }
+    }
+
+    function playArchiveDump() {
+        if (!archiveDumpAudio) prepareArchiveDump();
+        if (!archiveDumpAudio) return;
+        try {
+            archiveDumpAudio.currentTime = 0;
+            archiveDumpAudio.muted = false;
+            archiveDumpAudio.volume = 1;
+            const result = archiveDumpAudio.play();
+            if (result && typeof result.catch === 'function') {
+                result.catch((error) => {
+                    console.warn('Не удалось запустить локальный аудиодамп:', error);
+                    showToast('АУДИО ЗАБЛОКИРОВАНО БРАУЗЕРОМ — НАЖМИ НА ТЕРМИНАЛ');
+                });
+            }
+        } catch (error) {
+            console.warn('Не удалось запустить локальный аудиодамп:', error);
+            showToast('НЕ УДАЛОСЬ ЗАПУСТИТЬ АУДИОДАМП');
+        }
     }
 
     function playArchiveStatic() {
@@ -15504,7 +15547,6 @@
             const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
             const data = buffer.getChannelData(0);
             for (let i = 0; i < length; i++) {
-                // Короткие рваные всплески вместо ровного белого шума.
                 const burst = Math.random() > 0.24 ? 1 : 0.12;
                 data[i] = (Math.random() * 2 - 1) * burst;
             }
@@ -15520,18 +15562,6 @@
             archiveNoiseSource.start();
             archiveNoiseSource.stop(ctx.currentTime + 1.36);
         } catch (e) { console.warn('Не удалось запустить радиопомехи:', e); }
-    }
-
-    function playArchiveDump() {
-        stopArchiveDump();
-        archiveDumpAudio = new Audio(ARCHIVE_DUMP_AUDIO_URL);
-        archiveDumpAudio.preload = 'auto';
-        archiveDumpAudio.volume = 1;
-        archiveDumpAudio.loop = false;
-        archiveDumpAudio.play().catch((error) => {
-            console.warn('Не удалось запустить локальный аудиодамп:', error);
-            showToast('НЕ УДАЛОСЬ ПРОЧИТАТЬ АУДИОДАМП');
-        });
     }
 
     // --- Уведомление ---
@@ -15762,44 +15792,52 @@
         if (activeEl) activeEl.classList.add('active');
     }
 
-     function startGlitch() {
-        const gOverlay = document.getElementById('glitch-overlay');
-        const fTerminal = document.getElementById('fullscreen-terminal');
+    let glitchInterval = null;
+    let glitchTimeouts = [];
+
+    function startGlitch() {
+        const gOverlay = glitchOverlay;
+        const fTerminal = fullTerminal;
         const gText = gOverlay ? gOverlay.querySelector('.glitch-text') : null;
 
         if (!gOverlay || !fTerminal || !gText) {
-            console.error("ОШИБКА: HTML-элементы терминала не найдены на странице!");
-            alert("ОШИБКА: Не найдены элементы терминала в HTML. Проверь, загрузился ли index.html правильно.");
-            return; // Прерываем, чтобы не было краша
+            console.error('ОШИБКА: HTML-элементы терминала не найдены на странице!');
+            showToast('НЕ НАЙДЕНЫ ЭЛЕМЕНТЫ ТЕРМИНАЛА');
+            return;
         }
 
-        // Сначала глушим MIDI, затем оставляем короткий хвост помех и открываем дамп.
-        stopArchiveDump();
+        // Сбрасываем inline-стили после предыдущего закрытия.
+        gOverlay.style.display = '';
+        fTerminal.style.display = '';
+
+        // Сначала глушим MIDI. Сам дамп подготовлен в обработчике команды доступа.
         try {
             const midiWasPlaying = !!(player && player.playing);
             if (typeof Tone !== 'undefined' && Tone.Destination) {
                 Tone.Destination.volume.rampTo(-Infinity, 0.85);
-                setTimeout(() => {
+                glitchTimeouts.push(setTimeout(() => {
                     if (midiWasPlaying && player && typeof player.stop === 'function' && player.playing) player.stop();
-                    const savedVolume = parseInt(volumeSlider?.value ?? '70', 10) / 100;
+                    const savedVolume = Math.max(0, Math.min(100, parseInt(volumeSlider?.value ?? '70', 10))) / 100;
                     Tone.Destination.volume.rampTo(savedVolume > 0 ? Tone.gainToDb(savedVolume) : -Infinity, 0.15);
-                }, 900);
+                }, 900));
             } else if (midiWasPlaying && player && typeof player.stop === 'function') {
-                setTimeout(() => { if (player.playing) player.stop(); }, 900);
+                glitchTimeouts.push(setTimeout(() => { if (player.playing) player.stop(); }, 900));
             }
         } catch (e) { console.warn('Не удалось приглушить MIDI:', e); }
 
         gOverlay.classList.add('active');
         playArchiveStatic();
         let glitchCount = 0;
-
-        const glitchInterval = setInterval(() => {
+        if (glitchInterval) clearInterval(glitchInterval);
+        glitchInterval = setInterval(() => {
             gText.textContent = Array(30).fill(0).map(() => String.fromCharCode(Math.random() * 94 + 33)).join('');
             glitchCount++;
-
-            if (glitchCount > 15) { // Около 1.6 секунд
+            if (glitchCount > 15) {
                 clearInterval(glitchInterval);
+                glitchInterval = null;
+                gOverlay.style.display = '';
                 gOverlay.classList.remove('active');
+                fTerminal.style.display = '';
                 fTerminal.classList.add('active');
                 openTerminalFile('readme');
                 playArchiveDump();
@@ -15809,8 +15847,9 @@
 
     if (secretTrigger) {
         secretTrigger.addEventListener('click', () => {
-            const code = prompt("Введите код доступа к системе:");
+            const code = prompt('Введите код доступа к системе:');
             if (code && code.trim().toUpperCase() === 'WHITE_QUEEN') {
+                prepareArchiveDump();
                 startGlitch();
             } else if (code) {
                 showToast('ДОСТУП ЗАПРЕЩЁН');
@@ -15819,23 +15858,64 @@
     }
 
     function closeTerminal() {
-        if (fullTerminal) fullTerminal.classList.remove('active');
-        if (glitchOverlay) glitchOverlay.classList.remove('active');
+        if (glitchInterval) { clearInterval(glitchInterval); glitchInterval = null; }
+        glitchTimeouts.forEach(id => clearTimeout(id));
+        glitchTimeouts = [];
+        if (fullTerminal) {
+            fullTerminal.classList.remove('active');
+            fullTerminal.style.display = 'none';
+            // Restore CSS-driven display on the next open.
+        }
+        if (glitchOverlay) {
+            glitchOverlay.classList.remove('active');
+            glitchOverlay.style.display = 'none';
+        }
         stopArchiveDump();
     }
 
-    if (termClose) termClose.addEventListener('click', closeTerminal);
+    function openTerminalDisplay() {
+        if (fullTerminal) {
+            fullTerminal.style.display = '';
+            fullTerminal.classList.add('active');
+        }
+    }
+    function hideGlitchDisplay() {
+        if (glitchOverlay) {
+            glitchOverlay.style.display = '';
+            glitchOverlay.classList.remove('active');
+        }
+    }
+
+    if (termClose) {
+        termClose.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            closeTerminal();
+        }, true);
+    }
+
+    // Delegated fallback also works if the terminal HTML is rebuilt dynamically.
+    document.addEventListener('click', (event) => {
+        const closeButton = event.target && event.target.closest ? event.target.closest('#termClose, .term-close') : null;
+        if (closeButton) {
+            event.preventDefault();
+            event.stopPropagation();
+            closeTerminal();
+        }
+    }, true);
 
     document.querySelectorAll('.term-file').forEach(el => {
         el.addEventListener('click', () => openTerminalFile(el.dataset.id));
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && fullTerminal && fullTerminal.classList.contains('active')) {
+        if ((e.key === 'Escape' || e.key === 'Esc') &&
+            fullTerminal && fullTerminal.classList.contains('active')) {
             e.preventDefault();
+            e.stopPropagation();
             closeTerminal();
         }
-    });
+    }, true);
 
     // --- Собираем плейлист ---
     const trackMap = {};
