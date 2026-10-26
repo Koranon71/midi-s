@@ -15895,13 +15895,34 @@
         currentIndex = index; t.el.classList.add('playing');
         playerTitle.textContent = t.title; player.src = t.url;
         dlBtn.href = t.url; dlBtn.setAttribute('download', t.title + '.mid');
-        setTimeout(() => { if (typeof player.start === 'function') player.start().catch(err => console.warn('play error:', err)); }, 120);
+        setTimeout(() => {
+            if (typeof player.start !== 'function') return;
+            try {
+                const result = player.start();
+                if (result && typeof result.catch === 'function') {
+                    result.catch(err => console.warn('play error:', err));
+                }
+            } catch (err) {
+                console.warn('play error:', err);
+            }
+        }, 120);
         checkCanada(t.title); saveLastTrack(t.key); addToRecent(t.key);
     }
     function togglePlay() {
         if (!player || !player.src) return;
         if (typeof player.start !== 'function') return;
-        if (player.playing) player.stop(); else player.start().catch(err => console.warn('play error:', err));
+        if (player.playing) {
+            player.stop();
+        } else {
+            try {
+                const result = player.start();
+                if (result && typeof result.catch === 'function') {
+                    result.catch(err => console.warn('play error:', err));
+                }
+            } catch (err) {
+                console.warn('play error:', err);
+            }
+        }
     }
     function nextTrack() { if (playlist.length) playTrack((currentIndex + 1) % playlist.length); }
     function prevTrack() { if (playlist.length) playTrack((currentIndex - 1 + playlist.length) % playlist.length); }
