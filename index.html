@@ -19377,40 +19377,47 @@
     });
 
     // --- Плеер ---
-        function playTrack(index) {
+            function playTrack(index) {
         if (index < 0 || index >= playlist.length) return;
         const t = playlist[index];
         
+        // Сброс старого
         document.querySelectorAll('.track.playing').forEach(el => el.classList.remove('playing'));
         currentIndex = index; 
         t.el.classList.add('playing');
+        
+        // Обновляем UI и ставим новый src
         playerTitle.textContent = t.title; 
         player.src = t.url;
         playerEl.classList.add('visible');
         dlBtn.href = t.url; 
         dlBtn.setAttribute('download', t.title + '.mid');
         
-        // Задержка 300 мс, чтобы MIDI успел загрузиться (важно для Firefox)
-        setTimeout(() => { 
+        // Ждем, пока плеер загрузит MIDI, и только потом стартуем.
+        // Событие 'load' у midi-player нет, поэтому используем таймаут.
+        // 400 мс — безопасный запас для Firefox.
+        setTimeout(() => {
             if (typeof player.start === 'function') {
                 try {
+                    // start() не возвращает Promise, убираем .catch()
                     player.start();
                 } catch (err) {
                     console.warn('play error:', err);
                 }
             }
-        }, 300);
+        }, 400);
         
         saveLastTrack(t.key); 
         addToRecent(t.key);
     }
     
-        function togglePlay() {
+            function togglePlay() {
         if (!player || !player.src) return;
         if (typeof player.start !== 'function') return;
         
+        // Убираем проверку player.playing, которая глючит в Firefox
         try {
-            player.start(); 
+            player.start();
         } catch (err) {
             console.warn('play error:', err);
         }
@@ -19420,19 +19427,22 @@
     nextBtn.addEventListener('click', () => { if (playlist.length) playTrack((currentIndex + 1) % playlist.length); });
     prevBtn.addEventListener('click', () => { if (playlist.length) playTrack((currentIndex - 1 + playlist.length) % playlist.length); });
 
-        document.querySelectorAll('.btn-play').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    document.querySelectorAll('.btn-play').forEach(btn => {
+    btn.addEventListener('click', (e) => {
             const track = e.target.closest('.track'); 
             const idx = playlist.findIndex(p => p.el === track);
             if (idx === -1) return;
             
+            // Если это уже текущий трек и он, возможно, играет — останавливаем.
+            // Но лучше просто перезапустить его, чтобы кнопка работала предсказуемо.
             if (idx === currentIndex) {
                 try {
                     player.stop();
-                } catch (err) {
-                    console.warn('stop error:', err);
-                }
+                } catch (err) {}
+                // Небольшая пауза, чтобы stop() отработал, и запускаем заново
+                setTimeout(() => playTrack(idx), 100);
             } else {
+                // playTrack сам вызовет start() с задержкой
                 playTrack(idx);
             }
         });
