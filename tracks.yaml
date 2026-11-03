@@ -1,1245 +1,2545 @@
-# ============================================================
-# MIDI архив Саспенс — единый источник правды
-# ============================================================
-# Формат:
-#   categories:
-#     <имя_папки>:
-#       title: "Человекочитаемое название"
-#       icon: "эмодзи"
-#       tracks:
-#         "Имя без .mid": "Описание"
-#
-#   root:
-#     title: "Название для треков в корне"
-#     icon: "эмодзи"
-#     tracks:
-#       "Имя": "Описание"
-#
-#   sponsor: "Текст спонсора"
-#
-#   easter_eggs:
-#     <имя>:
-#       match: [список строк для поиска]
-#       widget_image: "URL картинки"
-#       caption: "Подпись"
-# ============================================================
-
 meta:
-  title: "MIDI архив Саспенс"
-  description: "Полное собрание musical space."
-  sponsor: "The House Always Wins (The Stupendium) — очень незакончено"
-
+  title: MIDI архив Саспенс
+  description: Полное собрание musical space.
+  sponsor: The House Always Wins (The Stupendium) — очень незакончено
 categories:
-
   01_Cinema_Anime_TV:
-    title: "Кино, аниме, ТВ"
-    icon: "🎬"
+    title: Кино, аниме, ТВ
+    icon: 🎬
     tracks:
-      "A real hero": "Electric Youth (Drive OST)"
-      "A step forward into terror": "Guilty Gear Xrd"
-      "Addict": "Hazbin Hotel (Отель Хазбин)"
-      "America fuck yeah": "Team America: World Police"
-      "Angel of doom": "Neon Genesis Evangelion"
-      "Asuka strikes": "Neon Genesis Evangelion"
-      "Bad Apple": "Touhou Project"
-      "Barefoot in the park": "Neon Genesis Evangelion"
-      "Benny hill": "Шоу Бенни Хилла (Yakety Sax)"
-      "Better call Saul": "Сериал «Лучше звоните Солу» / «Во все тяжкие»"
-      "Bitter choco decoration": "syudou feat. Hatsune Miku"
-      "Bling-bang-bang-born": "Аниме «Mashle: Magic and Muscles» (Opening)"
-      "Blood theme": "Сериал «Декстер» (Dexter OST)"
-      "Borderline case": "The End of Evangelion"
-      "Both of you dance like you want to win": "Neon Genesis Evangelion"
-      "Breaking Bad OST": "Сериал «Во все тяжкие»"
-      "Cantina": "Звёздные войны (Star Wars)"
-      "Cell block tango": "Мюзикл «Чикаго»"
-      "Chikatto Chika Chika": "Konomi Kohara (Аниме «Kaguya-sama: Love Is War» Chika Dance OST)"
-      "Climbing up the walls": "Radiohead"
-      "Come along with me": "Время Приключений (Adventure Time)"
-      "Cooking by the book": "LazyTown (Мемный трек Стефани со Стедфастом из Лентяево)"
-      "Cruel Angel Thesis": "Neon Genesis Evangelion (ТВ-опенинг)"
-      "Cruel Angel Thesis #2": "Neon Genesis Evangelion (ТВ-опенинг)"
-      "Daddy cop": "Сериал «Новичок» (The Rookie)"
-      "Decisive battle": "Neon Genesis Evangelion"
-      "Duvet": "Serial Experiments Lain (bôa)"
-      "Duvet #2": "Serial Experiments Lain (bôa)"
-      "Edelweiss": "х/ф «Звуки музыки»"
-      "Edelweiss #2": "х/ф «Звуки музыки»"
-      "Escape to the beginning": "The End of Evangelion"
-      "Everything stays": "Время Приключений (Adventure Time)"
-      "Everything you've ever dreamed": "Neon Genesis Evangelion"
-      "Everything you've ever dreamed #2": "Neon Genesis Evangelion"
-      "Expansion of blockade": "The End of Evangelion"
-      "Eye of the tiger": "Survivor (Рокки III)"
-      "Far from any road": "Сериал «Настоящий детектив» (The Handsome Family)"
-      "Fate": "Evangelion: 2.0 You Can (Not) Advance"
-      "Fly me to the Moon": "Neon Genesis Evangelion (ТВ-эндинг)"
-      "Fly me to the Moon #2": "Neon Genesis Evangelion (ТВ-эндинг)"
-      "For the damage coda": "Рик и Морти (Злой Морти / Blonde Redhead)"
-      "Fugget about it": "Из мультсериала «Fugget About It»"
-      "Golden": "KPop Demon Hunters"
-      "Gonna fly": "Рокки (Rocky Theme)"
-      "Good, bad, the ugly": "Хороший, плохой, злой (Эннио Морриконе)"
-      "Goodbye Moonmen": "Рик и Морти"
-      "Goodbuy Moonmen #2": "Рик и Морти"
-      "Green hornet": "Убить Билла (Al Hirt)"
-      "Hedgehog's dilemma": "Neon Genesis Evangelion"
-      "How bad can i be": "м/ф «Лоракс»"
-      "I really want to stay at your house": "Cyberpunk: Edgerunners (Rosa Walton)"
-      "Ik ben het maar": "Ongezellig"
-      "I'll be there for you": "Сериал «Друзья» (The Rembrandts)"
-      "Inferno": "Пламенный отряд кошек (Fire Force Opening)"
-      "Interference of others": "The End of Evangelion"
-      "Komm susser tod": "The End of Evangelion"
-      "Komm suesser tod #2": "The End of Evangelion"
-      "Let us adore you": "из м/ф «Steven Universe» (Песня Алмазов)"
-      "Marking time, waiting for death": "The End of Evangelion"
-      "Merry go round of life": "Ходячий замок Хаула (Джо Хисаиси)"
-      "Misato": "Neon Genesis Evangelion"
-      "Misirlou": "Криминальное чтиво (Pulp Fiction)"
-      "Mr.Cellophane": "Мюзикл «Чикаго»"
-      "Never meant to belong": "Аниме «Блич» (Bleach OST)"
-      "Nightcall": "Kavinsky (Drive OST)"
-      "Office": "Сериал «Офис» (The Office Theme)"
-      "One last kiss": "Evangelion: 3.0+1.0 Thrice Upon a Time (Hikaru Utada)"
-      "Opening of dream": "Neon Genesis Evangelion"
-      "Razzle dazzle": "Мюзикл «Чикаго»"
-      "Rei I": "Neon Genesis Evangelion"
-      "Rei II": "Neon Genesis Evangelion"
-      "Rei III": "Neon Genesis Evangelion"
-      "Renai circulation": "Kana Hanazawa (Опенинг аниме «Bakemonogatari»)"
-      "Round and round": "Игра в кальмара"
-      "Running the show": "Удивительный цифровой цирк"
-      "Shikanoko nokonoko koshitantan": "из аниме «My Deer Friend Nokotan»"
-      "Skies of love": "Легенда о героях Галактики (Mitchie M)"
-      "Space oddity": "David Bowie"
-      "Space oddity #2": "David Bowie"
-      "Speak softly love": "Крёстный отец (The Godfather)"
-      "Speak softly love #2": "Крёстный отец (The Godfather)"
-      "Speak softly love #3": "Крёстный отец (The Godfather)"
-      "Steve's lava chicken": "ЛАЛАЛАЛАВА ЦЫЦЫЦЫЦЫПА"
-      "Stuck in the middle with you": "Бешеные псы (Stealers Wheel)"
-      "Substitute invasion": "The End of Evangelion"
-      "Supercalifragilisticexpialidocious": "м/ф «Мэри Поппинс»"
-      "Take a look around": "Миссия невыполнима 2 (Limp Bizkit)"
-      "Take me out": "Franz Ferdinand"
-      "Thanatos": "Neon Genesis Evangelion"
-      "Thanatos #2": "Neon Genesis Evangelion"
-      "The amazing digital circus": "Удивительный цифровой цирк"
-      "The beast II": "Neon Genesis Evangelion"
-      "The chase": "Neon Genesis Evangelion"
-      "The entertainer": "Скотт Джоплин (Рэгтайм)"
-      "The lion sleeps tonight": "The Tokens (м/ф «Король Лев»)"
-      "The lonely shepherd": "Убить Билла (Джеймс Ласт и Георге Замфир)"
-      "The ones who running the show": "Удивительный цифровой цирк"
-      "The phantom of the opera": "Призрак Оперы"
-      "The phantom of the opera #2": "Призрак Оперы"
-      "This Fffire": "Franz Ferdinand (Cyberpunk: Edgerunners)"
-      "Twisted nerve": "Убить Билла (Свист / Бернард Херрманн)"
-      "Una mattina": "1+1 / Неприкасаемые (Людовико Эйнауди)"
-      "Unravel": "Токийский гуль (Tokyo Ghoul)"
-      "Unwelcome school": "Blue Archive"
-      "We are number one": "Лентяево (LazyTown)"
-      "We both reached for the gun": "Мюзикл «Чикаго»"
-      "We both reached fo the gun #2": "Мюзикл «Чикаго»"
-      "What if": "Evangelion: 3.0+1.0 Thrice Upon a Time"
-      "When you're good to mama": "Мюзикл «Чикаго»"
-      "Where is my mind": "Бойцовский клуб (Pixies)"
-      "Woo-hoo": "Убить Билла (The 5.6.7.8's)"
-      "Yakko's world": "из м/с «Анимашки» (Песня Якко про страны мира)"
-      "Yokoku": "Neon Genesis Evangelion (Анонс следующей серии)"
-      "You never can tell": "Chuck Berry (х/ф «Криминальное чтиво»)"
-      "You'll be okay": "Адский босс (Helluva Boss)"
-      "You're the best around": "The Karate Kid"
-      "You've got a friend in me": "История игрушек (Toy Story)"
-      "Your idol": "KPop Demon Hunters"
-      "Your new home": "Удивительный цифровой цирк"
-      "Бандито": "м/ф «Приключения капитана Врунгеля»"
-      "Бандито #2": "м/ф «Приключения капитана Врунгеля»"
-      "Братья Пилоты": "Следствие ведут Колобки"
-      "Братья Пилоты #2": "Следствие ведут Колобки"
-      "Бригада": "Сериал «Бригада» (главная тема)"
-      "Бумер": "х/ф «Бумер» (мобильник)"
-      "В краю магнолий": "х/ф «Груз 200» (Ариэль)"
-      "В синем море,в белой пене": "м/ф «В синем море, в белой пене...»"
-      "Ваше благородие, госпожа Удача": "Павел Луспекаев (х/ф «Белое солнце пустыни»)"
-      "Все хорошо, Прекрасная Маркиза": "Леонид Утёсов"
-      "Двенадцать стульев": "х/ф «12 стульев»"
-      "Деревня дураков": "Каламбур (Деревня дураков)"
-      "Завтра грабим короля": "м/ф «Бременские музыканты»"
-      "Кин-дза-дза": "Гия Канчели (х/ф «Кин-дза-дза!»)"
-      "Колыбельная медведицы": "м/ф «Умка»"
-      "Кто первый богатырь на Руси": "м/ф «Алёша Попович и Тугарин Змей»"
-      "Мой ласковый и нежный зверь": "Евгений Дога (Культовый свадебный вальс)"
-      "Надежда": "Анна Герман"
-      "Ночной дозор": "х/ф «Ночной дозор» (Уматурман)"
-      "Ну погоди": "м/ф «Ну, погоди!»"
-      "О мальчике Бобби": "м/ф «Остров сокровищ»"
-      "Облака - белогривые лошадки": "м/ф «Трям! Здравствуйте!»"
-      "Остров невезения": "х/ф «Бриллиантовая рука»"
-      "Ох, рано встает охрана": "м/ф «Бременские музыканты»"
-      "Падал прошлогодний снег (финальная тема)": "Григорий Гладков (м/ф «Падал прошлогодний снег»)"
-      "Первым делом - самолеты": "х/ф «Небесный тихоход»"
-      "Песенка о вреде курения": "м/ф «Остров сокровищ»"
-      "Песня агента": "м/ф «Приключения капитана Врунгеля»"
-      "Песня атаманши": "м/ф «Бременские музыканты»"
-      "Песня Василисы": "м/ф «Бременские музыканты»"
-      "Песня Гениального Сыщика": "м/ф «Бременские музыканты»"
-      "Песня капитана Врунгеля": "м/ф «Приключения капитана Врунгеля»"
-      "Песня о медведях": "х/ф «Кавказская пленница»"
-      "Планета Шелезяка": "м/ф «Тайна третьей планеты»"
-      "Постой, паровоз, не стучите колеса": "Юрий Никулин (х/ф «Операция Ы»)"
-      "Поход": "х/ф «Сибириада» (Эдуард Артемьев)"
-      "Прекрасное далёко": "х/ф «Гостья из будущего»"
-      "Про зайцев": "х/ф «Бриллиантовая рука»"
-      "Проснись и пой": "д/ф «Джентльмены удачи» (Лариса Мондрус)"
-      "Разговор со счастьем": "х/ф «Иван Васильевич меняет профессию»"
-      "С чего начинается родина": "Марк Бернес (х/ф «Щит и меч»)"
-      "Султан": "х/ф «Кавказская пленница»"
-      "Тайна Третьей Планеты": "м/ф «Тайна третьей планеты»"
-      "Тема битвы": "х/ф «Приключения Буратино»"
-      "Тема Цирка": "х/ф «Приключения Буратино»"
-      "Тёмная ночь": "х/ф «Два бойца» (Марк Бернес)"
-      "Тихий огонёк": "Сериал «Дальнобойщики» (Високосный Год)"
-      "Три белых коня": "х/ф «Чародеи»"
-      "У природы нет плохой погоды": "х/ф «Служебный роман» (Алиса Фрейндлих)"
-      "Уно - Моменто": "х/ф «Формула любви»"
-      "Черное-белое": "Светлана Крючкова (х/ф «Большая перемена»)"
-      "Что такое С-О-С": "м/ф «Приключения капитана Врунгеля»"
-      "Я спросил у ясеня": "х/ф «Ирония судьбы, или С лёгким паром!»"
-      
+      groups:
+      - credit: David Bowie
+        tracks:
+        - title: Space oddity
+        - title: 'Space oddity #2'
+      - credit: KPop Demon Hunters
+        tracks:
+        - title: Golden
+        - title: Your idol
+      - credit: Neon Genesis Evangelion
+        tracks:
+        - title: Angel of doom
+        - title: Asuka strikes
+        - title: Barefoot in the park
+        - title: Both of you dance like you want to win
+        - title: Decisive battle
+        - title: Everything you've ever dreamed
+        - title: 'Everything you''ve ever dreamed #2'
+        - title: Hedgehog's dilemma
+        - title: Misato
+        - title: Opening of dream
+        - title: Rei I
+        - title: Rei II
+        - title: Rei III
+        - title: Thanatos
+        - title: 'Thanatos #2'
+        - title: The beast II
+        - title: The chase
+      - credit: Neon Genesis Evangelion (ТВ-опенинг)
+        tracks:
+        - title: Cruel Angel Thesis
+        - title: 'Cruel Angel Thesis #2'
+      - credit: Neon Genesis Evangelion (ТВ-эндинг)
+        tracks:
+        - title: Fly me to the Moon
+        - title: 'Fly me to the Moon #2'
+      - credit: Serial Experiments Lain (bôa)
+        tracks:
+        - title: Duvet
+        - title: 'Duvet #2'
+      - credit: The End of Evangelion
+        tracks:
+        - title: Borderline case
+        - title: Escape to the beginning
+        - title: Expansion of blockade
+        - title: Interference of others
+        - title: 'Komm suesser tod #2'
+        - title: Komm susser tod
+        - title: Marking time, waiting for death
+        - title: Substitute invasion
+      - credit: Время Приключений (Adventure Time)
+        tracks:
+        - title: Come along with me
+        - title: Everything stays
+        - title: 'Everything stays #2'
+      - credit: Крёстный отец (The Godfather)
+        tracks:
+        - title: Speak softly love
+        - title: 'Speak softly love #2'
+        - title: 'Speak softly love #3'
+      - credit: м/ф «Бременские музыканты»
+        tracks:
+        - title: Завтра грабим короля
+        - title: Ох, рано встает охрана
+        - title: Песня атаманши
+        - title: Песня Василисы
+        - title: Песня Гениального Сыщика
+      - credit: м/ф «Остров сокровищ»
+        tracks:
+        - title: О мальчике Бобби
+        - title: Песенка о вреде курения
+      - credit: м/ф «Приключения капитана Врунгеля»
+        tracks:
+        - title: Бандито
+        - title: 'Бандито #2'
+        - title: Песня агента
+        - title: Песня капитана Врунгеля
+        - title: Что такое С-О-С
+      - credit: м/ф «Тайна третьей планеты»
+        tracks:
+        - title: Планета Шелезяка
+        - title: Тайна Третьей Планеты
+      - credit: Мюзикл «Чикаго»
+        tracks:
+        - title: Cell block tango
+        - title: Mr.Cellophane
+        - title: Razzle dazzle
+        - title: 'We both reached fo the gun #2'
+        - title: We both reached for the gun
+        - title: When you're good to mama
+      - credit: Призрак Оперы
+        tracks:
+        - title: The phantom of the opera
+        - title: 'The phantom of the opera #2'
+      - credit: Рик и Морти
+        tracks:
+        - title: 'Goodbuy Moonmen #2'
+        - title: Goodbye Moonmen
+      - credit: Следствие ведут Колобки
+        tracks:
+        - title: Братья Пилоты
+        - title: 'Братья Пилоты #2'
+      - credit: Удивительный цифровой цирк
+        tracks:
+        - title: Running the show
+        - title: The amazing digital circus
+        - title: The ones who running the show
+        - title: Your new home
+      - credit: х/ф «Бриллиантовая рука»
+        tracks:
+        - title: Остров невезения
+        - title: Про зайцев
+      - credit: х/ф «Звуки музыки»
+        tracks:
+        - title: Edelweiss
+        - title: 'Edelweiss #2'
+      - credit: х/ф «Кавказская пленница»
+        tracks:
+        - title: Песня о медведях
+        - title: Султан
+      - credit: х/ф «Приключения Буратино»
+        tracks:
+        - title: Тема битвы
+        - title: Тема Цирка
+      singles:
+      - title: A real hero
+        credit: Electric Youth (Drive OST)
+      - title: A step forward into terror
+        credit: Guilty Gear Xrd
+      - title: Addict
+        credit: Hazbin Hotel (Отель Хазбин)
+      - title: America fuck yeah
+        credit: 'Team America: World Police'
+      - title: Bad Apple
+        credit: Touhou Project
+      - title: Benny hill
+        credit: Шоу Бенни Хилла (Yakety Sax)
+      - title: Better call Saul
+        credit: Сериал «Лучше звоните Солу» / «Во все тяжкие»
+      - title: Bitter choco decoration
+        credit: syudou feat. Hatsune Miku
+      - title: Black sheep
+        credit: Metric
+      - title: Bling-bang-bang-born
+        credit: 'Аниме «Mashle: Magic and Muscles» (Opening)'
+      - title: Blood theme
+        credit: Сериал «Декстер» (Dexter OST)
+      - title: Breaking Bad OST
+        credit: Сериал «Во все тяжкие»
+      - title: Cantina
+        credit: Звёздные войны (Star Wars)
+      - title: Chikatto Chika Chika
+        credit: 'Konomi Kohara (Аниме «Kaguya-sama: Love Is War» Chika Dance OST)'
+      - title: Climbing up the walls
+        credit: Radiohead
+      - title: Cooking by the book
+        credit: LazyTown (Мемный трек Стефани со Стедфастом из Лентяево)
+      - title: Daddy cop
+        credit: Сериал «Новичок» (The Rookie)
+      - title: Eye of the tiger
+        credit: Survivor (Рокки III)
+      - title: Far from any road
+        credit: Сериал «Настоящий детектив» (The Handsome Family)
+      - title: Fate
+        credit: 'Evangelion: 2.0 You Can (Not) Advance'
+      - title: For the damage coda
+        credit: Рик и Морти (Злой Морти / Blonde Redhead)
+      - title: Fugget about it
+        credit: Из мультсериала «Fugget About It»
+      - title: Gonna fly
+        credit: Рокки (Rocky Theme)
+      - title: Good, bad, the ugly
+        credit: Хороший, плохой, злой (Эннио Морриконе)
+      - title: Green hornet
+        credit: Убить Билла (Al Hirt)
+      - title: How bad can i be
+        credit: м/ф «Лоракс»
+      - title: I really want to stay at your house
+        credit: 'Cyberpunk: Edgerunners (Rosa Walton)'
+      - title: I'll be there for you
+        credit: Сериал «Друзья» (The Rembrandts)
+      - title: Ik ben het maar
+        credit: Ongezellig
+      - title: Inferno
+        credit: Пламенный отряд кошек (Fire Force Opening)
+      - title: Let us adore you
+        credit: из м/ф «Steven Universe» (Песня Алмазов)
+      - title: Merry go round of life
+        credit: Ходячий замок Хаула (Джо Хисаиси)
+      - title: Misirlou
+        credit: Криминальное чтиво (Pulp Fiction)
+      - title: Never meant to belong
+        credit: Аниме «Блич» (Bleach OST)
+      - title: Nightcall
+        credit: Kavinsky (Drive OST)
+      - title: Office
+        credit: Сериал «Офис» (The Office Theme)
+      - title: One last kiss
+        credit: 'Evangelion: 3.0+1.0 Thrice Upon a Time (Hikaru Utada)'
+      - title: Pinky and the Brain
+        credit: Animaniacs
+      - title: Renai circulation
+        credit: Kana Hanazawa (Опенинг аниме «Bakemonogatari»)
+      - title: Round and round
+        credit: Игра в кальмара
+      - title: Shikanoko nokonoko koshitantan
+        credit: из аниме «My Deer Friend Nokotan»
+      - title: Skies of love
+        credit: Легенда о героях Галактики (Mitchie M)
+      - title: Steve's lava chicken
+        credit: ЛАЛАЛАЛАВА ЦЫЦЫЦЫЦЫПА
+      - title: Stuck in the middle with you
+        credit: Бешеные псы (Stealers Wheel)
+      - title: Supercalifragilisticexpialidocious
+        credit: м/ф «Мэри Поппинс»
+      - title: Take a look around
+        credit: Миссия невыполнима 2 (Limp Bizkit)
+      - title: Take me out
+        credit: Franz Ferdinand
+      - title: The entertainer
+        credit: Скотт Джоплин (Рэгтайм)
+      - title: The lion sleeps tonight
+        credit: The Tokens (м/ф «Король Лев»)
+      - title: The lonely shepherd
+        credit: Убить Билла (Джеймс Ласт и Георге Замфир)
+      - title: This Fffire
+        credit: 'Franz Ferdinand (Cyberpunk: Edgerunners)'
+      - title: Twisted nerve
+        credit: Убить Билла (Свист / Бернард Херрманн)
+      - title: Una mattina
+        credit: 1+1 / Неприкасаемые (Людовико Эйнауди)
+      - title: Unravel
+        credit: Токийский гуль (Tokyo Ghoul)
+      - title: Unwelcome school
+        credit: Blue Archive
+      - title: We are number one
+        credit: Лентяево (LazyTown)
+      - title: What if
+        credit: 'Evangelion: 3.0+1.0 Thrice Upon a Time'
+      - title: Where is my mind
+        credit: Бойцовский клуб (Pixies)
+      - title: Woo-hoo
+        credit: Убить Билла (The 5.6.7.8's)
+      - title: Yakko's world
+        credit: из м/с «Анимашки» (Песня Якко про страны мира)
+      - title: Yokoku
+        credit: Neon Genesis Evangelion (Анонс следующей серии)
+      - title: You never can tell
+        credit: Chuck Berry (х/ф «Криминальное чтиво»)
+      - title: You'll be okay
+        credit: Адский босс (Helluva Boss)
+      - title: You're the best around
+        credit: The Karate Kid
+      - title: You've got a friend in me
+        credit: История игрушек (Toy Story)
+      - title: Бригада
+        credit: Сериал «Бригада» (главная тема)
+      - title: Бумер
+        credit: х/ф «Бумер» (мобильник)
+      - title: В краю магнолий
+        credit: х/ф «Груз 200» (Ариэль)
+      - title: В синем море,в белой пене
+        credit: м/ф «В синем море, в белой пене...»
+      - title: Ваше благородие, госпожа Удача
+        credit: Павел Луспекаев (х/ф «Белое солнце пустыни»)
+      - title: Все хорошо, Прекрасная Маркиза
+        credit: Леонид Утёсов
+      - title: Двенадцать стульев
+        credit: х/ф «12 стульев»
+      - title: Деревня дураков
+        credit: Каламбур (Деревня дураков)
+      - title: Кин-дза-дза
+        credit: Гия Канчели (х/ф «Кин-дза-дза!»)
+      - title: Колыбельная медведицы
+        credit: м/ф «Умка»
+      - title: Кто первый богатырь на Руси
+        credit: м/ф «Алёша Попович и Тугарин Змей»
+      - title: Мой ласковый и нежный зверь
+        credit: Евгений Дога (Культовый свадебный вальс)
+      - title: Надежда
+        credit: Анна Герман
+      - title: Ночной дозор
+        credit: х/ф «Ночной дозор» (Уматурман)
+      - title: Ну погоди
+        credit: м/ф «Ну, погоди!»
+      - title: Облака - белогривые лошадки
+        credit: м/ф «Трям! Здравствуйте!»
+      - title: Падал прошлогодний снег (финальная тема)
+        credit: Григорий Гладков (м/ф «Падал прошлогодний снег»)
+      - title: Первым делом - самолеты
+        credit: х/ф «Небесный тихоход»
+      - title: Постой, паровоз, не стучите колеса
+        credit: Юрий Никулин (х / ф «Операция Ы»)
+      - title: Поход
+        credit: х/ф «Сибириада» (Эдуард Артемьев)
+      - title: Прекрасное далёко
+        credit: х/ф «Гостья из будущего»
+      - title: Проснись и пой
+        credit: д/ф «Джентльмены удачи» (Лариса Мондрус)
+      - title: Разговор со счастьем
+        credit: х/ф «Иван Васильевич меняет профессию»
+      - title: С чего начинается родина
+        credit: Марк Бернес (х/ф «Щит и меч»)
+      - title: Тёмная ночь
+        credit: х/ф «Два бойца» (Марк Бернес)
+      - title: Тихий огонёк
+        credit: Сериал «Дальнобойщики» (Високосный Год)
+      - title: Три белых коня
+        credit: х/ф «Чародеи»
+      - title: У природы нет плохой погоды
+        credit: х/ф «Служебный роман» (Алиса Фрейндлих)
+      - title: Уно - Моменто
+        credit: х/ф «Формула любви»
+      - title: Черное-белое
+        credit: Светлана Крючкова (х/ф «Большая перемена»)
+      - title: Я спросил у ясеня
+        credit: х/ф «Ирония судьбы, или С лёгким паром!»
   02_Classic_Rock_Metal:
-    title: "Классический рок и метал"
-    icon: "🎸"
+    title: Классический рок и метал
+    icon: 🎸
     tracks:
-      "99 Luftballons": "Nena"
-      "99 luftballons #2": "Nena"
-      "Airbag": "Radiohead"
-      "Alright": "Supergrass (Брит-поп / х/ф «Бестолковые»)"
-      "Another brick in the wall": "Pink Floyd"
-      "Back in black": "AC/DC"
-      "Bad to the bone": "George Thorogood"
-      "Black hole sun": "Soundgarden"
-      "Bodies": "Drowning Pool"
-      "Bohemian rhapsody": "Queen"
-      "Bring me to life": "Evanescence"
-      "Can't stop": "Red Hot Chili Peppers"
-      "Carry on my wayward son": "Kansas"
-      "Come as you are": "Nirvana"
-      "Do the evolution": "Pearl Jam"
-      "Down under": "Men at Work"
-      "Down under #2": "Men at Work"
-      "Dream on": "Aerosmith"
-      "Electioneering": "Radiohead"
-      "Engel": "Rammstein"
-      "Englishman in New York": "Sting"
-      "Enter Sandman": "Metallica"
-      "Every breath you take": "The Police"
-      "Every breath you take #2": "The Police"
-      "Everybody wants to rule the world": "Tears for Fears"
-      "Exit music": "Radiohead"
-      "Faint": "Linkin Park"
-      "Fell in love with a girl": "The White Stripes"
-      "For whom the bell tolls": "Metallica"
-      "Fortunate son": "Creedence Clearwater Revival"
-      "Free bird": "Lynyrd Skynyrd"
-      "Gay bar": "Electric Six"
-      "Here comes the Sun": "The Beatles"
-      "Hight clouds": "Эдипов Комплекс"
-      "Hotel California": "Eagles"
-      "Humanity": "Scorpions"
-      "Humanity #2": "Scorpions"
-      "I hate everything about you": "Three Days Grace"
-      "In the end": "Linkin Park"
-      "It's my life": "Bon Jovi"
-      "Karma police": "Radiohead"
-      "Kid a": "Radiohead"
-      "La bamba": "Los Lobos"
-      "Lemon tree": "Fools Garden"
-      "Let down": "Radiohead"
-      "Let down #2": "Radiohead"
-      "Livin' on a prayer": "Bon Jovi"
-      "Lucky": "Radiohead"
-      "Man of war": "Radiohead"
-      "Master of puppets": "Metallica"
-      "Message in a bottle": "The Police"
-      "Monster": "Skillet"
-      "My iron lung": "Radiohead"
-      "My iron lung #2": "Radiohead"
-      "Night witches": "Sabaton"
-      "No surprises": "Radiohead (Альтернативный рок / Меланхолия)"
-      "No Surprises #2": "Radiohead (Альтернативный рок / Меланхолия)"
-      "Numb": "Linkin Park"
-      "Nur getraeumt": "Nena"
-      "Omen": "The Prodigy"
-      "One last breath": "Creed"
-      "Paint It black": "The Rolling Stones"
-      "Paralyzer": "Finger Eleven"
-      "Paranoid": "Black Sabbath"
-      "Paranoid android": "Radiohead"
-      "Primo Victoria": "Sabaton"
-      "Rorkes drift": "Sabaton"
-      "Roundabout": "Yes"
-      "Run through the jungle": "Creedence Clearwater Revival"
-      "Say it": "Blue October"
-      "Seven nation army": "The White Stripes"
-      "Shut your mouth": "Pain"
-      "Smells like teen spirit": "Nirvana"
-      "Smoke on the water": "Deep Purple"
-      "Sonne": "Rammstein"
-      "Space shuttle": "Эдипов Комплекс"
-      "Starman": "David Bowie"
-      "Still loving you": "Scorpions"
-      "Sultans of swing": "Dire Straits"
-      "Surfin bird": "The Trashmen"
-      "Teenagers": "My Chemical Romance"
-      "Ten o'clock postman": "Secret Service"
-      "The chain": "Fleetwood Mac"
-      "The house of the rising sun": "The Animals"
-      "The house of the rising Sun #2": "The Animals"
-      "The man who solds the world": "David Bowie / Nirvana"
-      "The only": "Static-X"
-      "Thunderstruck": "AC/DC"
-      "Titanic": "Falco"
-      "Voodo people": "The Prodigy"
-      "Warcry of Salieri": "Warmen"
-      "Welcome to the Black Parade": "My Chemical Romance"
-      "What i've done": "Linkin Park"
-      "White death": "Sabaton"
-      "Who can it be now": "Men at Work"
-      "Why cant we be friends": "War"
-      "You're gonna go far kid": "The Offspring"
-      "Zombie": "The Cranberries"
-
+      groups:
+      - credit: AC/DC
+        tracks:
+        - title: Back in black
+        - title: Thunderstruck
+      - credit: Bon Jovi
+        tracks:
+        - title: It's my life
+        - title: Livin' on a prayer
+      - credit: Creedence Clearwater Revival
+        tracks:
+        - title: Fortunate son
+        - title: Run through the jungle
+      - credit: Curta'n Wall
+        tracks:
+        - title: Fear of God
+        - title: Siege tower
+      - credit: Duran Duran
+        tracks:
+        - title: Save a prayer
+        - title: She's too much
+      - credit: Joy Division
+        tracks:
+        - title: Love will tear us apart
+        - title: The eternal
+      - credit: Lacuna Coil
+        tracks:
+        - title: Swamped
+        - title: Trip the darkness
+      - credit: Linkin Park
+        tracks:
+        - title: Faint
+        - title: In the end
+        - title: Numb
+        - title: What i've done
+      - credit: Men at Work
+        tracks:
+        - title: Down under
+        - title: 'Down under #2'
+        - title: Who can it be now
+      - credit: Metallica
+        tracks:
+        - title: Enter Sandman
+        - title: For whom the bell tolls
+        - title: Master of puppets
+      - credit: Muse
+        tracks:
+        - title: Apocalypse please
+        - title: Blackout
+        - title: Bliss
+        - title: Cave
+        - title: New born
+        - title: Space dementia
+        - title: Supermassive black hole
+        - title: Time is running out
+        - title: Uprising
+      - credit: My Chemical Romance
+        tracks:
+        - title: Teenagers
+        - title: Welcome to the Black Parade
+      - credit: Nena
+        tracks:
+        - title: 99 Luftballons
+        - title: '99 luftballons #2'
+        - title: Nur getraeumt
+      - credit: Nirvana
+        tracks:
+        - title: Come as you are
+        - title: Smells like teen spirit
+      - credit: Radiohead
+        tracks:
+        - title: Airbag
+        - title: Electioneering
+        - title: Exit music
+        - title: Karma police
+        - title: Kid a
+        - title: Let down
+        - title: 'Let down #2'
+        - title: Lucky
+        - title: Man of war
+        - title: My iron lung
+        - title: 'My iron lung #2'
+        - title: No surprises
+        - title: 'No Surprises #2'
+        - title: Paranoid android
+        - title: Weird fishes (arpeggi)
+      - credit: Rammstein
+        tracks:
+        - title: Engel
+        - title: Sonne
+      - credit: Sabaton
+        tracks:
+        - title: Night witches
+        - title: Primo Victoria
+        - title: Rorkes drift
+        - title: White death
+      - credit: Scorpions
+        tracks:
+        - title: Humanity
+        - title: 'Humanity #2'
+        - title: Still loving you
+      - credit: The Animals
+        tracks:
+        - title: The house of the rising sun
+        - title: 'The house of the rising Sun #2'
+      - credit: The Birthday
+        tracks:
+        - title: Alright
+        - title: 'Alright #2'
+        - title: 涙がこぼれそう
+      - credit: The Blake Robinson Synthetic Orchestra
+        tracks:
+        - title: GT400
+        - title: Immaculata
+      - credit: The Police
+        tracks:
+        - title: Every breath you take
+        - title: 'Every breath you take #2'
+        - title: Message in a bottle
+      - credit: The Prodigy
+        tracks:
+        - title: Omen
+        - title: Voodo people
+      - credit: The White Stripes
+        tracks:
+        - title: Fell in love with a girl
+        - title: Seven nation army
+      - credit: Three Days Grace
+        tracks:
+        - title: Animal i have become
+        - title: I hate everything about you
+      - credit: Эдипов Комплекс
+        tracks:
+        - title: Hight clouds
+        - title: Space shuttle
+      singles:
+      - title: Another brick in the wall
+        credit: Pink Floyd
+      - title: Bad to the bone
+        credit: George Thorogood
+      - title: Black hole sun
+        credit: Soundgarden
+      - title: Bodies
+        credit: Drowning Pool
+      - title: Bohemian rhapsody
+        credit: Queen
+      - title: Bring me to life
+        credit: Evanescence
+      - title: Can't stop
+        credit: Red Hot Chili Peppers
+      - title: Carry on my wayward son
+        credit: Kansas
+      - title: Chainmail
+        credit: Luderin
+      - title: Darekaga
+        credit: (Это трек от Ken Ashcorp — "Darekaga")
+      - title: Daylight dancer
+        credit: Royal Blood
+      - title: Do the evolution
+        credit: Pearl Jam
+      - title: Dream on
+        credit: Aerosmith
+      - title: Englishman in New York
+        credit: Sting
+      - title: Enjoy the silence
+        credit: Depeche Mode
+      - title: Everybody wants to rule the world
+        credit: Tears for Fears
+      - title: Free bird
+        credit: Lynyrd Skynyrd
+      - title: Gay bar
+        credit: Electric Six
+      - title: Here comes the Sun
+        credit: The Beatles
+      - title: Hotel California
+        credit: Eagles
+      - title: Kaminari today
+        credit: ''
+      - title: La bamba
+        credit: Los Lobos
+      - title: Lemon tree
+        credit: Fools Garden
+      - title: Ljubi se istok i zapad
+        credit: (Сербская народная)
+      - title: Monster
+        credit: Skillet
+      - title: One last breath
+        credit: Creed
+      - title: Paint It black
+        credit: The Rolling Stones
+      - title: Paralyzer
+        credit: Finger Eleven
+      - title: Paranoid
+        credit: Black Sabbath
+      - title: Roundabout
+        credit: 'Yes'
+      - title: Say it
+        credit: Blue October
+      - title: Shut your mouth
+        credit: Pain
+      - title: Smoke on the water
+        credit: Deep Purple
+      - title: Starman
+        credit: David Bowie
+      - title: Sultans of swing
+        credit: Dire Straits
+      - title: Surfin bird
+        credit: The Trashmen
+      - title: Tear you apart
+        credit: She Wants Revenge
+      - title: Ten o'clock postman
+        credit: Secret Service
+      - title: The chain
+        credit: Fleetwood Mac
+      - title: The man who solds the world
+        credit: David Bowie / Nirvana
+      - title: The only
+        credit: Static-X
+      - title: Titanic
+        credit: Falco
+      - title: Warcry of Salieri
+        credit: Warmen
+      - title: Why cant we be friends
+        credit: War
+      - title: You could be mine
+        credit: Guns N' Roses
+      - title: You're gonna go far kid
+        credit: The Offspring
+      - title: Zombie
+        credit: The Cranberries
   03_Classical_New_Year:
-    title: "Классика и Новый год"
-    icon: "🎻"
+    title: Классика и Новый год
+    icon: 🎻
     tracks:
-      "1812 overture": "Пётр Чайковский («1812 год», Торжественная увертюра)"
-      "Air": "Иоганн Себастьян Бах («Воздух» / Оркестровая сюита №3)"
-      "All i want for christmas": "Mariah Carey (Новогодний хит)"
-      "Besame mucho": "Консуэло Веласкес (Мексиканское болеро)"
-      "Bolero": "Морис Равель («Болеро»)"
-      "Canon": "Иоганн Пахельбель («Канон в ре мажор»)"
-      "Cello Suite No. 1 in G Major, BWV 1007": "Иоганн Себастьян Бах (Сюита для виолончели №1)"
-      "Debussy Deux №1": "Клод Дебюсси («Два арабеска» / Arabesque No. 1)"
-      "Dies iræ 2b": "День гнева (Средневековый католический гимн)"
-      "Dis moi Lune": "Мельница / Лолита (Кавер на песню группы Mecano — Hijo de la Luna)"
-      "Eine kleine nachtmusik K. 525 1. Allegro": "Вольфганг Амадей Моцарт («Маленькая ночная серенада»)"
-      "God rest ye merry gentlemen": "Рождественский гимн"
-      "God rest ye merry gentlemen #2": "Рождественский гимн"
-      "Grave march": "Похоронный марш (Традиционная траурная музыка)"
-      "Hungarian dance": "Иоганнес Брамс («Венгерский танец №5»)"
-      "Jesus bleibet meine Freude": "Иоганн Себастьян Бах (Хорал «Иисус моя радость остаётся»)"
-      "Jesus Bleibet Meine Freude #2": "Иоганн Себастьян Бах (Хорал «Иисус моя радость остаётся»)"
-      "Jew on Christmas": "South Park (Песня Кайла «The Lonely Jew on Christmas»)"
-      "Jingle bells": "Джеймс Пьерпонт (Новогодняя классика)"
-      "La petite fille de la mer": "Vangelis (Из альбома L'Apocalypse des animaux)"
-      "Lacrimosa": "Вольфганг Амадей Моцарт («Реквием» — Лакримоза)"
-      "Last christmas": "Wham! (Джордж Майкл)"
-      "Let it snow": "Фрэнк Синатра / Дин Мартин (Новогодний хит)"
-      "Lohengrin, prelude to act 3": "Рихард Вагнер (Опера «Лоэнгрин» / Вступление к 3 акту)"
-      "Love is blue": "Поль Мориа (Оркестр Поля Мориа — L'Amour Est Bleu)"
-      "Mahler symphony No3": "Густав Малер (Симфония №3)"
-      "Minuet": "Луиджи Боккерини (Знаменитый «Менуэт»)"
-      "Moonlight sonata": "Людвиг ван Бетховен («Лунная соната»)"
-      "Nocturne in E Flat Opus 9 No2": "Фредерик Шопен (Ноктюрн ми-бемоль мажор)"
-      "Nocturne in F sharp major Op. 15 No2": "Фредерик Шопен (Ноктюрн фа-диез мажор)"
-      "Nocturne No9 Op.32 No1 in B major": "Фредерик Шопен (Ноктюрн си мажор)"
-      "Nocturnes, Op.9 No1 in B-flat Minor": "Фредерик Шопен (Ноктюрн си-бемоль минор)"
-      "Ode to Joy": "Людвиг ван Бетховен («Ода к радости» / Симфония №9)"
-      "Rain": "Иоганн Себастьян Бах («Дождь»)"
-      "Sonata No8 in C Minor, Op. 13 Pathetique": "Людвиг ван Бетховен (Патетическая соната)"
-      "Spring Waltz": "Фредерик Шопен («Весенний вальс» / Ошибочно приписываемый)"
-      "Swan lake finalle": "Пётр Чайковский (Балет «Лебединое озеро» — Финал)"
-      "Swan lake valse": "Пётр Чайковский (Балет «Лебединое озеро» — Вальс)"
-      "Symphony No.9 From new world": "Антонин Дворжак (Симфония №9 «Из Нового Света»)"
-      "The Second Waltz": "Дмитрий Шостакович (Вальс №2)"
-      "Waltz": "Евгений Дога (Вальс из х/ф «Мой ласковый и нежный зверь»)"
-      "Waltz b minor": "Фредерик Шопен (Вальс си минор, Op. 69 No. 2)"
-      "Waltz in C sharp minor 64 No2": "Фредерик Шопен (Вальс до-диез минор)"
-      "Waltz No2 in B Minor": "Фредерик Шопен (Вальс си минор)"
-      "Wedding march": "Феликс Мендельсон (Свадебный марш)"
-      "Wedding march #2": "Феликс Мендельсон (Свадебный марш)"
-      "Полёт шмеля": "Николай Римский-Корсаков (Опера «Сказка о царе Салтане»)"
-      "Реквием - Lacrimosa": "Вольфганг Амадей Моцарт («Реквием» — Лакримоза)"
-      "Танец рыцарей": "Сергей Прокофьев (Балет «Ромео и Джульетта»)"
-      "Танец сахарной феи": "Пётр Чайковский (Балет «Щелкунчик»)"
-      "Трепак": "Пётр Чайковский (Балет «Щелкунчик» — Русский танец)"
-      
+      groups:
+      - credit: Вольфганг Амадей Моцарт («Реквием» — Лакримоза)
+        tracks:
+        - title: Lacrimosa
+        - title: Реквием - Lacrimosa
+      - credit: Иоганн Себастьян Бах (Хорал «Иисус моя радость остаётся»)
+        tracks:
+        - title: Jesus bleibet meine Freude
+        - title: 'Jesus Bleibet Meine Freude #2'
+      - credit: Пётр Чайковский (Балет «Щелкунчик»)
+        tracks:
+        - title: Танец сахарной феи
+        - title: Щелкунчик балет
+      - credit: Поль Мориа (Оркестр Поля Мориа — L'Amour Est Bleu)
+        tracks:
+        - title: Love is blue
+        - title: 'Love is blue #2'
+      - credit: Рождественский гимн
+        tracks:
+        - title: God rest ye merry gentlemen
+        - title: 'God rest ye merry gentlemen #2'
+      - credit: Феликс Мендельсон (Свадебный марш)
+        tracks:
+        - title: Wedding march
+        - title: 'Wedding march #2'
+      singles:
+      - title: 1812 overture
+        credit: Пётр Чайковский («1812 год», Торжественная увертюра)
+      - title: Air
+        credit: Иоганн Себастьян Бах («Воздух» / Оркестровая сюита №3)
+      - title: All i want for christmas
+        credit: Mariah Carey (Новогодний хит)
+      - title: Besame mucho
+        credit: Консуэло Веласкес (Мексиканское болеро)
+      - title: Bolero
+        credit: Морис Равель («Болеро»)
+      - title: Canon
+        credit: Иоганн Пахельбель («Канон в ре мажор»)
+      - title: Caprice 24
+        credit: Никколо Паганини (Каприс №24)
+      - title: Carmen Suite No. 1, Les Toréadors
+        credit: Жорж Бизе (Балет «Кармен»)
+      - title: Cello Suite No. 1 in G Major, BWV 1007
+        credit: Иоганн Себастьян Бах (Сюита для виолончели №1)
+      - title: Clair de Lune
+        credit: Клод Дебюсси («Лунный свет»)
+      - title: Debussy Deux №1
+        credit: Клод Дебюсси («Два арабеска» / Arabesque No. 1)
+      - title: Dies iræ 2b
+        credit: День гнева (Средневековый католический гимн)
+      - title: Dis moi Lune
+        credit: Мельница / Лолита (Кавер на песню группы Mecano — Hijo de la Luna)
+      - title: Eine kleine nachtmusik K. 525 1. Allegro
+        credit: Вольфганг Амадей Моцарт («Маленькая ночная серенада»)
+      - title: Gloria in D major, RV 589
+        credit: Антонио Вивальди (Глория)
+      - title: Grave march
+        credit: Похоронный марш (Традиционная траурная музыка)
+      - title: Hungarian dance
+        credit: Иоганнес Брамс («Венгерский танец №5»)
+      - title: Jew on Christmas
+        credit: South Park (Песня Кайла «The Lonely Jew on Christmas»)
+      - title: Jingle bells
+        credit: Джеймс Пьерпонт
+      - title: La petite fille de la mer
+        credit: Vangelis (Из альбома L'Apocalypse des animaux)
+      - title: La stravaganza, Op.4
+        credit: Антонио Вивальди («La stravaganza»)
+      - title: Last christmas
+        credit: Wham! (Джордж Майкл)
+      - title: Last day before schol
+        credit: (Саундтрек из игры / Аниме)
+      - title: Let it snow
+        credit: Фрэнк Синатра / Дин Мартин (Новогодний хит)
+      - title: Lohengrin, prelude to act 3
+        credit: Рихард Вагнер (Опера «Лоэнгрин» / Вступление к 3 акту)
+      - title: Mahler symphony No3
+        credit: Густав Малер (Симфония №3)
+      - title: Minuet
+        credit: Луиджи Боккерини (Знаменитый «Менуэт»)
+      - title: Moments musicaux d 780 no 3 in f minor
+        credit: Франц Шуберт (Музыкальные моменты)
+      - title: Moonlight sonata
+        credit: Людвиг ван Бетховен («Лунная соната»)
+      - title: Moving pictures
+        credit: Rush
+      - title: Nocturne in E Flat Opus 9 No2
+        credit: Фредерик Шопен (Ноктюрн ми-бемоль мажор)
+      - title: Nocturne in F sharp major Op. 15 No2
+        credit: Фредерик Шопен (Ноктюрн фа-диез мажор)
+      - title: Nocturne No9 Op.32 No1 in B major
+        credit: Фредерик Шопен (Ноктюрн си мажор)
+      - title: Nocturnes, Op.9 No1 in B-flat Minor
+        credit: Фредерик Шопен (Ноктюрн си-бемоль минор)
+      - title: Non più andrai,farfallone amoroso
+        credit: Вольфганг Амадей Моцарт (Ария Фигаро)
+      - title: Ode to Joy
+        credit: Людвиг ван Бетховен («Ода к радости» / Симфония №9)
+      - title: 'Piano Concerto #1 in B-flat Minor'
+        credit: Пётр Чайковский (Концерт для фортепиано №1)
+      - title: Radetzky marsch
+        credit: Иоганн Штраус (Марш Радецкого)
+      - title: Rain
+        credit: Иоганн Себастьян Бах («Дождь»)
+      - title: Sonata facile
+        credit: Вольфганг Амадей Моцарт (Соната №16)
+      - title: Sonata No8 in C Minor, Op. 13 Pathetique
+        credit: Людвиг ван Бетховен (Патетическая соната)
+      - title: Spring Waltz
+        credit: Фредерик Шопен («Весенний вальс» / Ошибочно приписываемый)
+      - title: Swan lake finalle
+        credit: Пётр Чайковский (Балет «Лебединое озеро» — Финал)
+      - title: Swan lake valse
+        credit: Пётр Чайковский (Балет «Лебединое озеро» — Вальс)
+      - title: Symphony No.9 From new world
+        credit: Антонин Дворжак (Симфония №9 «Из Нового Света»)
+      - title: The four seasons violin concerto in e major, op 8 no 1, rv 269 spring , i allegro – antonio vivaldi
+        credit: Антонио Вивальди («Весна»)
+      - title: The four seasons, summer
+        credit: Антонио Вивальди («Лето»)
+      - title: The Second Waltz
+        credit: Дмитрий Шостакович (Вальс №2)
+      - title: Verdi, rigoletto act 3 - la donna è mobile
+        credit: Джузеппе Верди (Ария Герцога)
+      - title: Violin Concerto No. 1 in D major
+        credit: Никколо Паганини (Концерт для скрипки №1)
+      - title: Violin Concerto No. 2 in B minor
+        credit: Никколо Паганини (Концерт для скрипки №2)
+      - title: Voices Of spring
+        credit: Иоганн Штраус («Весенние голоса»)
+      - title: Waltz
+        credit: Евгений Дога (Вальс из х / ф «Мой ласковый и нежный зверь»)
+      - title: Waltz b minor
+        credit: Фредерик Шопен (Вальс си минор, Op. 69 No. 2)
+      - title: Waltz in C sharp minor 64 No2
+        credit: Фредерик Шопен (Вальс до-диез минор)
+      - title: Waltz No2 in B Minor
+        credit: Фредерик Шопен (Вальс си минор)
+      - title: Полёт шмеля
+        credit: Николай Римский-Корсаков (Опера «Сказка о царе Салтане»)
+      - title: Танец рыцарей
+        credit: Сергей Прокофьев (Балет «Ромео и Джульетта»)
+      - title: Трепак
+        credit: Пётр Чайковский (Балет «Щелкунчик» — Русский танец)
   04_Dreams_Memes_Trash:
-    title: "Мечты, мемы, трэш"
-    icon: "💾"
+    title: Мечты, мемы, трэш
+    icon: 💾
     tracks:
-      "100 Years": "OR3O"
-      "1000 Doors": "The Living Tombstone"
-      "Aishu no karamatsuba yashi": "muship ft. Kasane Teto"
-      "Alberto balsalm": "Aphex Twin"
-      "AMONG US DRIP": "Амогус / Among Us Meme"
-      "BL studio loop": "Backrooms Meme"
-      "Brain rot": "Kasane Teto"
-      "Bubble": "Yorushika"
-      "Chaosexe": "Zenless Zone Zero"
-      "Chicken dance": "Танец маленьких утят"
-      "Chipi chipi chapa chapa": "Boy interaction"
-      "Close eyes": "DVRST"
-      "Cool vibes": "Kevin MacLeod"
-      "Cool vibes #2": "Kevin MacLeod"
-      "Die in a fire": "The Living Tombstone"
-      "Discord": "The Living Tombstone"
-      "Discord call": "Звук входящего звонка Discord"
-      "Doomer": "Kasane Teto"
-      "Doomer #2": "Kasane Teto"
-      "Drunk": "The Living Tombstone"
-      "Dummy romance": "Hatsune Miku"
-      "El beeper funk": "Dj Paulinho Mondi"
-      "Entry of the gladiators": "Цирковой марш (Юлиус Фучик)"
-      "Execution clap": "Kasane Teto"
-      "Execution clap #2": "Kasane Teto"
-      "Girl hell 1999": "Femtanyl"
-      "Hatachi no Koi": "Taiyou Someya"
-      "Hello": "OMFG"
-      "I kiss your lips": "Charly Lownoise"
-      "It's not like i like you": "Static-P"
-      "Kerosene": "Crystal Castles"
-      "Kocchi no kento": "Hai Yorokonde (я знаю что проебался, ладно? Позвольте проебаться, я ебал писать всё это)"
-      "Larping the rooms": "The Larping Tombstone"
-      "Life letters": "Never Get Used To People"
-      "Local forecast": "Kevin MacLeod"
-      "Looping the rooms": "Rusino"
-      "Meatball parade": "Kevin MacLeod"
-      "Monitoring": "Hatsune Miku"
-      "Monitoring #2": "Hatsune Miku"
-      "My ordinary life": "The Living Tombstone"
-      "No mercy": "The Living Tombstone"
-      "No monkey": "Wally Warning"
-      "Nokia": "Звук звонка Nokia"
-      "Nyan cat": "Нянкэт"
-      "Ochame kinou": "Kasane Teto"
-      "PoPiPo": "Hatsune Miku"
-      "Schnappi": "Schnappi, Das Kleine Krokodil"
-      "Scooby snacks": "p3b3"
-      "Skype call": "Звук звонка Skype"
-      "Snowfall": "Reidenshi"
-      "Stronger than you": "Estelle (Steven Universe)"
-      "The fine print": "The Stupendium"
-      "The human shields": "The Stringini Bros"
-      "The perfect girl": "Mareux"
-      "This land": "JibJab"
-      "Triple baka": "Hatsune Miku"
-      "Triple baka #2": "Hatsune Miku"
-      "Yamaguchi": "Yoshiko Yamaguchi"
-      "Гимн НаноТрейзен": "SS14 NT"
-      "Гимн Синди": "SS14 Синдикат"
-      "Мечты Blesstar": "перс Koranon'a (лоровая херня)"
-      "Мечты Куллер": "перс Koranon'a (лоровая херня)"
-      "Мечты Моримото": "перс Koranon'a (лоровая херня)"
-      "Мечты Саспенс": "перс Koranon'a (лоровая херня)"
-      "Мечты Сладкоежки": "перс Koranon'a (лоровая херня)"
-      "Мечты Спектра-71": "перс Koranon'a (лоровая херня)"
-      "Мечты Степчина": "перс Koranon'a (лоровая херня)"
-      "Мечты Такомур": "перс Koranon'a (лоровая херня)"
-      "Мечты Хиппель": "перс Koranon'a (лоровая херня)"
-      "РАФФАЕЛО": "Реклама Раффаело"
-      "Сок 'Я'": "Реклама Сока 'Я'"
-      "Судно": "Молчат Дома"
-
+      groups:
+      - credit: Hatsune Miku
+        tracks:
+        - title: Dummy romance
+        - title: Monitoring
+        - title: 'Monitoring #2'
+        - title: PoPiPo
+        - title: Triple baka
+        - title: 'Triple baka #2'
+      - credit: Kasane Teto
+        tracks:
+        - title: Brain rot
+        - title: Doomer
+        - title: 'Doomer #2'
+        - title: Execution clap
+        - title: 'Execution clap #2'
+        - title: Ochame kinou
+        - title: Short and Sweet
+        - title: Yarara
+      - credit: Kevin MacLeod
+        tracks:
+        - title: Cool vibes
+        - title: 'Cool vibes #2'
+        - title: Local forecast
+        - title: Meatball parade
+      - credit: The Blake Robinson Synthetic Orchestra
+        tracks:
+        - title: An unhealthy obsession
+        - title: Morning broadway
+      - credit: The Living Tombstone
+        tracks:
+        - title: 1000 Doors
+        - title: Basics in behavior
+        - title: Die in a fire
+        - title: Discord
+        - title: Drunk
+        - title: My ordinary life
+        - title: No Mercy
+      - credit: перс Koranon'a (лоровая херня)
+        tracks:
+        - title: Мечты Blesstar
+        - title: Мечты Куллер
+        - title: Мечты Моримото
+        - title: Мечты Саспенс
+        - title: Мечты Сладкоежки
+        - title: Мечты Спектра-71
+        - title: Мечты Степчина
+        - title: Мечты Такомур
+        - title: Мечты Хиппель
+      singles:
+      - title: 100 Years
+        credit: OR3O
+      - title: A Crimewave is Coming
+        credit: Cryptrik
+      - title: Aishu no karamatsuba yashi
+        credit: muship ft. Kasane Teto
+      - title: Alberto balsalm
+        credit: Aphex Twin
+      - title: AMONG US DRIP
+        credit: Амогус / Among Us Meme
+      - title: BL studio loop
+        credit: Backrooms Meme
+      - title: Bubble
+        credit: Yorushika
+      - title: Chaosexe
+        credit: Zenless Zone Zero
+      - title: Chicken dance
+        credit: Танец маленьких утят
+      - title: Chipi chipi chapa chapa
+        credit: Boy interaction
+      - title: Close eyes
+        credit: DVRST
+      - title: Discord call
+        credit: Звук входящего звонка Discord
+      - title: Do you like air conditioning
+        credit: The​Phirst
+      - title: El beeper funk
+        credit: Dj Paulinho Mondi
+      - title: Entry of the gladiators
+        credit: Цирковой марш (Юлиус Фучик)
+      - title: Girl hell 1999
+        credit: Femtanyl
+      - title: Hatachi no Koi
+        credit: Taiyou Someya
+      - title: Hello
+        credit: OMFG
+      - title: I kiss your lips
+        credit: Charly Lownoise
+      - title: It's not like i like you
+        credit: Static-P
+      - title: Kerosene
+        credit: Crystal Castles
+      - title: Kocchi no kento
+        credit: Hai Yorokonde (я знаю что проебался, ладно? Позвольте проебаться, я ебал писать всё это)
+      - title: Lagtrain
+        credit: inabakumori (feat. Kaai Yuki)
+      - title: Larping the rooms
+        credit: The Larping Tombstone
+      - title: Life letters
+        credit: Never Get Used To People
+      - title: Looping the rooms
+        credit: Rusino
+      - title: Me and the Devil
+        credit: Soap&Skin
+      - title: No monkey
+        credit: Wally Warning
+      - title: Nokia
+        credit: Звук звонка Nokia
+      - title: Nyan cat
+        credit: Нянкэт
+      - title: Scamper
+        credit: FNF
+      - title: Schnappi
+        credit: Schnappi, Das Kleine Krokodil
+      - title: Scooby snacks
+        credit: p3b3
+      - title: Skype call
+        credit: Звук звонка Skype
+      - title: Snowfall
+        credit: Reidenshi
+      - title: Stronger than you
+        credit: Estelle (Steven Universe)
+      - title: The fine print
+        credit: The Stupendium
+      - title: The human shields
+        credit: The Stringini Bros
+      - title: The perfect girl
+        credit: Mareux
+      - title: This land
+        credit: JibJab
+      - title: Yamaguchi
+        credit: Yoshiko Yamaguchi
+      - title: Гимн НаноТрейзен
+        credit: SS14 NT
+      - title: Гимн Синди
+        credit: SS14 Синдикат
+      - title: РАФФАЕЛО
+        credit: Реклама Раффаело
+      - title: Сок 'Я'
+        credit: Реклама Сока 'Я'
+      - title: Судно
+        credit: Молчат Дома
   05_Folk_Anthems_Reggae_Tango:
-    title: "Фолк, гимны, регги, танго"
-    icon: "🌍"
+    title: Фолк, гимны, регги, танго
+    icon: 🌍
     tracks:
-      "Angel": "Shaggy (Рэгги-поп)"
-      "Baby i love your way": "Big Mountain (Рэгги)"
-      "Bad boys": "Inner Circle (Рэгги / Тема из х/ф «Плохие парни»)"
-      "Battoai": "Военный гимн Императорской Японии"
-      "Because i got high": "Afroman (Рэгги-рэп / Хип-хоп)"
-      "Bella Ciao": "Итальянская народная (Песня партизан)"
-      "Caravan": "Хуан Тизол и Дюк Эллингтон (Джазовый стандарт)"
-      "Colonel Bogey": "Кеннет Элфорд (Марш Полковника Боуги)"
-      "Cotton Eye Joe": "Rednex (Евродэнс / Кантри)"
-      "Cotton Eye Joe #2": "Rednex (Евродэнс / Кантри)"
-      "Could you be loved": "Bob Marley (Рэгги)"
-      "Der offene aufmarsch": "Ганс Эйслер (Немецкая антифашистская песня)"
-      "England": "Гимн Великобритании (God Save the King)"
-      "Germany": "Гимн Германии (Песнь немцев)"
-      "Hava Nagila": "Еврейская народная (Клезмер)"
-      "Hava shalom": "Еврейская народная (Клезмер)"
-      "Hevenu shalom": "Еврейская народная (Клезмер)"
-      "Its a long long way to Tipperary": "Британская военная песня (Марш Первой мировой)"
-      "Jalousie": "Якоб Гаде (Цыганское танго «Ревность»)"
-      "La cumparsita": "Херардо Родригес (Уругвайское танго)"
-      "La Verdine": "Latcho Drom (Цыганский джаз-мануш)"
-      "Lambada": "Kaoma (Латино-поп)"
-      "Levan polkka": "Финская народная полька (Полька Евы)"
-      "Mambo Italiano": "Розмари Клуни / Розина (Итало-американский шлягер)"
-      "Mambo-Mambo": "Lou Bega (Мамбо)"
-      "Mazel tov": "Еврейская народная (Поздравительная клезмер-песня)"
-      "Niet Molotoff": "Финская военная песня (Песня Зимней войны)"
-      "Non je ne regrette rien": "Эдит Пиаф (Французский шансон)"
-      "O Canada": "Гимн Канады"
-      "Orange colored sky": "Nat King Cole"
-      "Red red wine": "UB40 (Рэгги-поп кавер)"
-      "Red sun in the sky": "Китайская патриотическая песня (Ода Мао Цзэдуну)"
-      "Red sun in the sky #2": "Китайская патриотическая песня (Ода Мао Цзэдуну)"
-      "Ring a ring o roses": "Детская народная песенка-игра"
-      "Sakkijarven polkka": "Финская народная полька (Полька Сяккиярви)"
-      "Sambra": "Традиционная латиноамериканская самба"
-      "Scotland the brave": "Неофициальный гимн Шотландии (Волынки)"
-      "Seiben tage lang": "Bots (Голландская/Немецкая народная песня)"
-      "Serbia strong": "Сербская патриотическая песня (Ремзија)"
-      "Shuckin the corn": "Американская народная (Блюграсс / Кантри)"
-      "Smooth": "Santana feat. Rob Thomas (Латино-рок)"
-      "Soldiers march": "Роберт Шуман («Марш солдат» из Альбома для юношества)"
-      "Spanish flea": "Herb Alpert (Поп-джаз)"
-      "Sunshine reggae": "Laid Back (Рэгги / Поп-хит 80-х)"
-      "Take me home, country road": "John Denver (Кантри-фолк)"
-      "Tango #1": "Традиционное аргентинское танго"
-      "Tango #2": "Традиционное аргентинское танго"
-      "Tango #3": "Традиционное аргентинское танго"
-      "Tango #4": "Традиционное аргентинское танго"
-      "Tangos caminito": "Хуан де Диос Филиберто (Аргентинское танго)"
-      "The battle hymn of the republic": "Американский патриотический гимн"
-      "The girl from Ipanema": "Аструд Жилберту (Босса-нова / Джаз)"
-      "The star spangled banner": "Гимн США"
-      "The star spangled banner #2": "Гимн США"
-      "Three little birds": "Bob Marley (Рэгги)"
-      "Union Dixie": "Песня Гражданской войны в США (Северяне)"
-      "When Johnny comes marching home": "Американская военная песня (Времён Гражданской войны)"
-      "You don't love me (no no no)": "Dawn Penn (Регги / Рокстеди)"
-      "You gotta move": "Mississippi Fred McDowell (Традиционный спиричуэлс / Блюз)"
-      "Zundoko-bushi": "Японская народная песня (The Drifters версии)"
-      "Боже Царя храни": "Гимн Российской Империи"
-      "Боже Царя храни #2": "Гимн Российской Империи"
-      "Гимн РФ 93": "Патриотическая песня (Михаил Глинка / Гимн РФ в 1993-2000 гг.)"
-      "Дорогой длинною": "Борис Фомин (Русский романс)"
-      "Идёт солдат": "Советская песня (ВИА «Пламя» — Идёт солдат по городу)"
-      "Калинка": "Иван Ларионов (Русская народная песня)"
-      "Красная Армия всех сильней": "Красноармейская песня"
-      "Крейсер 'Аврора'": "м/ф «Ка things» (Владимир Шаинский / Эдуард Хиль)"
-      "Молдованка": "Анатолий Новиков (Советская вальс-песня)"
-      "Нам нужна одна победа": "Булат Окуджава (х/ф «Белорусский вокзал»)"
-      "Последний бой": "х/ф «Освобождение» (Михаил Ножкин)"
-      "Синий платочек": "Клавдия Шульженко (Советская вальс-песня)"
-      "Славься Русь": "Жанна Бичевская (Патриотическая песня)"
-      "Славянка": "Василий Агапкин (Марш «Прощание славянки»)"
-      "Юный октябрь": "Советская песня (Иосиф Кобзон — И вновь продолжается бой)"
-      
+      groups:
+      - credit: Bob Marley (Рэгги)
+        tracks:
+        - title: Could you be loved
+        - title: Three little birds
+      - credit: Rednex
+        tracks:
+        - title: Cotton Eye Joe
+        - title: 'Cotton Eye Joe #2'
+      - credit: Гимн Российской Империи
+        tracks:
+        - title: Боже Царя храни
+        - title: 'Боже Царя храни #2'
+      - credit: Гимн США
+        tracks:
+        - title: The star spangled banner
+        - title: 'The star spangled banner #2'
+      - credit: Еврейская народная (Клезмер)
+        tracks:
+        - title: Hava Nagila
+        - title: Hava shalom
+        - title: Hevenu shalom
+      - credit: Китайская патриотическая песня (Ода Мао Цзэдуну)
+        tracks:
+        - title: Red sun in the sky
+        - title: 'Red sun in the sky #2'
+      - credit: Традиционное аргентинское танго
+        tracks:
+        - title: 'Tango #1'
+        - title: 'Tango #2'
+        - title: 'Tango #3'
+        - title: 'Tango #4'
+      singles:
+      - title: Angel
+        credit: Shaggy
+      - title: Baby i love your way
+        credit: Big Mountain (Рэгги)
+      - title: Bad boys
+        credit: Inner Circle (Рэгги / Тема из х / ф «Плохие парни»)
+      - title: Battoai
+        credit: Военный гимн Императорской Японии
+      - title: Because i got high
+        credit: Afroman
+      - title: Bella Ciao
+        credit: Итальянская народная (Песня партизан)
+      - title: Caravan
+        credit: Хуан Тизол и Дюк Эллингтон (Джазовый стандарт)
+      - title: Colonel Bogey
+        credit: Кеннет Элфорд (Марш Полковника Боуги)
+      - title: Der offene aufmarsch
+        credit: Ганс Эйслер (Немецкая антифашистская песня)
+      - title: Drum bun
+        credit: Молдавская народная
+      - title: England
+        credit: Гимн Великобритании (God Save the King)
+      - title: Germany
+        credit: Гимн Германии (Песнь немцев)
+      - title: Ich bin soldat
+        credit: Немецкая народная
+      - title: Its a long long way to Tipperary
+        credit: Британская военная песня (Марш Первой мировой)
+      - title: Jalousie
+        credit: Якоб Гаде (Цыганское танго «Ревность»)
+      - title: La cumparsita
+        credit: Херардо Родригес
+      - title: La Verdine
+        credit: Latcho Drom
+      - title: Lambada
+        credit: Kaoma
+      - title: Levan polkka
+        credit: Финская народная полька (Полька Евы)
+      - title: Mambo Italiano
+        credit: Розмари Клуни / Розина (Итало-американский шлягер)
+      - title: Mambo-Mambo
+        credit: Lou Bega (Мамбо)
+      - title: Mazel tov
+        credit: Еврейская народная (Поздравительная клезмер-песня)
+      - title: Mein kleiner grüner Kaktus
+        credit: Comedian Harmonists
+      - title: Niet Molotoff
+        credit: Финская военная песня (Песня Зимней войны)
+      - title: Non je ne regrette rien
+        credit: Эдит Пиаф
+      - title: O Canada
+        credit: Гимн Канады
+      - title: O, du lieber Augustin
+        credit: Австрийская народная
+      - title: Orange colored sky
+        credit: Nat King Cole
+      - title: Red red wine
+        credit: UB40 (Рэгги-поп кавер)
+      - title: Ring a ring o roses
+        credit: Детская народная песенка-игра
+      - title: Sakkijarven polkka
+        credit: Финская народная полька (Полька Сяккиярви)
+      - title: Sambra
+        credit: Традиционная латиноамериканская самба
+      - title: Scotland the brave
+        credit: Неофициальный гимн Шотландии (Волынки)
+      - title: Serbia strong
+        credit: Сербская патриотическая песня (Ремзија)
+      - title: Shuckin the corn
+        credit: Американская народная
+      - title: Sieben tage lang
+        credit: Bots
+      - title: Smooth
+        credit: Santana feat. Rob Thomas
+      - title: Soldiers march
+        credit: Роберт Шуман («Марш солдат» из Альбома для юношества)
+      - title: Spanish flea
+        credit: Herb Alpert
+      - title: Sunshine reggae
+        credit: Laid Back
+      - title: Take me home, country road
+        credit: John Denver
+      - title: Tangos caminito
+        credit: Хуан де Диос Филиберто
+      - title: The battle hymn of the republic
+        credit: Американский патриотический гимн
+      - title: The girl from Ipanema
+        credit: Аструд Жилберту
+      - title: Union Dixie
+        credit: Песня Гражданской войны в США (Северяне)
+      - title: When Johnny comes marching home
+        credit: Американская военная песня (Времён Гражданской войны)
+      - title: You don't love me (no no no)
+        credit: Dawn Penn
+      - title: You gotta move
+        credit: Mississippi Fred McDowell
+      - title: Zundoko-bushi
+        credit: Японская народная песня (The Drifters версии)
+      - title: Гимн РФ 93
+        credit: Патриотическая песня (Михаил Глинка / Гимн РФ в 1993-2000 гг.)
+      - title: Дорогой длинною
+        credit: Борис Фомин (Русский романс)
+      - title: Идёт солдат
+        credit: Советская песня (ВИА «Пламя» — Идёт солдат по городу)
+      - title: Калинка
+        credit: Иван Ларионов (Русская народная песня)
+      - title: Красная Армия всех сильней
+        credit: Красноармейская песня
+      - title: Крейсер 'Аврора'
+        credit: м/ф «Ка things» (Владимир Шаинский / Эдуард Хиль)
+      - title: Молдованка
+        credit: Анатолий Новиков (Советская вальс-песня)
+      - title: Нам нужна одна победа
+        credit: Булат Окуджава (х/ф «Белорусский вокзал»)
+      - title: Последний бой
+        credit: х/ф «Освобождение» (Михаил Ножкин)
+      - title: Синий платочек
+        credit: Клавдия Шульженко (Советская вальс-песня)
+      - title: Славься Русь
+        credit: Жанна Бичевская (Патриотическая песня)
+      - title: Славянка
+        credit: Василий Агапкин (Марш «Прощание славянки»)
+      - title: Юный октябрь
+        credit: Советская песня (Иосиф Кобзон — И вновь продолжается бой)
   06_Jazz_Swing_Retro:
-    title: "Джаз, свинг, ретро"
-    icon: "🎷"
+    title: Джаз, свинг, ретро
+    icon: 🎷
     tracks:
-      "A kiss to build a dream on": "Louis Armstrong (Джазовый стандарт / Fallout 2 OST)"
-      "A little dream of me": "The Mamas & the Papas (Джаз-поп шлягер / Dream a Little Dream of Me)"
-      "A Smile and a Ribbon": "Patience and Prudence"
-      "Ain't Misbehavin'": "Fats Waller (Классический страйд-джаз)"
-      "All night": "Parov Stelar (Электросвинг)"
-      "All you are going to want to do is get back there": "The Caretaker (Проект Лейланда Кирби)"
-      "Alligator crawl": "Fats Waller (Классический джаз-пианизм)"
-      "Angela": "Bob James (Тема из сериала «Такси»)"
-      "Atom bomb baby": "Fallout 4 (The Five Stars)"
-      "Bang bang": "Nancy Sinatra (х/ф «Убить Билла»)"
-      "Beyond the sea": "BioShock / Bobby Darin"
-      "Big Iron": "Fallout: New Vegas (Marty Robbins)"
-      "Big spender": "Shirley Bassey (Мюзикл «Милая Чарити» / Sweet Charity)"
-      "Black betty": "Ram Jam (Рок-хит на основе народной песни)"
-      "Blue Moon": "Fallout: New Vegas (Frank Sinatra)"
-      "Blue suede shoes": "Elvis Presley (Рокабилли / Рок-н-ролл)"
-      "Boogie man": "Caravan Palace (Электросвинг)"
-      "Booty swing": "Parov Stelar (Электросвинг)"
-      "Catgroove": "Parov Stelar (Электросвинг)"
-      "Chambermaid swing": "Parov Stelar (Электросвинг)"
-      "Cheek to cheek": "Fred Astaire / Ella Fitzgerald & Louis Armstrong (Джазовый стандарт)"
-      "Close to you": "The Carpenters (Поп-классика 70-х)"
-      "Coin operated boy": "The Dresden Dolls (Дарк-кабаре / Панк-кабаре)"
-      "Cry me a river": "Julie London (Классический джазовый блюз)"
-      "Dear hearts and gentle people": "Bob Crosby / Bing Crosby (Fallout 3 OST)"
-      "Dizzy fingers": "Zez Confrey (Регтайм)"
-      "Don't let the stars get in you eyes": "Perry Como (Поп-стандарт 50-х / Fallout: New Vegas OST)"
-      "Dramophone": "Caravan Palace (Электросвинг)"
-      "Earth angel": "The Penguins (Ду-воп классика / х/ф «Назад в будущее»)"
-      "Feeling good": "Nina Simone / Muse"
-      "Five hundred miles": "Hedy West / Peter, Paul and Mary (Фолк-классика / 500 Miles)"
-      "Fly me to the moon": "Frank Sinatra (Легендарный джазовый стандарт)"
-      "Fly me to the Moon #2": "Frank Sinatra (Легендарный джазовый стандарт)"
-      "Glitz at the ritz": "Jules Gaia (Электросвинг)"
-      "Heartaches": "Ted Weems & His Orchestra (Поп-хит 30-х / Прообраз треков The Caretaker)"
-      "Heartaches by the number": "Fallout: New Vegas (Guy Mitchell)"
-      "Hey pachuco": "Royal Crown Revue (Свинг / х/ф «Маска»)"
-      "Hit the road Jack": "Ray Charles"
-      "Hurt": "Nine Inch Nails / Johnny Cash (Альтернативный рок / Кантри)"
-      "I don't want to set the world on fire": "Fallout 3 (The Ink Spots)"
-      "I'm always chaising rainbow": "Perry Como / Judy Garland (Поп-стандарт / I'm Always Chasing Rainbows)"
-      "In a sentimental mood": "Duke Ellington & John Coltrane (Джазовая классика)"
-      "Into each life some rains must fall": "The Ink Spots & Ella Fitzgerald (Fallout 3 OST)"
-      "It don't mean a thing": "Duke Ellington (Эра свинга / Джазовый стандарт)"
-      "It's just a burning memory": "The Caretaker (Проект Everywhere at the End of Time)"
-      "Jazz around midnight": "Традиционный полуночный джаз-сборник"
-      "Jingle jangle jingle": "Fallout: New Vegas (Kay Kyser)"
-      "Just the two of us": "Grover Washington Jr. feat. Bill Withers (Смут-джаз / R&B)"
-      "Kitten on the keys": "Zez Confrey (Новинка-регтайм)"
-      "La vie en rose": "Edith Piaf / Louis Armstrong (Французский классический шлягер)"
-      "Life could be dream": "The Chords (Ду-воп классика / Sh-Boom)"
-      "LiraInfluencia do jazz": "Carlos Lyra (Бразильская босса-нова / Influência do Jazz)"
-      "Lone digger": "Caravan Palace (Electro Swing)"
-      "Lost in the rhythm": "Jamie Berry feat. Octavia Rose (Электросвинг)"
-      "Love and marrige": "Frank Sinatra (Сериал «Женаты… с детьми»)"
-      "Magic moments": "Perry Como"
-      "Maybe": "The Ink Spots"
-      "Mein herr": "Мюзикл «Кабаре» (Лайза Миннелли)"
-      "Mr.Sandman": "The Chordettes"
-      "My way": "Frank Sinatra (Эстрадная классика)"
-      "NewYork": "Frank Sinatra (Theme from New York, New York)"
-      "Olive Branch": "Lackadaisy"
-      "Only you": "The Platters (Ду-воп / Романтический хит 50-х)"
-      "Peeping Tom": "Jamie Berry feat. Rosie Harte (Электросвинг)"
-      "Pistol packing mama": "Fallout 4 (Bing Crosby & The Andrews Sisters)"
-      "Put on your sunday clothe": "Мюзикл «Хелло, Долли!» (х/ф «ВАЛЛ-И» OST)"
-      "Raindrops keep falling on my head": "B.J. Thomas (х/ф «Буч Кэссиди и Сандэнс Кид»)"
-      "Rock around the clock": "Bill Haley & His Comets (Рок-н-ролл)"
-      "Rock it for me": "Caravan Palace (Электросвинг)"
-      "Run rabbit run": "Flanagan and Allen (Из хорроров / Доктор Кто)"
-      "Russian": "Традиционный цыганский или русский романс в джазовой обработке"
-      "Sixteen tons": "Tennessee Ernie Ford"
-      "Sixty minute man": "Fallout 4 (The Dominoes)"
-      "Slowly jazz": "Традиционный медленный джаз / Лаунж"
-      "Softly as in a morning sunrise": "Джазовый стандарт (Арт Шоу / Сонни Роллинз)"
-      "Some enchanted evening": "из мюзикла «Юг Тихого океана»"
-      "Some enchanted evening #2": "из мюзикла «Юг Тихого океана»"
-      "Something stupid": "Frank Sinatra & Nancy Sinatra (Поп-дуэт)"
-      "Southern nights": "Glen Campbell (х/ф «Стражи Галактики 2» OST)"
-      "That's life": "Frank Sinatra"
-      "The end of the world": "Skeeter Davis (Поп-кантри / Fallout 4 OST)"
-      "The very thought of you": "Billie Holiday / Nat King Cole (Джазовый стандарт)"
-      "The wanderer": "Fallout 4 (Dion)"
-      "Two of kind": "Свинг-дуэт (Фрэнк Синатра и Бинг Кросби / Two of a Kind)"
-      "Unfinished business": "Традиционный блюз / Джазовый инструментал"
-      "Vipers drag": "Fats Waller (Страйд-пианино / Джаз)"
-      "Wash my hands": "Традиционный спиричуэлс / Госпел-блюз"
-      "Way back home": "Bob Crosby (Fallout 4 OST)"
-      "What you won't do for love": "Bobby Caldwell (Блюз / Соул / R&B)"
-      "Who gonna shack it night along": "Традиционный блюз-рок / Ритм-энд-блюз"
-      "Why don't you do it right": "Peggy Lee / Lil Green (х/ф «Кто подставил кролика Роджера»)"
-      "Will meet again": "Vera Lynn (Песня времён Второй мировой / х/ф «Доктор Стрейнджлав»)"
-      "Wonderful world": "Louis Armstrong (What a Wonderful World)"
-      "Young and foolish": "Джазовый стандарт (Билл Эванс / Тони Беннетт)"
-
+      groups:
+      - credit: Caravan Palace
+        tracks:
+        - title: Boogie man
+        - title: Dramophone
+        - title: Lone digger
+        - title: Rock it for me
+      - credit: Elvis Presley
+        tracks:
+        - title: Blue christmas
+        - title: Blue suede shoes
+        - title: Can't help falling in love
+        - title: Heartbreak hotel
+        - title: Hound dog
+        - title: Jailhouse rock
+      - credit: Fats Waller
+        tracks:
+        - title: Ain't Misbehavin'
+        - title: Alligator crawl
+        - title: Vipers drag
+      - credit: Frank Sinatra
+        tracks:
+        - title: My way
+        - title: That's life
+        - title: Fly me to the moon
+        - title: 'Fly me to the Moon #2'
+      - credit: Nat King Cole
+        tracks:
+        - title: Orange colored sky
+        - title: The very thought of you
+      - credit: Parov Stelar
+        tracks:
+        - title: All night
+        - title: Booty swing
+        - title: Catgroove
+        - title: Chambermaid swing
+      - credit: Zez Confrey
+        tracks:
+        - title: Dizzy fingers
+        - title: Kitten on the keys
+      - credit: из мюзикла «Юг Тихого океана»
+        tracks:
+        - title: Some enchanted evening
+        - title: 'Some enchanted evening #2'
+      singles:
+      - title: A kiss to build a dream on
+        credit: Louis Armstrong (Джазовый стандарт / Fallout 2 OST)
+      - title: A little dream of me
+        credit: The Mamas & the Papas
+      - title: A Smile and a Ribbon
+        credit: Patience and Prudence
+      - title: All you are going to want to do is get back there
+        credit: The Caretaker (Проект Лейланда Кирби)
+      - title: Angela
+        credit: Bob James (Тема из сериала «Такси»)
+      - title: Atom bomb baby
+        credit: Fallout 4 (The Five Stars)
+      - title: Bang bang
+        credit: Nancy Sinatra (х/ф «Убить Билла»)
+      - title: Beyond the sea
+        credit: BioShock / Bobby Darin
+      - title: Big Iron
+        credit: 'Fallout: New Vegas (Marty Robbins)'
+      - title: Big spender
+        credit: Shirley Bassey (Мюзикл «Милая Чарити» / Sweet Charity)
+      - title: Black betty
+        credit: Ram Jam
+      - title: Blue Moon
+        credit: 'Fallout: New Vegas (Frank Sinatra)'
+      - title: Cheek to cheek
+        credit: Fred Astaire / Ella Fitzgerald & Louis Armstrong (Джазовый стандарт)
+      - title: Close to you
+        credit: The Carpenters
+      - title: Coin operated boy
+        credit: The Dresden Dolls
+      - title: Cry me a river
+        credit: Julie London
+      - title: Dear hearts and gentle people
+        credit: Bob Crosby / Bing Crosby (Fallout 3 OST)
+      - title: Don't let the stars get in you eyes
+        credit: 'Perry Como (Fallout: New Vegas OST)'
+      - title: Earth angel
+        credit: The Penguins (Ду-воп классика / х/ф «Назад в будущее»)
+      - title: Feeling good
+        credit: Nina Simone / Muse
+      - title: Five hundred miles
+        credit: Hedy West / Peter, Paul and Mary
+      - title: Glitz at the ritz
+        credit: Jules Gaia
+      - title: Heartaches
+        credit: Ted Weems & His Orchestra
+      - title: Heartaches by the number
+        credit: 'Fallout: New Vegas (Guy Mitchell)'
+      - title: Hello my baby
+        credit: Howard and Emerson
+      - title: Hey pachuco
+        credit: Royal Crown Revue (Свинг / х/ф «Маска»)
+      - title: Hit the road Jack
+        credit: Ray Charles
+      - title: Hurt
+        credit: Nine Inch Nails / Johnny Cash
+      - title: I don't want to set the world on fire
+        credit: Fallout 3 (The Ink Spots)
+      - title: I'm always chaising rainbow
+        credit: Perry Como / Judy Garland
+      - title: In a sentimental mood
+        credit: Duke Ellington & John Coltrane
+      - title: Into each life some rains must fall
+        credit: The Ink Spots & Ella Fitzgerald (Fallout 3 OST)
+      - title: It don't mean a thing
+        credit: Duke Ellington (Эра свинга / Джазовый стандарт)
+      - title: It had to be you
+        credit: Isham Jones
+      - title: It's just a burning memory
+        credit: The Caretaker (Проект Everywhere at the End of Time)
+      - title: Jazz around midnight
+        credit: Традиционный полуночный джаз-сборник
+      - title: Jingle jangle jingle
+        credit: 'Fallout: New Vegas (Kay Kyser)'
+      - title: Just the two of us
+        credit: Grover Washington Jr. feat. Bill Withers
+      - title: La vie en rose
+        credit: Edith Piaf / Louis Armstrong
+      - title: Life could be dream
+        credit: The Chords
+      - title: LiraInfluencia do jazz
+        credit: Carlos Lyra
+      - title: Lost in the rhythm
+        credit: Jamie Berry feat. Octavia Rose
+      - title: Love and marrige
+        credit: Frank Sinatra (Сериал «Женаты… с детьми»)
+      - title: Magic moments
+        credit: Perry Como
+      - title: Maybe
+        credit: The Ink Spots
+      - title: Mein herr
+        credit: Мюзикл «Кабаре» (Лайза Миннелли)
+      - title: Mr.Sandman
+        credit: The Chordettes
+      - title: NewYork
+        credit: Frank Sinatra (Theme from New York, New York)
+      - title: Olive Branch
+        credit: Lackadaisy
+      - title: Only you
+        credit: The Platters (Ду-воп / Романтический хит 50-х)
+      - title: Peeping Tom
+        credit: Jamie Berry feat. Rosie Harte
+      - title: Pistol packing mama
+        credit: Fallout 4 (Bing Crosby & The Andrews Sisters)
+      - title: Put on your sunday clothe
+        credit: Мюзикл «Хелло, Долли!» (х / ф «ВАЛЛ-И» OST)
+      - title: Raindrops keep falling on my head
+        credit: B.J. Thomas (х/ф «Буч Кэссиди и Сандэнс Кид»)
+      - title: Rock around the clock
+        credit: Bill Haley & His Comets
+      - title: Run rabbit run
+        credit: Flanagan and Allen (Из хорроров / Доктор Кто)
+      - title: Russian
+        credit: Традиционный цыганский или русский романс в джазовой обработке
+      - title: Sixteen tons
+        credit: Tennessee Ernie Ford
+      - title: Sixty minute man
+        credit: Fallout 4 (The Dominoes)
+      - title: Slowly jazz
+        credit: Традиционный медленный джаз / Лаунж
+      - title: Softly as in a morning sunrise
+        credit: Джазовый стандарт (Арт Шоу / Сонни Роллинз)
+      - title: Something stupid
+        credit: Frank Sinatra & Nancy Sinatra
+      - title: Southern nights
+        credit: Glen Campbell (х / ф «Стражи Галактики 2» OST)
+      - title: The end of the world
+        credit: Skeeter Davis (Fallout 4 OST)
+      - title: The wanderer
+        credit: Dion
+      - title: Two of kind
+        credit: Фрэнк Синатра и Бинг Кросби
+      - title: Unfinished business
+        credit: Традиционный блюз / Джазовый инструментал
+      - title: Wash my hands
+        credit: Традиционный спиричуэлс / Госпел-блюз
+      - title: Way back home
+        credit: Bob Crosby (Fallout 4 OST)
+      - title: What you won't do for love
+        credit: Bobby Caldwell
+      - title: Who gonna shack it night along
+        credit: Традиционный блюз-рок / Ритм-энд-блюз
+      - title: Why don't you do it right
+        credit: Peggy Lee / Lil Green (х/ф «Кто подставил кролика Роджера»)
+      - title: Will meet again
+        credit: Vera Lynn (Песня времён Второй мировой / х / ф «Доктор Стрейнджлав»)
+      - title: Wonderful world
+        credit: Louis Armstrong (What a Wonderful World)
+      - title: Young and foolish
+        credit: Джазовый стандарт (Билл Эванс / Тони Беннетт)
   07_Pop_Music_International:
-    title: "Зарубежная поп-музыка"
-    icon: "🌐"
+    title: Зарубежная поп-музыка
+    icon: 🌐
     tracks:
-      "505": "Arctic Monkeys"
-      "A thousand miles": "Vanessa Carlton (Поп-классика 2000-х)"
-      "ABCDFU": "GAYLE (Поп-рок / ТикТок хит)"
-      "Abracadabra": "Steve Miller Band (Классический рок)"
-      "Accidentally in love": "Counting Crows (м/ф «Шрек 2» OST)"
-      "Across the sea": "Weezer"
-      "Adult education": "Hall & Oates (Поп-рок 80-х / GTA Vice City OST)"
-      "Adventure of a Lifetime": "Coldplay (Поп-рок)"
-      "After dark": "Mr.Kitty (Синти-поп / Дарквейв)"
-      "Alright": "Supergrass (Брит-поп / х/ф «Бестолковые»)"
-      "American idiot": "Green Day (Поп-панк)"
-      "American pie": "Don McLean / Madonna (Фолк-рок классика)"
-      "Angel of the morning": "Juice Newton (х/ф «Дэдпул» OST)"
-      "Angel of the morning #2": "Juice Newton (х/ф «Дэдпул» OST)"
-      "Animals": "Maroon 5 (Поп-рок)"
-      "Another day In paradise": "Phil Collins"
-      "Another love": "Tom Odell (Инди-поп / Фортепианная баллада)"
-      "Applause": "Lady Gaga (Электропоп)"
-      "Around the world": "Daft Punk (Хаус / Электроника)"
-      "As it was": "Harry Styles (Инди-поп)"
-      "As the world caves in": "Matt Maltese (Инди-рок / Апокалиптическая баллада)"
-      "Baby one more time": "Britney Spears (Поп-хит 90-х)"
-      "Bad girls": "Donna Summer (Диско-классика / GTA Grand Theft Auto OST)"
-      "Bailando": "Enrique Iglesias (Латино-поп)"
-      "Ballin": "Mustard feat. Roddy Ricch (Рэп / Мем с Аниманом)"
-      "Bambalailo": "Gipsy Kings (Фламенко-поп / Bamboléo)"
-      "Barbie girl": "Aqua (Евродэнс 90-х)"
-      "Beach parade": "Armando Trovajoli (Легкомысленная ретро-мелодия)"
-      "Beautiful life": "Ace of Base (Евродэнс 90-х)"
-      "Beauty clown": "And One"
-      "Better off alone": "Alice Deejay (Евротранс 90-х)"
-      "Big and chunky": "Will.i.am (Мото-Мото из Мадагаскар 2)"
-      "Big city life": "Mattafix (Трип-хоп / Регги-фьюжн)"
-      "Big in Japan": "Alphaville (Синти-поп 80-х)"
-      "Bimbo doll": "Tila Tequila / Tami (Поп-хит 2000-х)"
-      "Bitter sweet symphony": "The Verve (Брит-поп / Симфонический рок)"
-      "Black black heart": "David Usher"
-      "Blue monday": "New Order"
-      "Body company": "And One"
-      "Boom-Boom-Boom": "Vengaboys (Евродэнс 90-х)"
-      "Breakfast in America": "Supertramp (Прогрессивный поп-рок)"
-      "Brother Louie": "Modern Talking (Евродиско 80-х)"
-      "Build a bitch": "Bella Poarch"
-      "Cake by the ocean": "DNCE (Фанк-поп)"
-      "California dreaming": "The Mamas & the Papas (Фолк-рок 60-х)"
-      "Call me": "Blondie (Нью-вейв / х/ф «Американский жиголо»)"
-      "Call me maybe": "Carly Rae Jepsen (Поп-хит 2010-х)"
-      "Camel by camel": "Sandy Marton (Итало-диско / Мем с танцующей кошкой Анхой)"
-      "Can't hold us": "Macklemore & Ryan Lewis (Хип-хоп / Поп-рэп)"
-      "Caramell dansen": "Caramell (Шведский поп-евродэнс / Аниме-мем)"
-      "Careless whisper": "George Michael"
-      "Celebrate the love": "Zhanna"
-      "Charlie's inferno": "That Handsome Devil"
-      "Charlie's Inferno #2": "That Handsome Devil"
-      "Cheri lady": "Modern Talking (Евродиско 80-х)"
-      "Cheri lady #2": "Modern Talking (Евродиско 80-х)"
-      "Children": "Robert Miles"
-      "Children #2": "Robert Miles"
-      "Cigarettes out the Window": "TV Girl (Инди-поп / ТикТок хит)"
-      "Circle in the Sand": "Belinda Carlisle (Поп-рок 80-х)"
-      "Coca Jambo": "Mr. President (Евродэнс / Регги-поп / Coco Jamboo)"
-      "Come a little bit closer": "Jay & The Americans (х/ф «Стражи Галактики 2» OST)"
-      "Come and get your love": "Redbone (х/ф «Стражи Галактики» OST)"
-      "Cooler than me": "Mike Posner (Электропоп)"
-      "Creep": "Radiohead (Альтернативный рок)"
-      "Crimewave": "Crystal Castles vs. HEALTH (8-bit / Электроника / Электропоп)"
-      "Criminal": "Fiona Apple (Альтернативный поп-рок)"
-      "Crucified": "Army of Lovers (Евродэнс / Шведский поп)"
-      "Cupid": "FIFTY FIFTY (K-Pop / ТикТок хит)"
-      "D.I.S.C.O": "Ottawan (Диско 80-х)"
-      "Dancin'": "Aaron Smith"
-      "Dancin": "Aaron Smith (KRONO Remix / Электро-хаус)"
-      "Dancing in the factory": "And One"
-      "Dancing in the Moon light": "King Harvest / Toploader (Поп-рок классика)"
-      "Denise": "Blondie (Нью-вейв 70-х)"
-      "Destination Calabria": "Alex Gaudino feat. Crystal Waters"
-      "Die for you": "The Weeknd (R&B / Поп)"
-      "Do ya think i'm sexy": "Rod Stewart (Диско-рок)"
-      "Don't cry tonight": "Savage (Итало-диско 80-х)"
-      "Don't stop me now": "Queen"
-      "Don't wanna fall in love": "Jane Child (Синти-поп 90-х)"
-      "Don't worry be happy": "Bobby McFerrin (Регги-акапелла)"
-      "Driving with my darling": "And One"
-      "Du bist gut genug": "KitschKrieg feat. Blumengarten & Shirin David"
-      "Du bist gut genug #2": "KitschKrieg feat. Blumengarten & Shirin David"
-      "Dumb dumb": "Red Velvet (K-Pop)"
-      "Egoist": "Шамиль (Кавказский поп-хит / Эгоист)"
-      "Eleanor Rigby": "The Beatles (Барокко-поп / Классический рок)"
-      "Electric avenue": "Eddy Grant"
-      "Empty": "BoyWithUke"
-      "Escape (The Pina Colada song)": "Rupert Holmes (Яхт-рок / х/ф «Стражи Галактики»)"
-      "Estrelar": "Marcos Valle (Бразильский фанк / Буги 80-х)"
-      "ET": "Katy Perry (Электропоп)"
-      "Every time we touch": "Cascada (Евротранс 2000-х)"
-      "Everything at once": "Lenka (Инди-поп / Реклама Windows 8)"
-      "Everything at once #2": "Lenka (Инди-поп / Реклама Windows 8)"
-      "Everything in the right place": "Radiohead (Экспериментальный рок / IDM)"
-      "Everything she wants": "Wham! (Синти-поп / Джордж Майкл)"
-      "Eyes without a face": "Billy Idol"
-      "Fairytale": "Александр Рыбак (Победитель Евровидения 2009)"
-      "Fergie glamorous": "Fergie feat. Ludacris (R&B / Хип-хоп 2000-х)"
-      "Finale coutdown": "Europe (Глэм-метал / The Final Countdown)"
-      "Firework": "Katy Perry (Поп-хит)"
-      "Fitter happier": "Radiohead"
-      "Fliday chinatown": "Yasuha (Японский сити-поп 80-х / Friday Chinatown)"
-      "Forget me nots": "Patrice Rushen"
-      "From the start": "Laufey (Джаз-поп / Босса-нова)"
-      "Fun tonight": "Lady Gaga (Танцевальный поп)"
-      "Funkytown": "Lipps Inc. (Диско / Синти-поп)"
-      "Gangstas Paradise": "Coolio (Легендарный хип-хоп / х/ф «Опасные умы»)"
-      "Gas gas gas": "Manuel (Евробит / Аниме «Initial D»)"
-      "Get around town": "Revolting Cocks (Индастриал-рок)"
-      "Get low": "Lil Jon & The East Side Boyz (Кранк / NFS Underground OST)"
-      "Get lucky": "Daft Punk feat. Pharrell Williams (Диско-фанк)"
-      "Gimme": "ABBA (Gimme! Gimme! Gimme!)"
-      "Giorgio": "Daft Punk (Электроника / Посвящение Джорджо Мородеру)"
-      "Girls on girls": "And One"
-      "Glamorous": "Fergie (R&B / Поп)"
-      "Go west": "Pet Shop Boys"
-      "Go west #2": "Pet Shop Boys"
-      "Gold": "Spandau Ballet"
-      "Golden brown": "The Stranglers (Нью-вейв / х/ф «Большой куш»)"
-      "Golden brown #2": "The Stranglers (Нью-вейв / х/ф «Большой куш»)"
-      "Guten tag liebes glück": "Max Raabe (Немецкий ретро-поп / Кабаре)"
-      "Gypsy woman": "Crystal Waters (Хаус-хит 90-х)"
-      "Hafanana": "Afric Simone (Афро-диско 70-х)"
-      "Happiest year": "Jaymes Young (Инди-поп баллада)"
-      "Headlock": "Imogen Heap"
-      "Headlock #2": "Imogen Heap"
-      "Heaven knows i'm miserable now": "The Smiths (Инди-рок / Дангл-поп)"
-      "Hooked on a feeling": "Blue Swede (х/ф «Стражи Галактики» OST)"
-      "Hot stuff": "Donna Summer (Диско-рок)"
-      "HotNCold": "Katy Perry (Поп-рок хит)"
-      "Hurt": "Nine Inch Nails / Johnny Cash (Альтернативный рок / Кантри)"
-      "I can't stop the loneliness": "Anri (Японский сити-поп 80-х)"
-      "I just died in your arms": "Cutting Crew (Поп-рок 80-х / GTA Vice City OST)"
-      "I kissed a girl": "Katy Perry (Поп-рок хит)"
-      "I like the way kiss me": "Artemas (Дарк-синти / ТикТок хит)"
-      "I love it": "Icona Pop feat. Charli XCX (Электропоп)"
-      "I love you so": "The Walters (Инди-рок)"
-      "I need some sleep": "Eels (м/ф «Шрек 2» OST)"
-      "I want it that way": "Backstreet Boys (Бой-бэнд поп-классика)"
-      "I want to know what love is": "Foreigner (Рок-баллада 80-х)"
-      "I will survive": "Gloria Gaynor (Диско-гимн)"
-      "I will survive #2": "Gloria Gaynor (Диско-гимн)"
-      "I'm a believer": "The Monkeys / Smash Mouth (м/ф «Шрек» OST)"
-      "I'm just a kid": "Simple Plan (Поп-панк 2000-х)"
-      "In and out of love": "Armin van Buuren"
-      "In and out of love #2": "Armin van Buuren"
-      "In da club": "50 Cent (Хип-хоп классика)"
-      "In the navy": "Village People (Диско-хит 70-х)"
-      "In the summertime": "Mungo Jerry (Скиффл / Поп-рок)"
-      "Industry baby": "Lil Nas X feat. Jack Harlow (Поп-рэп)"
-      "Instant crush": "Daft Punk feat. Julian Casablancas (Синти-поп / Электро-рок)"
-      "It doesn't have to be this way": "The Blow Monkeys (Софисти-поп 80-х)"
-      "It was a good day": "Ice Cube (Джи-фанк / Хип-хоп)"
-      "Jen ai marre": "Alizée (Французский поп-хит / J'en ai marre!)"
-      "Jocelyn flores": "XXXTentacion (Эмо-рэп / Лоу-фай)"
-      "Jodellavitanonhocapitouncazzo": "Caparezza (Итальянский альтернативный рэп)"
-      "Kids": "MGMT (Инди-поп / Электропоп)"
-      "Kissing strangers": "DNCE"
-      "Knew you were trouble": "Taylor Swift (Поп / Дабстеп-поп)"
-      "Lady": "Modjo (Французский хаус / Lady - Hear Me Tonight)"
-      "Lay all your love on me": "ABBA (Евродиско)"
-      "Leni (vs GoodBooks)": "The Crystal Method"
-      "Let it happen": "Tame Impala (Психоделический поп / Инди-рок)"
-      "Let's go": "Stuck in the Sound (Инди-рок)"
-      "Let's groove": "Earth, Wind & Fire (Диско-фанк 80-х)"
-      "Lets go to bed": "The Cure (Нью-вейв / Пост-панк)"
-      "Life goes on": "Oliver Tree (Инди-поп / Альтернатива)"
-      "Lily was here": "Candy Dulfer & David A. Stewart (Легендарное соло на саксофоне)"
-      "Lily was here #2": "Candy Dulfer & David A. Stewart (Легендарное соло на саксофоне)"
-      "Little dark age": "MGMT (Синти-поп / Дарквейв / Мем)"
-      "Livin la vida loca": "Ricky Martin (Латино-поп)"
-      "Lollipop": "The Chordettes (Поп-классика 50-х)"
-      "Lose yourself": "Eminem (Хип-хоп / х/ф «8 миля» OST)"
-      "Love is a long road": "Tom Petty (Классический рок / Трейлер GTA VI)"
-      "Lovers on the sun": "David Guetta (Электро-хаус / Дэнс-поп)"
-      "Macarena": "Los Del Rio (Латино-танцевальный хит 90-х)"
-      "Magic spells": "Crystal Castles (8-bit / Электроника)"
-      "Major Tom": "Peter Schilling (Синти-поп / Немецкая «Новая волна»)"
-      "Make your own kind of music": "Cass Elliot (х/ф «Free Guy» / Сериал «LOST» OST)"
-      "Mamma Maria": "Ricchi e Poveri"
-      "Maniac": "Michael Sembello (х/ф «Танец-вспышка» / Синема-синти)"
-      "Maniac #2": "Michael Sembello (х/ф «Танец-вспышка» / Синема-синти)"
-      "Maria": "Blondie"
-      "Maria Magdalena": "Sandra (Евродиско 80-х)"
-      "Me and the birds": "Duster (Слоукор / Мем с Сизифом)"
-      "Me gustas tu": "Manu Chao (Латино-поп / Регги)"
-      "Meet me halfway": "Black Eyed Peas (Поп-рэп / Электропоп)"
-      "Messages from the stars": "The Rah Band (Синти-фанк 80-х / ТикТок хит)"
-      "Messages from the stars #2": "The Rah Band (Синти-фанк 80-х / ТикТок хит)"
-      "Midnight city": "M83 (Инди-поп / Дрим-поп)"
-      "Military fashion show": "And One (EBM / Синти-поп / Military Fashion Show)"
-      "Miss Jackson": "Panic! At The Disco (Альтернативный рок)"
-      "Miss the Rage": "Trippie Redd feat. Playboi Carti (Рэйдж-рэп)"
-      "Moi lolita": "Alizée (Французский поп-хит)"
-      "Moonlighting": "Al Jarreau"
-      "More then a filling": "Boston (Классический рок / More Than a Feeling)"
-      "Moves like jagger": "Maroon 5 feat. Christina Aguilera (Поп-фанк)"
-      "Mr.Blue Sky": "Electric Light Orchestra (Симфо-рок / х/ф «Стражи Галактики 2»)"
-      "Mr.Bombastic": "Shaggy (Регги-поп / Boombastic)"
-      "Mr.Saxobeat": "Alexandra Stan (Евродэнс / Дэнс-поп)"
-      "Mr.Vain": "Culture Beat (Евродэнс 90-х)"
-      "Music sounds better with you": "Stardust (Французский хаус 90-х)"
-      "Narcotic": "Liquido"
-      "Natural": "Imagine Dragons (Альтернативный рок)"
-      "Never gonna give you up": "Рикролл / Rick Astley"
-      "New jeans": "NewJeans (K-Pop)"
-      "New sensation": "INXS (Поп-рок / Фанк-рок 80-х)"
-      "Nothing breaks like a heart": "Mark Ronson feat. Miley Cyrus (Диско-поп / Кантри-поп)"
-      "Old mother Europe": "Эдипов Комплекс"
-      "On melancholy hill": "Gorillaz"
-      "One": "Metallica (Хэви-метал / Трэш-метал)"
-      "One thing": "One Direction (Поп / Бой-бэнд)"
-      "One thing #2": "One Direction (Поп / Бой-бэнд)"
-      "One way or another": "Blondie (Нью-вейв / Панк-рок)"
-      "Only girl": "Rihanna (Электропоп / Европоп)"
-      "Only time will tell": "Asia (Прогрессивный рок 80-х / Metal Gear Solid V OST)"
-      "Out of touch": "Hall & Oates (Синти-поп / фанк / GTA Vice City OST)"
-      "Papaoutai": "Stromae (Электропоп / Хип-хоп)"
-      "Piano man": "Billy Joel"
-      "Play that funky music": "Wild Cherry (Фанк-рок классика)"
-      "Playing dead": "CHVRCHES (Синти-поп)"
-      "Pompeii": "Bastille (Инди-поп)"
-      "Pompeii #2": "Bastille (Инди-поп)"
-      "Pretty woman": "Roy Orbison (Рок-н-ролл классика / Oh, Pretty Woman)"
-      "Promises, promises": "Naked Eyes (Синти-поп 80-х)"
-      "Psycho killer": "Talking Heads (Нью-вейв / Арт-понк)"
-      "Pumped up kicks": "Foster the People"
-      "Pure shores": "All Saints (х/ф «Пляж» OST / Дрим-поп)"
-      "Push it to the limit": "Paul Engemann (х/ф «Лицо со шрамом» OST)"
-      "Radio": "Bershy"
-      "Relaxed scene": "Лаунж / Традиционная фоновая музыка для расслабления"
-      "Replay": "Iyaz (Поп / R&B 2010-х)"
-      "Revenge": "XXXTentacion (Инди-поп / Акустический рэп)"
-      "Rhythm is a dancer": "Snap! (Евродэнс 90-х)"
-      "Ride It": "Jay Sean / Regard (Диско-хаус ремикс)"
-      "Ridin dirty": "Chamillionaire (Хип-хоп / Мем «They see me rollin'»)"
-      "Riptide": "Vance Joy (Инди-фолк / Укулеле-поп)"
-      "Roar": "Katy Perry (Поп-хит)"
-      "Run away baby": "Bruno Mars (Фанк-поп / Соул)"
-      "Running in 90s": "Max Coveri (Евробит / Аниме «Initial D»)"
-      "Running up that hill": "Kate Bush (Синти-поп / Сериал «Очень странные дела»)"
-      "Sadness": "Enigma (Нью-эйдж / Энигматика / Этно-эмбиент)"
-      "Sadness #2": "Enigma (Нью-эйдж / Энигматика / Этно-эмбиент)"
-      "Safe and sound": "Capital Cities (Инди-поп / Синти-поп)"
-      "Sailor song": "Gigi Perez (Инди-фолк / ТикТок хит)"
-      "Save your kisses for me": "Brotherhood of Man"
-      "Sayonara": "Дискотека Авария / Танцевальный поп"
-      "Scatman": "Scatman John (Евродэнс / Скэт)"
-      "Scatmans world": "Scatman John (Евродэнс / Скэт)"
-      "Send me an angel": "Real Life / Scorpions (Синти-поп 80-х или Рок-баллада)"
-      "September": "Earth, Wind & Fire (Диско-фанк)"
-      "Sexy eyes": "Dr. Hook / Whigfield (Поп-диско хит)"
-      "Shake it off": "Taylor Swift (Поп-хит)"
-      "Shape of my heart": "Sting"
-      "Short dick man": "20 Fingers feat. Gillette"
-      "Sinking town": "Инди-поп / Меланхоличный фолк"
-      "Sinking town #2": "Инди-поп / Меланхоличный фолк"
-      "Six undeground": "Sneaker Pimps (Трип-хоп / 6 Underground)"
-      "Skyfall": "Adele (х/ф «007: Координаты „Скайфолл“»)"
-      "Small town boys": "Bronski Beat"
-      "Smalltown boys #2": "Bronski Beat (Синти-поп / Гей-гимн 80-х)"
-      "Smooth operator": "Sade (Софисти-поп / Смут-джаз)"
-      "Smooth operator #2": "Sade (Софисти-поп / Смут-джаз)"
-      "So far so good": "Bryan Adams / Sheena Easton (Поп-рок)"
-      "So klingt liebe": "50 Hertz / Немецкий поп-трек"
-      "Somebody that i used to know": "Gotye"
-      "Somebody to love": "Queen / Jefferson Airplane (Классический рок)"
-      "Something about us": "Daft Punk (Синти-фанк / Хаус)"
-      "Somthing got me started": "Simply Red (Поп-соул / Данс-поп)"
-      "Song 2": "Blur (Альтернативный рок / Брит-поп)"
-      "Space song": "Beach House (Дрим-поп)"
-      "Stan": "Eminem feat. Dido (Хип-хоп баллада)"
-      "Stay": "The Kid LAROI & Justin Bieber (Синти-поп)"
-      "Stayin alive": "Bee Gees (Диско-классика / х/ф «Лихорадка субботнего вечера»)"
-      "Stereo heart": "Gym Class Heroes feat. Adam Levine (Поп-рэп)"
-      "Still DRE": "Dr. Dre feat. Snoop Dogg (Хип-хоп классика)"
-      "Stolen dance": "Milky Chance (Инди-поп / Фольктроника)"
-      "Stressed out": "Twenty One Pilots (Альтернативный хип-хоп / Инди-поп)"
-      "Stromae alors on danse": "Stromae (Евродэнс / Хип-хаус)"
-      "Stumblin' in": "Chris Norman & Suzi Quatro"
-      "Sugar sugar": "The Archies"
-      "Sunny": "Boney M. (Диско-классика)"
-      "Supergirl": "Reamonn"
-      "Supergirl #2": "Reamonn"
-      "Supersonic rocket ship": "The Kinks (Классический рок / х/ф «Мстители: Финал»)"
-      "Sweet dreams": "Eurythmics"
-      "Sweety sweety": "Поп-шлягер / Кавай-поп мелодия"
-      "Sweety sweety #2": "Поп-шлягер / Кавай-поп мелодия"
-      "Tek it": "Cafuné"
-      "Tell It to my heart": "Taylor Dayne (Дэнс-поп 80-х)"
-      "Thank you": "Dido"
-      "The bidding": "Tally Hall (Инди-рок)"
-      "The dream": "Ветро-синти / Трэк в стиле саундтреков 80-х"
-      "The lost song": "The Cat Empire (Ска-джаз / Латино-рок)"
-      "The rhythm of the night": "Corona (Евродэнс 90-х)"
-      "The sign": "Ace of Base (Европоп 90-х)"
-      "The winner takes it all": "ABBA"
-      "They call me Sonic": "Reset (Евробит / Мем про Соника)"
-      "Tick Tock": "Joji (R&B / Мем со стражами из TF2)"
-      "Time to say goodbye": "Andrea Bocelli & Sarah Brightman"
-      "Titanium": "David Guetta feat. Sia (Электропоп / Хаус)"
-      "Tom's diner": "Suzanne Vega (Акапелла / Инди-поп классика)"
-      "Tonight": "Reamonn"
-      "Tous les memes": "Stromae (Электропоп / Французский хип-хоп)"
-      "Twilight": "Electric Light Orchestra (Синти-рок / Аниме Daicon IV)"
-      "Ulterior motives": "Christopher Saint Booth (Потерянная песня 80-х / Everyone Knows That)"
-      "Veridis Quo": "Daft Punk (Электроника / Синти-вейв)"
-      "Veridis Quo #2": "Daft Punk (Электроника / Синти-вейв)"
-      "Video killed the radio star": "The Buggles"
-      "Virtual Insanity": "Jamiroquai"
-      "Viva la Vida": "Coldplay (Барокко-поп / Альтернативный рок)"
-      "Wake me up": "Avicii (Фольктроника / Дэнс-поп)"
-      "Wake me up before you go go": "Wham! (Поп-хит 80-х / Джордж Майкл)"
-      "Wannabe": "Spice Girls"
-      "Washing machine heart": "Mitski (Инди-рок / Синти-поп)"
-      "West end girls": "Pet Shop Boys"
-      "What is love": "Haddaway (Евродэнс 90-х / Мем с качанием головой)"
-      "When we stand together": "Nickelback (Пост-гранж / Альтернативный рок)"
-      "Wicked game": "Chris Isaak (Меланхоличный поп-рок)"
-      "Wicked game #2": "Chris Isaak (Меланхоличный поп-рок)"
-      "Wish you were here": "Pink Floyd / Avril Lavigne (Рок-классика)"
-      "Wolf in sheeps clothing": "Set It Off (Альтернативный рок / Поп-панк)"
-      "Wonderful tonight": "Eric Clapton (Классическая рок-баллада)"
-      "Words": "F.R. David (Синти-поп / Евродиско 80-х)"
-      "World hold on": "Bob Sinclar (Хаус / Электронный хит 2000-х)"
-      "World hold on #2": "Bob Sinclar (Хаус / Электронный хит 2000-х)"
-      "Wouldn't it be nice": "The Beach Boys (Поп-рок 60-х / Fallout 76 OST)"
-      "Write this down": "Soulchef (Хип-хоп / Лоу-фай рэп-инструментал)"
-      "X gona give it to ya": "DMX (Хардкор-рэп / х/ф «Дэдпул»)"
-      "Yeah": "Usher feat. Lil Jon (R&B / Кранк 2000-х)"
-      "You can't touch this": "MC Hammer (Хип-хоп 90-х / U Can't Touch This)"
-      "You speen me round": "Dead or Alive (Синти-поп 80-х / You Spin Me Round)"
-      "You're my soul": "Modern Talking (You're My Heart, You're My Soul / Диско 80-х)"
-      "Your lucky day in hell": "Eels"
-      "Your woman": "White Town"
-
+      groups:
+      - credit: Aaron Smith
+        tracks:
+        - title: Dancin
+        - title: Dancin'
+      - credit: ABBA
+        tracks:
+        - title: Lay all your love on me
+        - title: The winner takes it all
+      - credit: Alizée
+        tracks:
+        - title: Jen ai marre
+        - title: Moi lolita
+      - credit: And One
+        tracks:
+        - title: Beauty clown
+        - title: Body company
+        - title: Dancing in the factory
+        - title: Driving with my darling
+        - title: Girls on girls
+        - title: Military fashion show
+      - credit: Armin van Buuren
+        tracks:
+        - title: In and out of love
+        - title: 'In and out of love #2'
+      - credit: Bastille
+        tracks:
+        - title: Pompeii
+        - title: 'Pompeii #2'
+      - credit: Blondie
+        tracks:
+        - title: Denise
+        - title: Maria
+        - title: One way or another
+      - credit: Bob Sinclar
+        tracks:
+        - title: World hold on
+        - title: 'World hold on #2'
+      - credit: Bronski Beat
+        tracks:
+        - title: Small town boys
+        - title: 'Smalltown boys #2'
+      - credit: Candy Dulfer & David A. Stewart (Легендарное соло на саксофоне)
+        tracks:
+        - title: Lily was here
+        - title: 'Lily was here #2'
+      - credit: Chris Isaak
+        tracks:
+        - title: Wicked game
+        - title: 'Wicked game #2'
+      - credit: Coldplay
+        tracks:
+        - title: Adventure of a Lifetime
+        - title: Viva la Vida
+      - credit: Daft Punk
+        tracks:
+        - title: Around the world
+        - title: Giorgio
+        - title: Something about us
+        - title: Veridis Quo
+        - title: 'Veridis Quo #2'
+      - credit: DNCE
+        tracks:
+        - title: Cake by the ocean
+        - title: Kissing strangers
+      - credit: Earth, Wind & Fire
+        tracks:
+        - title: Let's groove
+        - title: September
+      - credit: Enigma (Нью-эйдж / Энигматика / Этно-эмбиент)
+        tracks:
+        - title: Sadness
+        - title: 'Sadness #2'
+      - credit: Fish in a Birdcage
+        tracks:
+        - title: 'Rule #1'
+        - title: 'Rule #34'
+        - title: 'Rule #4'
+      - credit: General Elektriks
+        tracks:
+        - title: Little lady
+        - title: Rubber bones
+      - credit: Gloria Gaynor
+        tracks:
+        - title: I will survive
+        - title: 'I will survive #2'
+      - credit: Gorillaz
+        tracks:
+        - title: Dare
+        - title: On melancholy hill
+      - credit: Imogen Heap
+        tracks:
+        - title: Headlock
+        - title: 'Headlock #2'
+      - credit: Jim Croce
+        tracks:
+        - title: Time In a bottle
+        - title: 'Time in a bottle #2'
+      - credit: Juice Newton (х / ф «Дэдпул» OST)
+        tracks:
+        - title: Angel of the morning
+        - title: 'Angel of the morning #2'
+      - credit: Katy Perry
+        tracks:
+        - title: ET
+        - title: Firework
+        - title: HotNCold
+        - title: I kissed a girl
+        - title: Roar
+      - credit: KitschKrieg feat. Blumengarten & Shirin David
+        tracks:
+        - title: Du bist gut genug
+        - title: 'Du bist gut genug #2'
+      - credit: Lady Gaga
+        tracks:
+        - title: Applause
+        - title: Fun tonight
+        - title: Paparazzi
+      - credit: Lenka (Реклама Windows 8)
+        tracks:
+        - title: Everything at once
+        - title: 'Everything at once #2'
+      - credit: MGMT
+        tracks:
+        - title: Kids
+        - title: Little dark age
+      - credit: Michael Sembello (х/ф «Танец-вспышка» / Синема-синти)
+        tracks:
+        - title: Maniac
+        - title: 'Maniac #2'
+      - credit: Modern Talking
+        tracks:
+        - title: Brother Louie
+        - title: Cheri lady
+        - title: 'Cheri lady #2'
+        - title: You're my soul
+      - credit: Nasa Histoires
+        tracks:
+        - title: Cactus
+        - title: Trébol
+      - credit: One Direction
+        tracks:
+        - title: One thing
+        - title: 'One thing #2'
+      - credit: Pet Shop Boys
+        tracks:
+        - title: Go west
+        - title: 'Go west #2'
+        - title: West end girls
+      - credit: Radiohead
+        tracks:
+        - title: Creep
+        - title: Everything in the right place
+        - title: Fitter happier
+      - credit: Reamonn
+        tracks:
+        - title: Supergirl
+        - title: 'Supergirl #2'
+        - title: Tonight
+      - credit: Robert Miles
+        tracks:
+        - title: Children
+        - title: 'Children #2'
+      - credit: Sade
+        tracks:
+        - title: Smooth operator
+        - title: 'Smooth operator #2'
+      - credit: Scatman John
+        tracks:
+        - title: Scatman
+        - title: Scatmans world
+      - credit: Shayfer James
+        tracks:
+        - title: Blood moon love
+        - title: Weight of the world
+      - credit: Stromae
+        tracks:
+        - title: Papaoutai
+        - title: Stromae alors on danse
+        - title: Tous les memes
+      - credit: Taylor Swift
+        tracks:
+        - title: Knew you were trouble
+        - title: Shake it off
+      - credit: That Handsome Devil
+        tracks:
+        - title: Charlie's inferno
+        - title: 'Charlie''s Inferno #2'
+      - credit: The Rah Band (Синти-фанк 80-х / ТикТок хит)
+        tracks:
+        - title: Messages from the stars
+        - title: 'Messages from the stars #2'
+      - credit: The Stranglers (Нью-вейв / х/ф «Большой куш»)
+        tracks:
+        - title: Golden brown
+        - title: 'Golden brown #2'
+      - credit: Wham!
+        tracks:
+        - title: Everything she wants
+        - title: Wake me up before you go go
+      - credit: Will Wood
+        tracks:
+        - title: 2econd 2ight 2eer (that was fun, goodbye.)
+        - title: Black box warrior
+        - title: I. me. myself
+      - credit: XXXTentacion
+        tracks:
+        - title: Jocelyn flores
+        - title: Revenge
+      - credit: Инди-поп / Меланхоличный фолк
+        tracks:
+        - title: Sinking town
+        - title: 'Sinking town #2'
+      - credit: Поп-шлягер / Кавай-поп мелодия
+        tracks:
+        - title: Sweety sweety
+        - title: 'Sweety sweety #2'
+      - credit: Эдипов Комплекс
+        tracks:
+        - title: Old mother Europe
+        - title: Only sky
+      singles:
+      - title: '505'
+        credit: Arctic Monkeys
+      - title: A thousand miles
+        credit: Vanessa Carlton
+      - title: ABCDFU
+        credit: GAYLE
+      - title: Abracadabra
+        credit: Steve Miller Band
+      - title: Accidentally in love
+        credit: Counting Crows (м / ф «Шрек 2» OST)
+      - title: Across the sea
+        credit: Weezer
+      - title: Adult education
+        credit: Hall & Oates (GTA Vice City OST)
+      - title: After dark
+        credit: Mr.Kitty
+      - title: Alright
+        credit: Supergrass (Брит-поп / х/ф «Бестолковые»)
+      - title: American idiot
+        credit: Green Day
+      - title: American pie
+        credit: Don McLean / Madonna
+      - title: Animals
+        credit: Maroon 5
+      - title: Another day In paradise
+        credit: Phil Collins
+      - title: Another love
+        credit: Tom Odell
+      - title: Army dreamers
+        credit: Kate Bush
+      - title: As it was
+        credit: Harry Styles
+      - title: As the world caves in
+        credit: Matt Maltese
+      - title: Baby one more time
+        credit: Britney Spears
+      - title: Bad girls
+        credit: Donna Summer (GTA Grand Theft Auto OST)
+      - title: Bailando
+        credit: Enrique Iglesias
+      - title: Ballin
+        credit: Mustard feat. Roddy Ricch
+      - title: Bambalailo
+        credit: Gipsy Kings
+      - title: Barbie girl
+        credit: Aqua
+      - title: Beach parade
+        credit: Armando Trovajoli (Легкомысленная ретро-мелодия)
+      - title: Beautiful life
+        credit: Ace of Base
+      - title: Better off alone
+        credit: Alice Deejay
+      - title: Big and chunky
+        credit: Will.i.am (Мото-Мото из Мадагаскар 2)
+      - title: Big city life
+        credit: Mattafix
+      - title: Big in Japan
+        credit: Alphaville
+      - title: Bimbo doll
+        credit: Tila Tequila / Tami
+      - title: Bitter sweet symphony
+        credit: The Verve
+      - title: Black black heart
+        credit: David Usher
+      - title: Blue monday
+        credit: New Order
+      - title: Bomb Iran
+        credit: Vince Vance & The Valiants
+      - title: Boom-Boom-Boom
+        credit: Vengaboys
+      - title: Breakfast in America
+        credit: Supertramp
+      - title: Build a bitch
+        credit: Bella Poarch
+      - title: Buttercup
+        credit: Jack Stauber
+      - title: California dreaming
+        credit: The Mamas & the Papas
+      - title: Call me
+        credit: Blondie (Нью-вейв / х/ф «Американский жиголо»)
+      - title: Call me maybe
+        credit: Carly Rae Jepsen
+      - title: Camel by camel
+        credit: Sandy Marton
+      - title: Can't hold us
+        credit: Macklemore & Ryan Lewis
+      - title: Caramell dansen
+        credit: Caramell (Аниме-мем)
+      - title: Careless whisper
+        credit: George Michael
+      - title: Carolina Moon
+        credit: ''
+      - title: Cats on Mars
+        credit: The Seatbelts (Cowboy Bebop)
+      - title: Celebrate the love
+        credit: Zhanna
+      - title: Cigarettes out the Window
+        credit: TV Girl
+      - title: Circle in the Sand
+        credit: Belinda Carlisle
+      - title: Closer
+        credit: Nine Inch Nails
+      - title: Club bizarre
+        credit: U96
+      - title: Coca Jambo
+        credit: Mr. President
+      - title: Come a little bit closer
+        credit: Jay & The Americans (х / ф «Стражи Галактики 2» OST)
+      - title: Come and get your love
+        credit: Redbone (х / ф «Стражи Галактики» OST)
+      - title: Cooler than me
+        credit: Mike Posner
+      - title: Crimewave
+        credit: Crystal Castles vs. HEALTH
+      - title: Criminal
+        credit: Fiona Apple
+      - title: Crucified
+        credit: Army of Lovers
+      - title: Cupid
+        credit: FIFTY FIFTY
+      - title: D.I.S.C.O
+        credit: Ottawan
+      - title: Dancing in the Moon light
+        credit: King Harvest / Toploader
+      - title: Das ist alles von der Kunstfreiheit gedeckt
+        credit: Danger Dan
+      - title: Destination Calabria
+        credit: Alex Gaudino feat. Crystal Waters
+      - title: Die for you
+        credit: The Weeknd
+      - title: Do ya think i'm sexy
+        credit: Rod Stewart
+      - title: Don't cry tonight
+        credit: Savage
+      - title: Don't stop me now
+        credit: Queen
+      - title: Don't wanna fall in love
+        credit: Jane Child
+      - title: Don't worry be happy
+        credit: Bobby McFerrin
+      - title: Dumb dumb
+        credit: Red Velvet
+      - title: Egoist
+        credit: Falco
+      - title: Eleanor Rigby
+        credit: The Beatles
+      - title: Electric avenue
+        credit: Eddy Grant
+      - title: Empty
+        credit: BoyWithUke
+      - title: Escape (The Pina Colada song)
+        credit: Rupert Holmes (Яхт-рок / х/ф «Стражи Галактики»)
+      - title: Estrelar
+        credit: Marcos Valle (Бразильский фанк / Буги 80-х)
+      - title: Every time we touch
+        credit: Cascada
+      - title: Eyes without a face
+        credit: Billy Idol
+      - title: Fading
+        credit: JEdipov Kompleks
+      - title: Fairytale
+        credit: Александр Рыбак (Победитель Евровидения 2009)
+      - title: Fergie glamorous
+        credit: Fergie feat. Ludacris
+      - title: Finale coutdown
+        credit: Europe
+      - title: Fliday chinatown
+        credit: Yasuha
+      - title: Forget me nots
+        credit: Patrice Rushen
+      - title: Free from desire
+        credit: Gala
+      - title: From the start
+        credit: Laufey
+      - title: Funkytown
+        credit: Lipps Inc.
+      - title: Gangstas Paradise
+        credit: Coolio (Легендарный хип-хоп / х/ф «Опасные умы»)
+      - title: Gas gas gas
+        credit: Manuel (Аниме «Initial D»)
+      - title: Get around town
+        credit: Revolting Cocks
+      - title: Get low
+        credit: Lil Jon & The East Side Boyz (Кранк / NFS Underground OST)
+      - title: Get lucky
+        credit: Daft Punk feat. Pharrell Williams
+      - title: Gimme
+        credit: ABBA (Gimme! Gimme! Gimme!)
+      - title: Glamorous
+        credit: Fergie
+      - title: Gold
+        credit: Spandau Ballet
+      - title: Guten tag liebes glück
+        credit: Max Raabe
+      - title: Gypsy woman
+        credit: Crystal Waters
+      - title: Hafanana
+        credit: Afric Simone
+      - title: Happiest year
+        credit: Jaymes Young
+      - title: Hay loft
+        credit: Mother Mother
+      - title: Heaven knows i'm miserable now
+        credit: The Smiths
+      - title: Hooked on a feeling
+        credit: Blue Swede (х / ф «Стражи Галактики» OST)
+      - title: Hot stuff
+        credit: Donna Summer
+      - title: Hurt
+        credit: Nine Inch Nails / Johnny Cash
+      - title: I belong to you
+        credit: Muse
+      - title: I can kill you so easily
+        credit: Ashbury Heights
+      - title: I can't stop the loneliness
+        credit: Anri
+      - title: I just died in your arms
+        credit: Cutting Crew (GTA Vice City OST)
+      - title: I like the way kiss me
+        credit: Artemas (Дарк-синти / ТикТок хит)
+      - title: I love it
+        credit: Icona Pop feat. Charli XCX
+      - title: I love you so
+        credit: The Walters
+      - title: I need some sleep
+        credit: Eels (м / ф «Шрек 2» OST)
+      - title: I thought i saw your face today
+        credit: She & Him
+      - title: I want it that way
+        credit: Backstreet Boys
+      - title: I want to know what love is
+        credit: Foreigner
+      - title: I'm a believer
+        credit: The Monkeys / Smash Mouth (м / ф «Шрек» OST)
+      - title: I'm just a kid
+        credit: Simple Plan
+      - title: I'm too sexy
+        credit: Right Said Fred
+      - title: In da club
+        credit: 50 Cent
+      - title: In the navy
+        credit: Village People
+      - title: In the summertime
+        credit: Mungo Jerry
+      - title: Industry baby
+        credit: Lil Nas X feat. Jack Harlow
+      - title: Instant crush
+        credit: Daft Punk feat. Julian Casablancas
+      - title: INVISIBLE
+        credit: Duran Duran
+      - title: It doesn't have to be this way
+        credit: The Blow Monkeys
+      - title: It was a good day
+        credit: Ice Cube
+      - title: Jenny
+        credit: Studio Killers
+      - title: Jodellavitanonhocapitouncazzo
+        credit: Caparezza
+      - title: Jump
+        credit: Van Halen
+      - title: Kylie
+        credit: Akcent
+      - title: Lady
+        credit: Modjo
+      - title: Leni (vs GoodBooks)
+        credit: The Crystal Method
+      - title: Let it happen
+        credit: Tame Impala
+      - title: Let's go
+        credit: Stuck in the Sound
+      - title: Lets go to bed
+        credit: The Cure
+      - title: Life goes on
+        credit: Oliver Tree
+      - title: Livin la vida loca
+        credit: Ricky Martin
+      - title: Lollipop
+        credit: The Chordettes
+      - title: Lose yourself
+        credit: Eminem (х / ф «8 миля» OST)
+      - title: Love is a long road
+        credit: Tom Petty (Трейлер GTA VI)
+      - title: Lovers on the sun
+        credit: David Guetta
+      - title: Macarena
+        credit: Los Del Rio (Латино-танцевальный хит 90-х)
+      - title: Magic spells
+        credit: Crystal Castles
+      - title: Major Tom
+        credit: Peter Schilling (Синти-поп / Немецкая «Новая волна»)
+      - title: Make your own kind of music
+        credit: Cass Elliot (х / ф «Free Guy» / Сериал «LOST» OST)
+      - title: Mamma Maria
+        credit: Ricchi e Poveri
+      - title: Maria Magdalena
+        credit: Sandra
+      - title: Mary on a cross
+        credit: Ghost
+      - title: Material girl
+        credit: Madonna
+      - title: Me and the birds
+        credit: Duster (Слоукор / Мем с Сизифом)
+      - title: Me gustas tu
+        credit: Manu Chao
+      - title: Meet me halfway
+        credit: Black Eyed Peas
+      - title: Midnight city
+        credit: M83
+      - title: Miss Jackson
+        credit: Panic! At The Disco
+      - title: Miss the Rage
+        credit: Trippie Redd feat. Playboi Carti
+      - title: Moonlighting
+        credit: Al Jarreau
+      - title: More then a filling
+        credit: Boston
+      - title: Moves like jagger
+        credit: Maroon 5 feat. Christina Aguilera
+      - title: Mr.Blue Sky
+        credit: Electric Light Orchestra (Симфо-рок / х/ф «Стражи Галактики 2»)
+      - title: Mr.Bombastic
+        credit: Shaggy
+      - title: Mr.Saxobeat
+        credit: Alexandra Stan
+      - title: Mr.Vain
+        credit: Culture Beat
+      - title: Murder on the dancefloor
+        credit: Sophie Ellis-Bextor
+      - title: Music sounds better with you
+        credit: Stardust
+      - title: My favorite game
+        credit: The Cardigans
+      - title: Narcotic
+        credit: Liquido
+      - title: Natural
+        credit: Imagine Dragons
+      - title: Never gonna give you up
+        credit: Рикролл / Rick Astley
+      - title: New jeans
+        credit: NewJeans
+      - title: New sensation
+        credit: INXS
+      - title: Nothing breaks like a heart
+        credit: Mark Ronson feat. Miley Cyrus
+      - title: One
+        credit: Metallica
+      - title: Only girl
+        credit: Rihanna
+      - title: Only time will tell
+        credit: Asia (Metal Gear Solid V OST)
+      - title: Ordinary life
+        credit: The Living Tombstone
+      - title: Out of touch
+        credit: Hall & Oates (фанк / GTA Vice City OST)
+      - title: Piano man
+        credit: Billy Joel
+      - title: Play that funky music
+        credit: Wild Cherry
+      - title: Playing dead
+        credit: CHVRCHES
+      - title: Pretty woman
+        credit: Roy Orbison
+      - title: Promises, promises
+        credit: Naked Eyes
+      - title: Psycho killer
+        credit: Talking Heads
+      - title: Pumped up kicks
+        credit: Foster the People
+      - title: Pure shores
+        credit: All Saints (х / ф «Пляж» OST)
+      - title: Push it to the limit
+        credit: Paul Engemann (х / ф «Лицо со шрамом» OST)
+      - title: Puzzle pieces
+        credit: Saint Motel
+      - title: Radio
+        credit: Bershy
+      - title: Relaxed scene
+        credit: Лаунж / Традиционная фоновая музыка для расслабления
+      - title: Replay
+        credit: Iyaz
+      - title: Rhythm is a dancer
+        credit: Snap!
+      - title: Ride It
+        credit: Jay Sean / Regard
+      - title: Ridin dirty
+        credit: Chamillionaire (Хип-хоп / Мем «They see me rollin'»)
+      - title: Riptide
+        credit: Vance Joy
+      - title: Run away baby
+        credit: Bruno Mars
+      - title: Running in 90s
+        credit: Max Coveri (Аниме «Initial D»)
+      - title: Running up that hill
+        credit: Kate Bush (Синти-поп / Сериал «Очень странные дела»)
+      - title: Safe and sound
+        credit: Capital Cities
+      - title: Sailor song
+        credit: Gigi Perez
+      - title: Save your kisses for me
+        credit: Brotherhood of Man
+      - title: Sayonara
+        credit: Дискотека Авария / Танцевальный поп
+      - title: Send me an angel
+        credit: Real Life / Scorpions
+      - title: Sexy eyes
+        credit: Dr. Hook / Whigfield
+      - title: Shape of my heart
+        credit: Sting
+      - title: Short dick man
+        credit: 20 Fingers feat. Gillette
+      - title: Six undeground
+        credit: Sneaker Pimps (Трип-хоп / 6 Underground)
+      - title: Skyfall
+        credit: 'Adele (х/ф «007: Координаты „Скайфолл“»)'
+      - title: So far so good
+        credit: Bryan Adams / Sheena Easton
+      - title: So klingt liebe
+        credit: 50 Hertz / Немецкий поп-трек
+      - title: Somebody that i used to know
+        credit: Gotye
+      - title: Somebody to love
+        credit: Queen / Jefferson Airplane
+      - title: Somthing got me started
+        credit: Simply Red
+      - title: Song 2
+        credit: Blur
+      - title: Space song
+        credit: Beach House
+      - title: Stan
+        credit: Eminem feat. Dido
+      - title: Stay
+        credit: The Kid LAROI & Justin Bieber
+      - title: Stayin alive
+        credit: Bee Gees (Диско-классика / х/ф «Лихорадка субботнего вечера»)
+      - title: Stereo heart
+        credit: Gym Class Heroes feat. Adam Levine
+      - title: Still DRE
+        credit: Dr. Dre feat. Snoop Dogg
+      - title: Stolen dance
+        credit: Milky Chance
+      - title: Stressed out
+        credit: Twenty One Pilots
+      - title: Stumblin' in
+        credit: Chris Norman & Suzi Quatro
+      - title: Sugar sugar
+        credit: The Archies
+      - title: Sunny
+        credit: Boney M.
+      - title: Supersonic rocket ship
+        credit: 'The Kinks (Классический рок / х/ф «Мстители: Финал»)'
+      - title: Suspicious minds
+        credit: Elvis Presley
+      - title: Sweet dreams
+        credit: Eurythmics
+      - title: Sweet harmony
+        credit: The Beloved
+      - title: Tek it
+        credit: Cafuné
+      - title: Tell It to my heart
+        credit: Taylor Dayne
+      - title: Thank you
+        credit: Dido
+      - title: The bidding
+        credit: Tally Hall
+      - title: The dream
+        credit: Ветро-синти / Трэк в стиле саундтреков 80-х
+      - title: The lost song
+        credit: The Cat Empire
+      - title: The rhythm of the night
+        credit: Corona
+      - title: The sense of me
+        credit: Mud Flow
+      - title: The sign
+        credit: Ace of Base (Европоп 90-х)
+      - title: The smell of an artist
+        credit: Cats on Fire
+      - title: They call me Sonic
+        credit: Reset
+      - title: Tick Tock
+        credit: Joji
+      - title: Time to say goodbye
+        credit: Andrea Bocelli & Sarah Brightman
+      - title: Titanium
+        credit: David Guetta feat. Sia
+      - title: Tokyo reggie
+        credit: Masayoshi Takanaka
+      - title: Tom's diner
+        credit: Suzanne Vega
+      - title: Toujours l'amour
+        credit: Lewis Hanton
+      - title: Troublemaker
+        credit: Olly Murs
+      - title: Twilight
+        credit: Electric Light Orchestra (Аниме Daicon IV)
+      - title: Ulterior motives
+        credit: Christopher Saint Booth (Потерянная песня 80-х / Everyone Knows That)
+      - title: Upside down
+        credit: Diana Ross
+      - title: Video killed the radio star
+        credit: The Buggles
+      - title: Virtual Insanity
+        credit: Jamiroquai
+      - title: Voyage voyage
+        credit: Desireless
+      - title: Wake me up
+        credit: Avicii
+      - title: Wannabe
+        credit: Spice Girls
+      - title: Washing machine heart
+        credit: Mitski
+      - title: Weeping willow
+        credit: Sébastien Schuller
+      - title: Welcome to the jungle
+        credit: Guns N' Roses
+      - title: What is love
+        credit: Haddaway
+      - title: When we stand together
+        credit: Nickelback
+      - title: Wish you were here
+        credit: Pink Floyd / Avril Lavigne
+      - title: Wolf in sheeps clothing
+        credit: Set It Off
+      - title: Wonderful life
+        credit: Black
+      - title: Wonderful tonight
+        credit: Eric Clapton
+      - title: Words
+        credit: F.R. David
+      - title: Wouldn't it be nice
+        credit: The Beach Boys (Fallout 76 OST)
+      - title: Write this down
+        credit: Soulchef
+      - title: X gona give it to ya
+        credit: DMX (Хардкор-рэп / х/ф «Дэдпул»)
+      - title: Yeah
+        credit: Usher feat. Lil Jon
+      - title: You can't touch this
+        credit: MC Hammer
+      - title: You speen me round
+        credit: Dead or Alive
+      - title: Your lucky day in hell
+        credit: Eels
+      - title: Your woman
+        credit: White Town
   08_Pop_Music_Russian:
-    title: "Русская поп-музыка"
-    icon: "🇷🇺"
+    title: Русская поп-музыка
+    icon: 🇷🇺
     tracks:
-      "Yes future": "Noize MC (Альтернативный хип-хоп)"
-      "Алиса": "Секрет (Поп-рок)"
-      "Альпинист": "Маша и Медведи (Альтернативный рок)"
-      "Ариведерчи": "Земфира (Рок / Поп-рок)"
-      "Арлекино": "Алла Пугачёва (Эстрадная классика)"
-      "Арлекино #2": "Алла Пугачёва (Эстрадная классика)"
-      "Батарейка": "Жуки"
-      "Белая ночь": "Форум / Виктор Салтыков"
-      "Белые розы": "Ласковый май / Юрий Шатунов"
-      "Бродяга": "Эльбрус Джанмирзоев (Поп / Кавказский хит)"
-      "Букет": "Александр Барыкин (Советский поп-рок)"
-      "Вечно молодой": "Смысловые Галлюцинации (х/ф «Брат 2» OST)"
-      "Владимирский централ": "Михаил Круг"
-      "Восточные сказки": "Блестящие feat. Arash (Поп)"
-      "Всё, что тебя касается": "Звери (Поп-рок)"
-      "Выхода нет": "Сплин"
-      "Гимнастика": "Владимир Высоцкий (Утренняя гимнастика)"
-      "Главное": "Мара / Город 312 (Рок / Поп-рок)"
-      "Голая": "Градусы (Поп-рок)"
-      "Город которого нет": "Игорь Корнелюк (Сериал «Бандитский Петербург» OST)"
-      "Девочка-видение": "Максим Леонидов (Поп-рок)"
-      "До свидания": "Земфира (До свиданья...)"
-      "До скорой встречи": "Звери (Поп-рок)"
-      "Дождь": "ДДТ (Юрий Шевчук)"
-      "Дорога": "АукцЫон (х/ф «Брат 2» OST)"
-      "Ева, я любила": "Винтаж (Поп / Посвящение Еве Польне)"
-      "Железо поёт": "Советский индустриальный марш / Электронный трек"
-      "Звёздное лето": "Алла Пугачёва (Советская эстрада)"
-      "Звёзды нас ждут": "Мираж (Евродиско 80-х)"
-      "Как бы всё": "Ноль (Русский рок)"
-      "Как на войне": "Агата Кристи"
-      "Комарово": "Игорь Скляр / Atomic Heart OST"
-      "Косил Ясь конюшину": "Песняры (Белорусская народная песня / ВИА)"
-      "Кто": "Ноль (Человек и кошка) / Децл"
-      "Кто ты": "Децл (Хип-хоп 2000-х)"
-      "Кустурица": "Братья Грим"
-      "Любочка": "Маша и Медведи (Альтернативный рок)"
-      "Любочка #2": "Маша и Медведи (Альтернативный рок)"
-      "Люди встречаются": "Весёлые Ребята (Советский ВИА-шлягер)"
-      "Мало тебя": "SEREBRO (Поп-хит)"
-      "Мальчик-гей": "t.A.T.u. (Поп / Европоп)"
-      "Мама Люба": "SEREBRO (Поп-хит / Mama Lover)"
-      "Моё сердце": "Сплин (Поп-рок)"
-      "Мой друг": "Машина Времени / Игорь Крутой"
-      "Моя любовь": "Владимир Кузьмин / Би-2"
-      "Музыка нас связала": "Мираж (Евродиско 80-х)"
-      "Мы сидели и курили": "Сплин (Рок)"
-      "На белом покрывале января": "Сладкий сон (Поп 90-х)"
-      "На седьмом этаже": "Лера Массква (Поп-рок)"
-      "Нас не догонят": "t.A.T.u. (Поп / Европоп)"
-      "Наше лето": "Валентин Стрыкало (Инди-поп / Яхта, парус)"
-      "Не волнуйтесь, тётя": "Весёлые Ребята (Советский ВИА)"
-      "Не танцую": "Quest Pistols Show (Поп / Танцевальный)"
-      "Опера#2": "Витас (Поп / Фирменный фальцет)"
-      "Отпускаю": "МакSим (Поп-баллада нулевых)"
-      "Поворот": "Машина Времени (Классика русского рока)"
-      "Поезд в огне": "Аквариум (Борис Гребенщиков)"
-      "Позови меня с собой": "Алла Пугачёва (Татьяна Снежина)"
-      "Прасковья": "Uma2rman (Поп-рок)"
-      "Привет": "Секрет / Юлия Савичева (Поп-рок)"
-      "Прованс": "Ёлка (Поп-хит)"
-      "Просвистела": "ДДТ (Юрий Шевчук)"
-      "Прости, прощай, привет": "Ранетки / Поп-рок"
-      "Ромашки": "Земфира (Рок)"
-      "Снег": "Николай Носков / Филипп Киркоров / Машина Времени"
-      "Солнышко": "Демо (Евродэнс 90-х / Солнышко в руках)"
-      "СПИД": "Земфира (Рок)"
-      "Тёплые коты": "Flëur (Кардиовейв / Инди-фолк)"
-      "Тополиный пух": "Иванушки International (Поп-хит 90-х)"
-      "Трава у дома": "Земляне"
-      "Убили негра": "Запрещённые Барабанщики (Поп-рок / Ска)"
-      "Улыбки cфинксов": "Ретро-электроника / Советский синти-поп"
-      "Уматурман": "Uma2rman (Ночной дозор OST)"
-      "Фаина": "На-На (Поп-хит 90-х)"
-      "Фантазёр": "Ярослав Евдокимов (Эстрадный шлягер)"
-      "Формалин": "Flëur (Кардиовейв / Дарк-фолк)"
-      "Хали-гали": "Леприконсы (Хали-гали, паратрупер / Ска-поп)"
-      "Хочешь": "Земфира (Рок)"
-      "Человек и кошка": "Ноль (Фёдор Чистяков)"
-      "Чёрный кот": "Тамара Миансарова / Браво (Советский твист)"
-      "Шарманка": "Николай Басков (Эстрада)"
-      "Эй толстый": "Дискотека Авария (Танцевальный рэп)"
-      "Я солдат": "5'nizza (Регги-акустика)"
-      "Я сошла с ума": "t.A.T.u. (Поп / Европоп)"
-      "Январская вьюга": "Нина Бродская (х/ф «Иван Васильевич меняет профессию» OST)"
-
+      groups:
+      - credit: Flëur
+        tracks:
+        - title: Тёплые коты
+        - title: Формалин
+      - credit: SEREBRO
+        tracks:
+        - title: Мало тебя
+        - title: Мама Люба
+      - credit: t.A.T.u.
+        tracks:
+        - title: Мальчик-гей
+        - title: Нас не догонят
+        - title: Я сошла с ума
+      - credit: Алла Пугачёва
+        tracks:
+        - title: Арлекино
+        - title: 'Арлекино #2'
+      - credit: ДДТ (Юрий Шевчук)
+        tracks:
+        - title: Дождь
+        - title: Просвистела
+      - credit: Звери
+        tracks:
+        - title: Всё, что тебя касается
+        - title: До скорой встречи
+      - credit: Земфира
+        tracks:
+        - title: Ариведерчи
+        - title: Ромашки
+        - title: СПИД
+        - title: Хочешь
+      - credit: Кассиопея
+        tracks:
+        - title: Железный дровосек
+        - title: Орки
+      - credit: Маша и Медведи
+        tracks:
+        - title: Альпинист
+        - title: Любочка
+        - title: 'Любочка #2'
+      - credit: Мираж
+        tracks:
+        - title: Звёзды нас ждут
+        - title: Музыка нас связала
+      - credit: Сплин
+        tracks:
+        - title: Выхода нет
+        - title: Моё сердце
+        - title: Мы сидели и курили
+        - title: Небо в алмазах
+        - title: Танцуй
+      singles:
+      - title: When the Sun explodes
+        credit: Эдипов Комплекс
+      - title: Yes future
+        credit: Noize MC
+      - title: Алиса
+        credit: Секрет
+      - title: Батарейка
+        credit: Жуки
+      - title: Белая ночь
+        credit: Форум / Виктор Салтыков
+      - title: Белые розы
+        credit: Ласковый май / Юрий Шатунов
+      - title: Бродяга
+        credit: Эльбрус Джанмирзоев
+      - title: Букет
+        credit: Александр Барыкин
+      - title: Вечно молодой
+        credit: Смысловые Галлюцинации (х / ф «Брат 2» OST)
+      - title: Владимирский централ
+        credit: Михаил Круг
+      - title: Восточные сказки
+        credit: Блестящие feat. Arash
+      - title: Гимнастика
+        credit: Владимир Высоцкий (Утренняя гимнастика)
+      - title: Главное
+        credit: Мара / Город 312
+      - title: Голая
+        credit: Градусы
+      - title: Город которого нет
+        credit: Игорь Корнелюк (Сериал «Бандитский Петербург» OST)
+      - title: Девочка-видение
+        credit: Максим Леонидов
+      - title: До свидания
+        credit: Земфира (До свиданья...)
+      - title: Дорога
+        credit: АукцЫон (х / ф «Брат 2» OST)
+      - title: Ева, я любила
+        credit: Винтаж
+      - title: Железо поёт
+        credit: Советский индустриальный марш / Электронный трек
+      - title: Звёздное лето
+        credit: Алла Пугачёва (Советская эстрада)
+      - title: Как бы всё
+        credit: Ноль
+      - title: Как на войне
+        credit: Агата Кристи
+      - title: Комарово
+        credit: Игорь Скляр / Atomic Heart OST
+      - title: Косил Ясь конюшину
+        credit: Песняры (Белорусская народная песня / ВИА)
+      - title: Кто
+        credit: Ноль (Человек и кошка) / Децл
+      - title: Кто ты
+        credit: Децл
+      - title: Кустурица
+        credit: Братья Грим
+      - title: Люди встречаются
+        credit: Весёлые Ребята (Советский ВИА-шлягер)
+      - title: Мой друг
+        credit: Машина Времени / Игорь Крутой
+      - title: Моя любовь
+        credit: Владимир Кузьмин / Би-2
+      - title: Моя маленькая дрянь
+        credit: Свидетельство О Смерти
+      - title: На белом покрывале января
+        credit: Сладкий сон
+      - title: На седьмом этаже
+        credit: Лера Массква
+      - title: Наше лето
+        credit: Валентин Стрыкало
+      - title: Не волнуйтесь, тётя
+        credit: Весёлые Ребята (Советский ВИА)
+      - title: Не танцую
+        credit: Quest Pistols Show
+      - title: Опера#2
+        credit: Витас
+      - title: Отпускаю
+        credit: МакSим
+      - title: Поворот
+        credit: Машина Времени
+      - title: Поезд в огне
+        credit: Аквариум (Борис Гребенщиков)
+      - title: Позови меня с собой
+        credit: Алла Пугачёва (Татьяна Снежина)
+      - title: Полдень
+        credit: АукцЫон
+      - title: Прасковья
+        credit: Uma2rman
+      - title: Представь
+        credit: Порез на собаке
+      - title: Привет
+        credit: Секрет / Юлия Савичева
+      - title: Прованс
+        credit: Ёлка
+      - title: Прости, прощай, привет
+        credit: Ранетки / Поп-рок
+      - title: Снег
+        credit: Николай Носков / Филипп Киркоров / Машина Времени
+      - title: Солнышко
+        credit: Демо
+      - title: Тополиный пух
+        credit: Иванушки International
+      - title: Трава у дома
+        credit: Земляне
+      - title: Убили негра
+        credit: Запрещённые Барабанщики
+      - title: Улыбки cфинксов
+        credit: Ретро-электроника / Советский синти-поп
+      - title: Уматурман
+        credit: Uma2rman (Ночной дозор OST)
+      - title: Фаина
+        credit: На-На
+      - title: Фантазёр
+        credit: Ярослав Евдокимов (Эстрадный шлягер)
+      - title: Фотограф
+        credit: Электрофорез
+      - title: Хали-гали
+        credit: Леприконсы
+      - title: Чёрный кот
+        credit: Тамара Миансарова / Браво (Советский твист)
+      - title: Человек и кошка
+        credit: Ноль (Фёдор Чистяков)
+      - title: Черная речка
+        credit: Серебряная Свадьба
+      - title: Шамбала
+        credit: БИ-2
+      - title: Шарманка
+        credit: Николай Басков (Эстрада)
+      - title: Эй толстый
+        credit: Дискотека Авария
+      - title: Я солдат
+        credit: 5'nizza
+      - title: Январская вьюга
+        credit: Нина Бродская (х / ф «Иван Васильевич меняет профессию» OST)
   09_Russian_Rock_Alternative:
-    title: "Русский рок и альтернатива"
-    icon: "🖤"
+    title: Русский рок и альтернатива
+    icon: 🖤
     tracks:
-      "1100": "Ария (Хэви-метал)"
-      "2000 баксов за сигарету": "Торба-на-Круче (Альтернативный рок)"
-      "Алиса в стране чудес": "Эдипов Комплекс"
-      "Алюминиевые огурцы": "Кино (Виктор Цой)"
-      "Андердог": "Ляпис Трубецкой (Панк-рок)"
-      "Беспечный ангел": "Ария (Хэви-метал кавер на Golden Earring)"
-      "Варвара": "БИ-2"
-      "Восьмиклассница": "Кино (Виктор Цой)"
-      "Гибралтар - лабрадор": "Вячеслав Бутусов (х/ф «Брат 2» OST)"
-      "Группа крови": "Кино (Виктор Цой)"
-      "Два вора и монета": "Король и Шут (Хоррор-панк)"
-      "Джокер": "Король и Шут / Сплин (Рок)"
-      "Её глаза": "БИ-2"
-      "Закрой за мной дверь": "Кино (Виктор Цой)"
-      "Звезда по имени Солнце": "Кино (Виктор Цой)"
-      "Капитал": "Ляпис Трубецкой (Ска-панк)"
-      "Когда твоя девушка больна": "Кино (Виктор Цой)"
-      "Кончится лето": "Кино (Виктор Цой)"
-      "Кукушка": "Кино (Виктор Цой)"
-      "Молитва": "БИ-2"
-      "Мороз по коже": "Сплин (Рок)"
-      "Мы лёд": "Гражданская Оборона (Егор Летов)"
-      "Орбит без сахара": "Сплин (Рок)"
-      "ПММЛ": "Земфира (Прости меня моя любовь)"
-      "Полковнику никто не пишет": "Би-2 (Брат 2 OST)"
-      "Последний герой": "Кино (Виктор Цой)"
-      "Потерянный рай": "Ария (Рок-баллада)"
-      "Прогулки по воде": "Наутилус Помпилиус (Рок)"
-      "Романс": "Сплин (И лампа не горит...)"
-      "Северный ветер": "Сектор Газа / Рок-хит"
-      "Сентябрь": "Stigmata (Металкор / Мем про «Сентябрь горит»)"
-      "Скованные одной цепью": "Наутилус Помпилиус (Рок)"
-      "Трасса Е-95": "Алиса (Константин Кинчев)"
-      "Устрой дестрой": "Noize MC feat. Чача (Альтернативный рок / Рэп-рок)"
-      "Фантом": "Чиж & Co (Рок-кавер на советскую дворовую песню)"
-      "Феллини": "БИ-2"
-      "Я на тебе как на войне": "Агата Кристи"
-      "Я хочу быть с тобой": "Наутилус Помпилиус (Рок)"
-
+      groups:
+      - credit: Агата Кристи
+        tracks:
+        - title: Опиум для никого
+        - title: Сказочная тайга
+        - title: Я на тебе как на войне
+      - credit: Ария
+        tracks:
+        - title: '1100'
+        - title: Потерянный рай
+      - credit: БИ-2
+        tracks:
+        - title: Варвара
+        - title: Её глаза
+        - title: Молитва
+        - title: Феллини
+      - credit: Гражданская Оборона (Егор Летов)
+        tracks:
+        - title: Всё идёт по плану
+        - title: Моя оборона
+        - title: Мы лёд
+      - credit: Кино (Виктор Цой)
+        tracks:
+        - title: Алюминиевые огурцы
+        - title: Восьмиклассница
+        - title: Группа крови
+        - title: Закрой за мной дверь
+        - title: Звезда по имени Солнце
+        - title: Когда твоя девушка больна
+        - title: Кончится лето
+        - title: Кукушка
+        - title: Последний герой
+      - credit: Машина Времени
+        tracks:
+        - title: Кого ты хотел удивить
+        - title: 'Кого ты хотел удивить #2'
+        - title: Марионетки
+      - credit: Наутилус Помпилиус
+        tracks:
+        - title: Прогулки по воде
+        - title: Скованные одной цепью
+        - title: Я хочу быть с тобой
+      - credit: Свидетельство О Смерти
+        tracks:
+        - title: Когда погаснет солнце
+        - title: Петля
+        - title: Я предпочту тебе
+      - credit: Сплин
+        tracks:
+        - title: Гни свою линию
+        - title: Дочь самурая
+        - title: Маяк
+        - title: Моё сердце
+        - title: Мороз по коже
+        - title: Мы сидели И курили
+        - title: Орбит без сахара
+        - title: Шахматы
+      singles:
+      - title: 2000 баксов за сигарету
+        credit: Торба-на-Круче
+      - title: Алиса в стране чудес
+        credit: Эдипов Комплекс
+      - title: Андердог
+        credit: Ляпис Трубецкой
+      - title: Беспечный ангел
+        credit: Ария (Хэви-метал кавер на Golden Earring)
+      - title: Гибралтар - лабрадор
+        credit: Вячеслав Бутусов (х / ф «Брат 2» OST)
+      - title: Два вора и монета
+        credit: Король и Шут (Хоррор-панк)
+      - title: Джокер
+        credit: Король и Шут / Сплин
+      - title: Капитал
+        credit: Ляпис Трубецкой (Ска-панк)
+      - title: ПММЛ
+        credit: Земфира (Прости меня моя любовь)
+      - title: Полковнику никто не пишет
+        credit: Би-2 (Брат 2 OST)
+      - title: Романс
+        credit: Сплин (И лампа не горит...)
+      - title: Северный ветер
+        credit: Сектор Газа / Рок-хит
+      - title: Сентябрь
+        credit: Stigmata (Металкор / Мем про «Сентябрь горит»)
+      - title: Трасса Е-95
+        credit: Алиса (Константин Кинчев)
+      - title: Устрой дестрой
+        credit: Noize MC feat. Чача
+      - title: Фантом
+        credit: Чиж & Co (Рок-кавер на советскую дворовую песню)
   10_SS14_Game_OST:
-    title: "SS14 и игровые саундтреки"
-    icon: "🎮"
+    title: SS14 и игровые саундтреки
+    icon: 🎮
     tracks:
-      "A little heart to heart": "Team Fortress 2 (Meet the Medic OST)"
-      "A promise from distant days": "Бесконечное лето OST (Everlasting Summer)"
-      "About her": "Бесконечное лето OST (Everlasting Summer)"
-      "Absolute territory": "Ken Ashcorp"
-      "Against all odds": "MDRG"
-      "Arstotzkan Anthem": "Papers, Please"
-      "Ass Effect": "MDRG"
-      "Attack of the Killer Queen": "Deltarune: Chapter 2"
-      "Baka mitai": "Yakuza 0"
-      "Battle against a true hero": "Undertale (Тема Бессмертной Андайн)"
-      "Battle without honor or humanity": "Убить Билла (Томоёсу Асанума)"
-      "Beneath The Mask": "Persona 5 OST"
-      "BFG Division": "DOOM (Мик Гордон)"
-      "Boner jam": "MDRG"
-      "Bonetrousle": "Undertale (Тема Папируса)"
-      "Boombox": "Lethal Company"
-      "Choir boy drama": "MDRG"
-      "Claw finger": "Silent Hill 2 OST (Акира Ямаока)"
-      "Coalescence": "Risk of Rain OST (Крис Христодулу)"
-      "Coconut mail": "Mario Kart Wii (Coconut Mall)"
-      "Color your night": "Persona 3 Reload OST"
-      "CP Violation": "Half-Life 2"
-      "Cream N Pie": "MDRG"
-      "Death by glamour": "Undertale (Тема Меттатона)"
-      "Detroit become human(главная тема)": "Detroit: Become Human (Тема Кары)"
-      "Dream BBQ": "ENA"
-      "Eirin's clinic that people line up for": "Touhou Project (IOSYS)"
-      "Elevator jam": "Roblox"
-      "Emotional": "MDRG"
-      "Every light is blinking at once": "Portal 2 OST"
-      "Everylasting summer": "Бесконечное лето OST (Everlasting Summer)"
-      "Exotic hardware": "MDRG"
-      "Fairy fountain": "The Legend of Zelda OST (Тема Великих Фей)"
-      "Fallen": "Undertale OST"
-      "Farewell to the past": "Бесконечное лето OST (Everlasting Summer)"
-      "Flip-Flap": "SS13"
-      "Forest maiden": "Бесконечное лето OST (Everlasting Summer)"
-      "FUNKY MODE": "ХЗ"
-      "Goat chill": "Undertale OST (Размеренная тема Ториэль)"
-      "Gourmet race concert": "Kirby Super Star (Гурмэ-гонка / Трэп и оркестровые ремиксы)"
-      "Greateful love": "Аниме-трек / J-Pop"
-      "Head revolutionary": "SS13"
-      "Heartache": "Undertale (Тема Ториэль)"
-      "Help me Erinnnnnn": "Touhou Project"
-      "Henry stickman dance": "The Henry Stickmin Collection (Мем с отвлекающим танцем)"
-      "Hip Shop": "Deltarune: Chapter 1 (Тема магазина Руулса Каарда)"
-      "Hip shop #2": "Deltarune: Chapter 1 (Тема магазина Руулса Каарда)"
-      "Ice cream song": "Невинная ретро-мелодия фургончика с мороженым"
-      "In the pines": "Telltale's The Walking Dead"
-      "It has to be this way": "Metal Gear Rising: Revengeance"
-      "It's pizza time": "Pizza Tower OST"
-      "Its him again": "MDRG"
-      "Juice": "MDRG"
-      "Jun in a white dress": "MDRG"
-      "Jun in a white dress #2": "MDRG"
-      "Juns song": "MDRG"
-      "Just asking at day": "No, I'm not a human"
-      "Just asking at night": "No, I'm not a human"
-      "Just you and me": "MDRG"
-      "Last Surpise": "Persona 5 (Тема боя / Last Surprise)"
-      "Let's be friends": "Бесконечное лето OST (Everlasting Summer)"
-      "Little trinketry": "Valiant Hearts"
-      "Little trinketry#2": "Valiant Hearts"
-      "Live to forget": "Сталкер"
-      "Make it bun dem": "Skrillex & Damian Marley (Far Cry 3 OST)"
-      "Make It Snappy": "MDRG"
-      "Mannrobics": "Team Fortress 2"
-      "Maybe we can win this": "Project Zomboid"
-      "Metal сrusher": "Undertale (Первая встреча с Меттатоном)"
-      "Meteor": "SS13 / SS14 OST"
-      "Metro exodus": "Метро: Исход (Главная тема)"
-      "Miku`s song": "Бесконечное лето OST (Everlasting Summer)"
-      "Mond, Mond! Ja, Ja!": "Wolfenstein: The New Order OST"
-      "Night": "MDRG"
-      "Nine thou superstars": "Need for Speed: Most Wanted (Styles of Beyond - Nine Thou)"
-      "O cara mia, addio": "Portal 2 (Турельная опера)"
-      "Oddly enough": "MDRG"
-      "One wish": "MDRG"
-      "One wish #2": "MDRG"
-      "Pandora palace": "Deltarune: Chapter 2 (Тема дворца Королевы)"
-      "Phoron will make us rich": "SS13"
-      "Pizza delux": "Pizza Tower OST"
-      "Pizza theme": "Spider-Man 2: The Game"
-      "Polluted sunshine": "MDRG"
-      "Power of NEO": "Undertale (Тема Меттатона НЕО)"
-      "Promise": "MDRG"
-      "Promise reprise": "Silent Hill 2 OST (Акира Ямаока)"
-      "Queen": "Deltarune: Chapter 2 (Тема Королевы)"
-      "Razormind": "PAYDAY 2 (Simon Viklund)"
-      "Resident evil": "Resident Evil OST"
-      "Right behind you": "Team Fortress 2 (Meet the Spy)"
-      "Rocket jump waltz": "Team Fortress 2"
-      "Running out": "SS14"
-      "Scarlet forest": "Deltarune: Chapter 1"
-      "Self isolation at night": "No, I'm not a human"
-      "Sex": "MDRG"
-      "Shop": "Undertale OST"
-      "Soilder of dance": "Team Fortress 2"
-      "Song that may play when you fight Sans": "Undertale (Секретный трек из саундтрека)"
-      "Soviet march": "Command & Conquer: Red Alert 3"
-      "Space asshole": "Спейс ассхолл"
-      "Space Station 14 OST": "Главная тема СС14"
-      "Spider dance": "Undertale (Тема Маффет)"
-      "Steel In your socks": "MDRG"
-      "The death that I deservioli": "Pizza Tower OST (Тема побега на ранг S)"
-      "The end": "Project Zomboid"
-      "The finale flash of existence": "SCP: Secret Laboratory OST"
-      "The last of us": "The Last of Us (Густаво Сантаолалья)"
-      "The only thing that scares me": "DOOM Eternal OST (Мик Гордон)"
-      "The rebel path": "Cyberpunk 2077 OST"
-      "The world revolving": "Deltarune: Chapter 1 (Тема Джевила)"
-      "The zombie threat": "Project Zomboid"
-      "Tin-tin on the moon": "Тинтин на Луне (NES / Чиптюн классика)"
-      "Ugh": "Friday Night Funkin' (Неделя 7 / Танкмен)"
-      "Upgrade station": "Team Fortress 2"
-      "Victory theme": "Слава Колечии!"
-      "Vitality": "Helltaker OST (Mittsies)"
-      "Want you gone": "Portal 2 (Финальная песня GLaDOS)"
-      "Welcome to Silent Hill": "Silent Hill OST"
-      "What was lost": "Project Zomboid"
-      "Whirling in rags, 8AM": "Disco Elysium OST (British Sea Power)"
-      "Working from home": "MDRG"
-      "Xenophobia": "Stellaris (Мемная фанатская песня)"
-      "Yogurt male": "MDRG"
-
+      groups:
+      - credit: 'Deltarune: Chapter 1 (Тема магазина Руулса Каарда)'
+        tracks:
+        - title: Hip Shop
+        - title: 'Hip shop #2'
+      - credit: Disco Elysium OST
+        tracks:
+        - title: Off we go into the wild pale yonder
+        - title: Whirling in rags, 12PM
+        - title: Whirling in rags, 8PM
+      - credit: MDRG
+        tracks:
+        - title: Against all odds
+        - title: Ass Effect
+        - title: Boner jam
+        - title: Choir boy drama
+        - title: Cream N Pie
+        - title: Emotional
+        - title: Exotic hardware
+        - title: Its him again
+        - title: Juice
+        - title: Jun in a white dress
+        - title: 'Jun in a white dress #2'
+        - title: Juns song
+        - title: Just you and me
+        - title: Make It Snappy
+        - title: Night
+        - title: Oddly enough
+        - title: One wish
+        - title: 'One wish #2'
+        - title: Polluted sunshine
+        - title: Promise
+        - title: Sex
+        - title: Steel In your socks
+        - title: Working from home
+        - title: Yogurt male
+      - credit: No, I'm not a human
+        tracks:
+        - title: Just asking at day
+        - title: Just asking at night
+        - title: Self isolation at night
+      - credit: Pizza Tower OST
+        tracks:
+        - title: It's pizza time
+        - title: Pizza delux
+      - credit: Project Zomboid
+        tracks:
+        - title: Maybe we can win this
+        - title: The end
+        - title: The zombie threat
+        - title: What was lost
+      - credit: Silent Hill 2 OST (Акира Ямаока)
+        tracks:
+        - title: Claw finger
+        - title: Promise reprise
+      - credit: Sonic
+        tracks:
+        - title: Automation
+        - title: Perspiration
+      - credit: SS13
+        tracks:
+        - title: Flip-Flap
+        - title: Head revolutionary
+        - title: Phoron will make us rich
+      - credit: Team Fortress 2
+        tracks:
+        - title: Mannrobics
+        - title: Rocket jump waltz
+        - title: Soilder of dance
+        - title: Upgrade station
+      - credit: Undertale OST
+        tracks:
+        - title: Fallen
+        - title: Shop
+      - credit: Valiant Hearts
+        tracks:
+        - title: Little trinketry
+        - title: Little trinketry#2
+      - credit: Бесконечное лето OST (Everlasting Summer)
+        tracks:
+        - title: A promise from distant days
+        - title: About her
+        - title: Everylasting summer
+        - title: Farewell to the past
+        - title: Forest maiden
+        - title: Let's be friends
+        - title: Miku`s song
+      singles:
+      - title: A little heart to heart
+        credit: Team Fortress 2 (Meet the Medic OST)
+      - title: Absolute territory
+        credit: Ken Ashcorp
+      - title: Arstotzkan Anthem
+        credit: Papers, Please
+      - title: Attack of the Killer Queen
+        credit: 'Deltarune: Chapter 2'
+      - title: Baka mitai
+        credit: Yakuza 0
+      - title: Battle against a true hero
+        credit: Undertale (Тема Бессмертной Андайн)
+      - title: Battle without honor or humanity
+        credit: Убить Билла (Томоёсу Асанума)
+      - title: Beneath The Mask
+        credit: Persona 5 OST
+      - title: BFG Division
+        credit: DOOM (Мик Гордон)
+      - title: Bonetrousle
+        credit: Undertale (Тема Папируса)
+      - title: Boombox
+        credit: Lethal Company
+      - title: Coalescence
+        credit: Risk of Rain OST (Крис Христодулу)
+      - title: Coconut mail
+        credit: Mario Kart Wii (Coconut Mall)
+      - title: Color your night
+        credit: Persona 3 Reload OST
+      - title: CP Violation
+        credit: Half-Life 2
+      - title: Death by glamour
+        credit: Undertale (Тема Меттатона)
+      - title: Detroit become human(главная тема)
+        credit: 'Detroit: Become Human (Тема Кары)'
+      - title: Dream BBQ
+        credit: ENA
+      - title: Eirin's clinic that people line up for
+        credit: Touhou Project (IOSYS)
+      - title: Elevator jam
+        credit: Roblox
+      - title: Every light is blinking at once
+        credit: Portal 2 OST
+      - title: Fairy fountain
+        credit: The Legend of Zelda OST (Тема Великих Фей)
+      - title: FUNKY MODE
+        credit: ХЗ
+      - title: Goat chill
+        credit: Undertale OST (Размеренная тема Ториэль)
+      - title: Gourmet race concert
+        credit: Kirby Super Star (Гурмэ-гонка / Трэп и оркестровые ремиксы)
+      - title: Greateful love
+        credit: Аниме-трек / J-Pop
+      - title: Heartache
+        credit: Undertale (Тема Ториэль)
+      - title: Help me Erinnnnnn
+        credit: Touhou Project
+      - title: Henry stickman dance
+        credit: The Henry Stickmin Collection (Мем с отвлекающим танцем)
+      - title: Hydrocity zone
+        credit: Sonic the Hedgehog 3 (Hydrocity Zone)
+      - title: Ice cream song
+        credit: Невинная ретро-мелодия фургончика с мороженым
+      - title: In the pines
+        credit: Telltale's The Walking Dead
+      - title: It has to be this way
+        credit: 'Metal Gear Rising: Revengeance'
+      - title: Last Surpise
+        credit: Persona 5 (Тема боя / Last Surprise)
+      - title: Live to forget
+        credit: Сталкер
+      - title: Make it bun dem
+        credit: Skrillex & Damian Marley (Far Cry 3 OST)
+      - title: Metal сrusher
+        credit: Undertale (Первая встреча с Меттатоном)
+      - title: Meteor
+        credit: SS13 / SS14 OST
+      - title: Metro exodus
+        credit: 'Метро: Исход (Главная тема)'
+      - title: Mond, Mond! Ja, Ja!
+        credit: 'Wolfenstein: The New Order OST'
+      - title: Nine thou superstars
+        credit: 'Need for Speed: Most Wanted (Styles of Beyond - Nine Thou)'
+      - title: O cara mia, addio
+        credit: Portal 2 (Турельная опера)
+      - title: Pandora palace
+        credit: 'Deltarune: Chapter 2 (Тема дворца Королевы)'
+      - title: Peaceful days
+        credit: Zelda
+      - title: Pizza theme
+        credit: 'Spider-Man 2: The Game'
+      - title: Power of NEO
+        credit: Undertale (Тема Меттатона НЕО)
+      - title: Queen
+        credit: 'Deltarune: Chapter 2 (Тема Королевы)'
+      - title: Razormind
+        credit: PAYDAY 2 (Simon Viklund)
+      - title: Resident evil
+        credit: Resident Evil OST
+      - title: Right behind you
+        credit: Team Fortress 2 (Meet the Spy)
+      - title: Running out
+        credit: SS14
+      - title: Scarlet forest
+        credit: 'Deltarune: Chapter 1'
+      - title: Song that may play when you fight Sans
+        credit: Undertale (Секретный трек из саундтрека)
+      - title: Soviet march
+        credit: 'Command & Conquer: Red Alert 3'
+      - title: Space asshole
+        credit: Спейс ассхолл
+      - title: Space Station 14 OST
+        credit: Главная тема СС14
+      - title: Spider dance
+        credit: Undertale (Тема Маффет)
+      - title: The death that I deservioli
+        credit: Pizza Tower OST (Тема побега на ранг S)
+      - title: The finale flash of existence
+        credit: 'SCP: Secret Laboratory OST'
+      - title: The last of us
+        credit: The Last of Us (Густаво Сантаолалья)
+      - title: The only thing that scares me
+        credit: DOOM Eternal OST (Мик Гордон)
+      - title: The rebel path
+        credit: Cyberpunk 2077 OST
+      - title: The world revolving
+        credit: 'Deltarune: Chapter 1 (Тема Джевила)'
+      - title: Tidal present
+        credit: Sonic CD (Tidal Tempest Present)
+      - title: Tin-tin on the moon
+        credit: Тинтин на Луне
+      - title: Ugh
+        credit: Friday Night Funkin' (Неделя 7 / Танкмен)
+      - title: Victory theme
+        credit: Слава Колечии!
+      - title: Vitality
+        credit: Helltaker OST (Mittsies)
+      - title: Want you gone
+        credit: Portal 2 (Финальная песня GLaDOS)
+      - title: Welcome to Silent Hill
+        credit: Silent Hill OST
+      - title: Whirling in rags, 8AM
+        credit: Disco Elysium OST (British Sea Power)
+      - title: Xenophobia
+        credit: Stellaris (Мемная фанатская песня)
 root:
-  title: "Гимны SS14"
-  icon: "🚩"
+  title: Гимны SS14
+  icon: 🚩
   tracks:
-    "Гимн Империи": "SS14 Империя Миртана"
-    "Гимн Республики Элизиум": "SS14 Республика Элизиум"
-    "Гимн Свободных Планет": "SS14 СНК"
-    "Гимн СССП": "SS14 СССП"
-    "Гимн ТСФ": "SS14 ТСФ"
-
+    groups: []
+    singles:
+    - title: Гимн Империи
+      credit: SS14 Империя Миртана
+    - title: Гимн Республики Элизиум
+      credit: SS14 Республика Элизиум
+    - title: Гимн Свободных Планет
+      credit: SS14 СНК
+    - title: Гимн СССП
+      credit: SS14 СССП
+    - title: Гимн ТСФ
+      credit: SS14 ТСФ
+    - title: Спонсированно Мисс Хаус
+      credit: Хаус Холдинг
+recommendations:
+  title: Рекомендации Саспенс
+  icon: 🎯
+  tracks:
+  - 'Duvet #2'
+  - One last kiss
+  - Everything you've ever dreamed
+  - 'Space oddity #2'
+  - A kiss to build a dream on
+  - Close to you
+  - Black black heart
+  - Egoist
+  - Gold
+  - Everything stays
 easter_eggs:
   canada:
-    match: ["o canada", "ocanada", "канада"]
-    widget_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0m2P-0H8z08W7gY0IRPTU4REHc2m_Yl2a2UH2zgmA8Hs9z4250Y-egQx&s=10"
-    caption: "🇨🇦 Слава Нью-Канаде 🇨🇦"
+    match:
+    - o canada
+    - ocanada
+    - канада
+    widget_image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0m2P-0H8z08W7gY0IRPTU4REHc2m_Yl2a2UH2zgmA8Hs9z4250Y-egQx&s=10
+    caption: 🇨🇦 Слава Нью-Канаде 🇨🇦
