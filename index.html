@@ -19377,33 +19377,64 @@
     });
 
     // --- Плеер ---
-    function playTrack(index) {
+        function playTrack(index) {
         if (index < 0 || index >= playlist.length) return;
         const t = playlist[index];
+        
         document.querySelectorAll('.track.playing').forEach(el => el.classList.remove('playing'));
-        currentIndex = index; t.el.classList.add('playing');
-        playerTitle.textContent = t.title; player.src = t.url;
+        currentIndex = index; 
+        t.el.classList.add('playing');
+        playerTitle.textContent = t.title; 
+        player.src = t.url;
         playerEl.classList.add('visible');
-        dlBtn.href = t.url; dlBtn.setAttribute('download', t.title + '.mid');
-        setTimeout(() => { if (typeof player.start === 'function') player.start().catch(err => console.warn(err)); }, 120);
-        saveLastTrack(t.key); addToRecent(t.key);
+        dlBtn.href = t.url; 
+        dlBtn.setAttribute('download', t.title + '.mid');
+        
+        // Задержка 300 мс, чтобы MIDI успел загрузиться (важно для Firefox)
+        setTimeout(() => { 
+            if (typeof player.start === 'function') {
+                try {
+                    player.start();
+                } catch (err) {
+                    console.warn('play error:', err);
+                }
+            }
+        }, 300);
+        
+        saveLastTrack(t.key); 
+        addToRecent(t.key);
     }
     
-    function togglePlay() {
+        function togglePlay() {
         if (!player || !player.src) return;
-        if (player.playing) player.stop();
-        else player.start().catch(err => console.warn(err));
+        if (typeof player.start !== 'function') return;
+        
+        try {
+            player.start(); 
+        } catch (err) {
+            console.warn('play error:', err);
+        }
     }
     
     playPauseBtn.addEventListener('click', togglePlay);
     nextBtn.addEventListener('click', () => { if (playlist.length) playTrack((currentIndex + 1) % playlist.length); });
     prevBtn.addEventListener('click', () => { if (playlist.length) playTrack((currentIndex - 1 + playlist.length) % playlist.length); });
 
-    document.querySelectorAll('.btn-play').forEach(btn => {
+        document.querySelectorAll('.btn-play').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const track = e.target.closest('.track'); const idx = playlist.findIndex(p => p.el === track);
+            const track = e.target.closest('.track'); 
+            const idx = playlist.findIndex(p => p.el === track);
             if (idx === -1) return;
-            if (idx === currentIndex && player.playing) player.stop(); else playTrack(idx);
+            
+            if (idx === currentIndex) {
+                try {
+                    player.stop();
+                } catch (err) {
+                    console.warn('stop error:', err);
+                }
+            } else {
+                playTrack(idx);
+            }
         });
     });
 
